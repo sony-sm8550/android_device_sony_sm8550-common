@@ -35,7 +35,8 @@ AB_OTA_PARTITIONS += \
     vbmeta \
     vbmeta_system \
     odm \
-    vendor
+    vendor \
+    vendor_boot
 
 # Architecture
 TARGET_ARCH := arm64
@@ -59,7 +60,7 @@ TARGET_BOOTLOADER_BOARD_NAME := lahaina
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_BOOT_HEADER_VERSION := 2
+BOARD_BOOT_HEADER_VERSION := 3
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm buildid=EDO-1.0.1-201109-1152 zram.backend=z3fold
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -161,6 +162,7 @@ BOARD_USES_METADATA_PARTITION := true
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x06000000
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 0x06000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x06000000
 # Reserve space for data encryption (109553123000-16384)
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 109553106616

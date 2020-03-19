@@ -84,7 +84,7 @@ extern "C" {
             "rpm", "tz", "abl", "hyp", "keymaster", "cmnlib", \
             "cmnlib64", "pmic", "devcfg", "keystore", "mdtp", \
             "mdtpsecapp", "xfl", "tzxflattest", "tzxfl", "dtbo", "vbmeta"
-#define AB_PTN_LIST PTN_SWAP_LIST, "boot", "system", "vendor", "modem", "bluetooth", "oem", "rdimage", "dsp"
+#define AB_PTN_LIST PTN_SWAP_LIST, "boot", "vendor_boot", "system", "vendor", "modem", "bluetooth", "oem", "rdimage", "dsp"
 #define BOOT_DEV_DIR    "/dev/block/bootdevice/by-name"
 
 /******************************************************************************
