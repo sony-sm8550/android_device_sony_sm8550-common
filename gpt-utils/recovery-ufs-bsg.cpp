@@ -155,8 +155,8 @@ static int ufs_query_attr(int fd, __u32 value,
         __u8 func, __u8 opcode, __u8 idn,
         __u8 index, __u8 sel)
 {
-    struct ufs_bsg_request req{};
-    struct ufs_bsg_reply rsp{};
+    struct ufs_bsg_request req = {0};
+    struct ufs_bsg_reply rsp = {0};
     enum bsg_ioctl_dir dir = BSG_IOCTL_DIR_FROM_DEV;
     int ret = 0;
 
@@ -175,7 +175,7 @@ static int ufs_query_attr(int fd, __u32 value,
     return ret;
 }
 
-int32_t set_boot_lun(char *sg_dev __unused,uint8_t lun_id)
+int32_t set_boot_lun(char *sg_dev,uint8_t lun_id)
 {
     int32_t ret;
     __u32 boot_lun_id  = lun_id;
