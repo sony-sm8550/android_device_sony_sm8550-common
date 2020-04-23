@@ -276,6 +276,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     init.qti.display_boot.sh \
+    libdisplayconfig.qti \
+    libdisplayconfig.system.qti \
     libqdMetaData.system \
     libsdmcore \
     libsdmutils \
