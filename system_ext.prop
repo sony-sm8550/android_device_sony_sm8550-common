@@ -1,3 +1,6 @@
+# Dex2oat
+dalvik.vm.dex2oat64.enabled=true
+
 # GPS
 persist.backup.ntpServer=0.pool.ntp.org
 
