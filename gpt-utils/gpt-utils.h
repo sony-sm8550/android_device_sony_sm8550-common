@@ -83,8 +83,8 @@ extern "C" {
 #define PTN_SWAP_LIST                   PTN_XBL, PTN_XBL_CFG, \
             "rpm", "tz", "abl", "hyp", "keymaster", "cmnlib", \
             "cmnlib64", "pmic", "devcfg", "keystore", "mdtp", \
-            "mdtpsecapp", "xfl", "tzxflattest", "tzxfl", "dtbo", "vbmeta" \
-            "vm-bootsys"
+            "mdtpsecapp", "xfl", "tzxflattest", "tzxfl", "dtbo", "vbmeta", \
+            "vm-bootsys", "shrm", "cpucp"
 #define AB_PTN_LIST PTN_SWAP_LIST, "boot", "vendor_boot", "system", "vendor", "modem", "bluetooth", "oem", "rdimage", "dsp"
 #define BOOT_DEV_DIR    "/dev/block/bootdevice/by-name"
 
