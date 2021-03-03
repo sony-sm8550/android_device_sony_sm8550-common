@@ -143,6 +143,10 @@ ro.vendor.bt.bdaddr_path=/data/vendor/etc/bluetooth_bdaddr
 vendor.camera.enable.uvc=true
 vendor.mm.enable.qcom_parser=16777215
 
+# Chipset
+ro.soc.manufacturer=QTI
+ro.soc.model=SM8350
+
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.metadata.method=dm-default-key
