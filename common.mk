@@ -31,7 +31,6 @@ $(call inherit-product, vendor/sony/sm8350-common/sm8350-common-vendor.mk)
 
 # VNDK
 PRODUCT_SHIPPING_API_LEVEL := 30
-PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
