@@ -9,6 +9,7 @@ genfscon sysfs /devices/platform/soc/984000.i2c/i2c-0/0-0028/wakeup u:object_r:s
 # Battery
 genfscon sysfs /class/battchg_ext u:object_r:sysfs_battchg_ext:s0
 genfscon sysfs /class/battman_dbg u:object_r:sysfs_battchg_ext:s0
+genfscon sysfs /class/qcom-battery u:object_r:sysfs_battchg_ext:s0
 
 # Wakeups
 genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/888000.i2c/i2c-1/1-0040/wakeup  u:object_r:sysfs_wakeup:s0
