@@ -135,7 +135,6 @@ PRODUCT_PACKAGES += \
     audio_amplifier.lahaina
 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
     audio.bluetooth.default \
     audio.primary.lahaina \
     audio.r_submix.default \
