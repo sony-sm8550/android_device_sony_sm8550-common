@@ -7,7 +7,7 @@ type proc_touchpanel, fs_type, proc_type;
 type procfs_oem_wireless, fs_type, proc_type;
 
 # sysfs
-type vendor_sysfs_battery_supply, sysfs_type, fs_type;
+# type vendor_sysfs_battery_supply, sysfs_type, fs_type;
 type sysfs_fod, sysfs_type, fs_type;
 type sysfs_fpc_proximity, sysfs_type, fs_type;
 type sysfs_graphics, sysfs_type, fs_type;
@@ -19,3 +19,8 @@ type sysfs_usb_supply, sysfs_type, fs_type;
 # data
 type display_misc_file, file_type, data_file_type, core_data_file_type;
 type vendor_qmipriod_data_file, file_type, data_file_type;
+
+type adsprpcd_file, file_type;
+type bt_firmware_file, file_type;
+type firmware_file, file_type;
+type persist_file, file_type;
