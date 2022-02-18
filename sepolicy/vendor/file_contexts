@@ -1,106 +1,88 @@
-# Binaries
-/(vendor|system/vendor)/bin/dashd                      u:object_r:dashd_exec:s0
-/(vendor|system/vendor)/bin/opf-service                u:object_r:opf_exec:s0
-/(vendor|system/vendor)/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
-/(vendor|system/vendor)/bin/vl53l1_daemon_main         u:object_r:vl53l1_daemon_main_exec:s0
-/(vendor|system/vendor)/bin/wlchgd                     u:object_r:wlchgd_exec:s0
+# devices
+/dev/sg[0-9]+    u:object_r:sg_device:s0
 
-# Block devices
-/dev/block/platform/soc/1d84000.ufshc/by-name/config             u:object_r:frp_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/fw_ufs1_[ab]       u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/fw_ufs2_[ab]       u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/logo_[ab]          u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/mdm_oem_dycnvbk    u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/mdm_oem_stanvbk    u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust1_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust2_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_dycnvbk        u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_stanvbk        u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op1                u:object_r:op1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op2                u:object_r:op2_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/opproduct_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/param              u:object_r:param_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/rawdump            u:object_r:vendor_rawdump_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/reserve1           u:object_r:reserve1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/reserve2           u:object_r:reserve2_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/spunvm             u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/storsec_[ab]       u:object_r:vendor_custom_ab_block_device:s0
+# graphics device
+/dev/mdss_rotator                               u:object_r:graphics_device:s0
+/dev/dri/card0                                  u:object_r:graphics_device:s0
+/dev/dri/controlD64                             u:object_r:graphics_device:s0
+/dev/dri/renderD128                             u:object_r:graphics_device:s0
 
-# Data files
-/data/reserve-lib(/.*)?    u:object_r:apk_data_file:s0
+# sysfs files
+/sys/class/thermal(/.*)?                                                                          u:object_r:sysfs_thermal:s0
+/sys/devices(/platform)?/soc/[a-f0-9]+.ufshc/host0/target0:0:0/0:0:0:[0-9]+/scsi_generic(/.*)?    u:object_r:sysfs_scsi_target:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/backlight(/.*)?                                   u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/thermal(/.*)?                                                                u:object_r:sysfs_thermal:s0
 
-# Devices
-/dev/byte-cntr            u:object_r:byte_cntr_device:s0
-/dev/cc_ctl               u:object_r:graphics_device:s0
-/dev/dash                 u:object_r:dash_device:s0
-/dev/fragment_monitor     u:object_r:fragment_monitor_device:s0
-/dev/goodix_fp            u:object_r:fingerprintd_device:s0
-/dev/ht_ctl               u:object_r:graphics_device:s0
-/dev/memplus              u:object_r:memplus_device:s0
-/dev/mmw0_thermal         u:object_r:therm_device:s0
-/dev/mmw1_thermal         u:object_r:therm_device:s0
-/dev/mmw2_thermal         u:object_r:therm_device:s0
-/dev/opfeature            u:object_r:opf_file:s0
-/dev/param                u:object_r:param_device:s0
-/dev/skin_thermal         u:object_r:therm_device:s0
-/dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0
-/dev/wlchg                u:object_r:wlchg_device:s0
+# UFS Devices
+/dev/block/platform/soc/1d84000\.ufshc/by-name/system                u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/vendor                u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/product               u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/odm                   u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/metadata              u:object_r:metadata_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/userdata              u:object_r:userdata_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/boot                  u:object_r:boot_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/fsc                   u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/fsg                   u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/modemst1              u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/modemst2              u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/ssd                   u:object_r:ssd_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/misc                  u:object_r:misc_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/rpm                   u:object_r:rpmb_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/recovery              u:object_r:recovery_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/cache                 u:object_r:cache_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/frp                   u:object_r:frp_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdtp                  u:object_r:mdtp_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1m9kefs1           u:object_r:efs_boot_dev:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1m9kefs2           u:object_r:efs_boot_dev:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1m9kefs3           u:object_r:efs_boot_dev:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdmddr                u:object_r:efs_boot_dev:s0
 
-# HALs
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus            u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1\.0-service\.oneplus    u:object_r:hal_lineage_fod_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oneplus                          u:object_r:hal_lineage_livedisplay_qti_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oneplus                           u:object_r:hal_lineage_powershare_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oneplus                                u:object_r:hal_lineage_touch_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.camera@1\.0-service                              u:object_r:hal_cameraHIDL_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.CameraMDMHIDL@1\.0-service                       u:object_r:hal_cameraHIDL_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.display@1\.0-service                             u:object_r:hal_display_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.hdcpkey@1\.0-service                             u:object_r:hal_hdcpkey_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                               u:object_r:hal_param_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service                         u:object_r:hal_graphics_composer_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service                  u:object_r:hal_graphics_composer_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oneplus                           u:object_r:hal_vibrator_default_exec:s0
+# A/B partitions.
+/dev/block/platform/soc/1d84000\.ufshc/by-name/abl_[ab]              u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/aop_[ab]              u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/apdp_[ab]             u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/bluetooth_[ab]        u:object_r:modem_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/boot_[ab]             u:object_r:boot_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/cmnlib_[ab]           u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/cmnlib64_[ab]         u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/core_nhlos_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/devcfg_[ab]           u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/dsp_[ab]              u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/dtbo_[ab]             u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/featenabler_[ab]      u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/hyp_[ab]              u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/keymaster_[ab]        u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdtp_[ab]             u:object_r:mdtp_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdtpsecapp_[ab]       u:object_r:mdtp_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/modem_[ab]            u:object_r:modem_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/msadp_[ab]            u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/multiimgqti_[ab]      u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/persist               u:object_r:persist_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/pmic_[ab]             u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/qupfw_[ab]            u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/rpm_[ab]              u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/system_[ab]           u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/tz_[ab]               u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/vbmeta_[ab]           u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/vendor_[ab]           u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/product_[ab]          u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/odm_[ab]              u:object_r:system_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/xbl_[ab]              u:object_r:xbl_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/xbl_config_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/imagefv_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/multiimgoem_[ab]      u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/uefisecapp_[ab]       u:object_r:uefi_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/recovery_[ab]         u:object_r:recovery_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/vbmeta_system_[ab]    u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/vbmeta_product_[ab]   u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/super                 u:object_r:super_block_device:s0
 
-# OP1, OP2 files
-/mnt/vendor/op1(/.*)?    u:object_r:op1_file:s0
-/mnt/vendor/op2(/.*)?    u:object_r:op2_file:s0
+# Block device holding the GPT, where the A/B attributes are stored.
+/dev/block/platform/soc/1d84000\.ufshc/sd[ade]                       u:object_r:gpt_block_device:s0
 
-# Persist files
-/mnt/vendor/persist                                  u:object_r:vendor_data_file:s0
-/mnt/vendor/persist/camera(/.*)?                     u:object_r:oem_file:s0
-/mnt/vendor/persist/camera_ae_sync(/.*)?             u:object_r:oem_file:s0
-/mnt/vendor/persist/dual_camera_calibration(/.*)?    u:object_r:oem_file:s0
-/mnt/vendor/persist/engineermode(/.*)?               u:object_r:oem_file:s0
-/mnt/vendor/persist/OPDiagnose(/.*)?                 u:object_r:oem_file:s0
+# Block devices for the drive that holds the xbl_a and xbl_b partitions.
+/dev/block/platform/soc/1d84000\.ufshc/sd[bc]                        u:object_r:xbl_block_device:s0
 
-# Socket files
-/dev/socket/backuprestore    u:object_r:backuprestore_socket:s0
-/dev/socket/oemlogkit        u:object_r:oemlogkit_socket:s0
-/dev/socket/ramboost         u:object_r:ramboost_socket:s0
-
-# Sys files
-/sys/module/fsc(/.*)?      u:object_r:sysfs_fsc:s0
-/sys/module/fuse(/.*)?     u:object_r:sysfs_fuse:s0
-/sys/module/proc(/.*)?     u:object_r:sysfs_dbg:s0
-/sys/module/tpd(/.*)?      u:object_r:sysfs_tpd:s0
-/sys/project_info(/.*)?    u:object_r:sysfs_project_info:s0
-
-# Sys files (wakeup)
-/sys/devices/platform/soc/c440000\.qcom,spmi/spmi-0/spmi0-00/c440000\.qcom,spmi:qcom,pm8150@0:qcom,pm8150_rtc/rtc/rtc0/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/platform/soc/soc:oneplus_wlchg/power_supply/wireless/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/diag/diag/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_aac/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_alac/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_amrnb/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_amrwb/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_amrwbplus/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_ape/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_evrc/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_g711alaw/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_g711mlaw/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_mp3/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_multi_aac/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_qcelp/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_wma/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/msm_wmapro/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
+# limits Partitions
+/dev/block/platform/soc/1d84000\.ufshc/by-name/limits                u:object_r:limits_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/limits-cdsp           u:object_r:limits_block_device:s0
