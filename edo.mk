@@ -25,7 +25,7 @@ $(call inherit-product, vendor/sony/pdx203/pdx203-vendor.mk)
 
 # VNDK
 PRODUCT_SHIPPING_API_LEVEL := 29
-PRODUCT_TARGET_VNDK_VERSION := 30
+PRODUCT_TARGET_VNDK_VERSION := 31
 PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
 
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
@@ -148,10 +148,6 @@ PRODUCT_COPY_FILES += \
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
-
-# Keystore
-PRODUCT_PACKAGES += \
-    android.system.keystore2
 
 # Media
 PRODUCT_COPY_FILES += \
