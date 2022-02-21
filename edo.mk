@@ -28,6 +28,8 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 PRODUCT_TARGET_VNDK_VERSION := 30
 PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
 
+PRODUCT_EXTRA_VNDK_VERSIONS := 30
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
