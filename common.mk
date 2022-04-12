@@ -453,7 +453,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/sony
+    hardware/sony \
+    vendor/qcom/opensource/usb/etc
+
 # Sony charger interface
 PRODUCT_PACKAGES += \
     vendor.semc.hardware.charger@1.0.vendor \
