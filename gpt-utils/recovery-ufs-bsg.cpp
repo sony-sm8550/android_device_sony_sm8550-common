@@ -100,7 +100,7 @@ static int ufs_bsg_ioctl(int fd, struct ufs_bsg_request *req,
         enum bsg_ioctl_dir dir)
 {
     int ret;
-    struct sg_io_v4 sg_io{};
+    struct sg_io_v4 sg_io = {0};
 
     sg_io.guard = 'Q';
     sg_io.protocol = BSG_PROTOCOL_SCSI;
