@@ -73,9 +73,9 @@ TARGET_BOARD_PLATFORM := kona
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 
 # Properties
-TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
-TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
-TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+# TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
+# TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+# TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Qcom
 BOARD_USES_QCOM_HARDWARE := true
@@ -175,4 +175,3 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # Inherit from the proprietary version
--include vendor/oneplus/sm8250-common/BoardConfigVendor.mk
