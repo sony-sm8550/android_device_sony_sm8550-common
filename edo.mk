@@ -14,16 +14,19 @@
 # limitations under the License.
 #
 
-# VNDK
-PRODUCT_SHIPPING_API_LEVEL := 29
-PRODUCT_TARGET_VNDK_VERSION :=30
-PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Include GSI keys
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
+# Get non-open-source specific aspects
+$(call inherit-product, vendor/sony/pdx203/pdx203-vendor.mk)
+
+# VNDK
+PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_TARGET_VNDK_VERSION := 31
+PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -112,7 +115,7 @@ PRODUCT_PACKAGES += \
 
 # Component overrides
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/sysconfig/component-overrides.xml
 
 # Display
 PRODUCT_PACKAGES += \
