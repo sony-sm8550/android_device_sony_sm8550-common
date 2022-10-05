@@ -511,7 +511,8 @@ PRODUCT_PACKAGES += \
     vndservicemanager
 
 # Vibrator
-$(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator-service.cs40l25
 
 # QTI service tracker
 PRODUCT_PACKAGES += \
