@@ -533,6 +533,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# Xperia Setting
+PRODUCT_PACKAGES += \
+    XperiSettings
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
