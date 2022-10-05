@@ -217,18 +217,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init_thermal.sh \
     init.class_main.sh \
-    init.crda.sh \
-    init.mdm.sh \
     init.qcom.class_core.sh \
-    init.qcom.coex.sh \
     init.qcom.early_boot.sh \
-    init.qcom.efs.sync.sh \
     init.qcom.msim.sh \
     init.qcom.factory.rc \
     init.qcom.post_boot.sh \
     init.qcom.rc \
-    init.qcom.sdio.sh \
-    init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
@@ -270,13 +264,14 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    gralloc.kona \
+    init.qti.display_boot.sh \
     libqdMetaData \
     libsdmcore \
     libsdmutils \
-    memtrack.kona \
+    memtrack.default \
+    libmemutils \
     vendor.display.config@1.5 \
-    vendor.display.config@1.11.vendor \
+    vendor.display.config@1.15.vendor \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
     vendor.qti.hardware.display.allocator-service \
