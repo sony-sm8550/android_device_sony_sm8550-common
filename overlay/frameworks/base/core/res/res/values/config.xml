@@ -381,29 +381,29 @@
 
     <array name="config_screenBrightnessNits">
         <item>0.0</item>
-        <item>5.0</item>
-        <item>37.8</item>
-        <item>72.93</item>
-        <item>108.07</item>
-        <item>143.21</item>
-        <item>178.35</item>
-        <item>213.48</item>
-        <item>248.62</item>
-        <item>283.76</item>
-        <item>318.9</item>
-        <item>354.04</item>
-        <item>389.17</item>
-        <item>424.31</item>
-        <item>459.45</item>
-        <item>494.59</item>
-        <item>529.72</item>
-        <item>564.86</item>
-        <item>600.0</item>
+        <item>2.0</item>
+        <item>20.63</item>
+        <item>40.59</item>
+        <item>60.55</item>
+        <item>80.51</item>
+        <item>100.47</item>
+        <item>120.43</item>
+        <item>140.39</item>
+        <item>160.35</item>
+        <item>180.31</item>
+        <item>200.28</item>
+        <item>220.24</item>
+        <item>240.2</item>
+        <item>260.16</item>
+        <item>280.12</item>
+        <item>300.08</item>
+        <item>320.04</item>
+        <item>340.0</item>
     </array>
 
     <integer-array name="config_autoBrightnessDisplayValuesNits">
-        <item>2</item>
-        <item>2</item>
+        <item>5</item>
+        <item>5</item>
         <item>7</item>
         <item>13</item>
         <item>27</item>
