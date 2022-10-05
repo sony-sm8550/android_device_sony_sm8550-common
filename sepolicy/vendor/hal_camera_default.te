@@ -29,3 +29,8 @@ allow hal_camera_default hal_camera_sync:chr_file rw_file_perms;
 allow hal_camera_default system_server:binder { call transfer };
 
 allow hal_camera_default hal_secd_default:binder call;
+
+allow hal_camera_default vendor_xdsp_device:chr_file ioctl;
+allow hal_camera_default vendor_camera_sensor_prop:property_service set;
+
+allow hal_camera_default sysfs_torch_brightness:file rw_file_perms;

@@ -1,0 +1,2 @@
+allow vendor_thermal-engine sysfs_battchg_ext:dir { ioctl read getattr lock open watch watch_reads search };
+allow vendor_thermal-engine sysfs_battchg_ext:file { ioctl read write getattr lock append map open watch watch_reads };

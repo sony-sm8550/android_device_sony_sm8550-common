@@ -1,4 +1,6 @@
 type sysfs_wireless_supply, fs_type, sysfs_type;
+type sysfs_battchg_ext, fs_type, sysfs_type;
+type sysfs_torch_brightness, fs_type, sysfs_type;
 type idd_rca_dir, file_type;
 type idd_rca_file, file_type;
 type idd_data_file, file_type;

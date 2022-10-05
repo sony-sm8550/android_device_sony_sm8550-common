@@ -12,6 +12,7 @@ allow hal_idd_default idd_socket_file:dir r_dir_perms;
 allow hal_idd_default idd_socket_file:sock_file rw_file_perms;
 
 allow hal_idd_default idd:unix_dgram_socket sendto;
+allow hal_idd_default idd:unix_stream_socket connectto;
 
 # Allow hal_idd_default to read idd_data_file
 r_dir_file(hal_idd_default, idd_data_file);

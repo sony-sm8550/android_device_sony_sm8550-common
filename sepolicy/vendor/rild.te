@@ -3,3 +3,6 @@ allow rild hal_secd_hwservice:hwservice_manager { find };
 
 allow rild hal_secd_default:binder { call transfer };
 allow rild tad_socket:dir { write };
+
+allow rild tad_socket:sock_file write;
+allow rild tad:unix_stream_socket connectto;

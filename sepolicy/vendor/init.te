@@ -27,6 +27,9 @@ allow init vendor_hal_soter_qti_exec:file { read getattr map execute open };
 
 allow init vendor_hal_soter_qti:process { transition siginh rlimitinh };
 
+allow init sysfs:file setattr;
+allow init vendor_sysfs_graphics:lnk_file read;
+
 # Allow init to read files in /lta-label
 r_dir_file(init, lta_label)
 
