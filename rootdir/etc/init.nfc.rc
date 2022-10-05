@@ -1,11 +1,13 @@
-# Copyright (c) 2018 Sony Mobile Communications Inc.
+# Copyright (c) 2020 Sony Mobile Communications Inc.
 #
 # product common configuration
 #
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ \
-        nxp_pn553_nfc
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ p73 sn1x0
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki p73 sn1x0
+
 on boot
     # NFC local data and storage
     mkdir /data/vendor/nfc 0770 nfc nfc
     mkdir /data/vendor/nfc/param 0770 nfc nfc
+    mkdir /data/vendor/secure_element 0770  secure_element secure_element

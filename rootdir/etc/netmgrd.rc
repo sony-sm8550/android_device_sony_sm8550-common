@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
+# Copyright (c) 2019-2021 Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -48,7 +48,7 @@ on property:persist.vendor.data.shs_ko_load=1
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules rmnet_shs
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki rmnet_shs
 
-on property:persist.vendor.data.shs_ko_loard=0
+on property:persist.vendor.data.shs_ko_load=0
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules rmnet_shs
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules/5.4-gki rmnet_shs
 
