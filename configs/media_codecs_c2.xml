@@ -165,7 +165,7 @@
             <Limit name="performance-point-4096x2304" value="30" />
             <Limit name="performance-point-3840x2160" value="60" />
         </MediaCodec>
-        <!-- TODO: parameters are copied from kona omx -->
+        <!-- TODO: parameters are copied from lahaina omx -->
         <MediaCodec name="c2.qti.mpeg2.decoder" type="video/mpeg2" >
             <Limit name="size" min="128x128" max="1920x1920" />
             <Limit name="alignment" value="2x2" />
@@ -329,7 +329,7 @@
             <Limit name="performance-point-3840x2160" value="60" />
             <Limit name="performance-point-4096x2304" value="60" />
         </MediaCodec>
-        <!-- TODO: parameters are copied from kona omx -->
+        <!-- TODO: parameters are copied from lahaina omx -->
     </Decoders>
     <Encoders>
         <!-- C2 encoders -->
