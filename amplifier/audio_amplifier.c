@@ -20,7 +20,7 @@
 #include "hardware/hardware.h"
 #include "log/log_main.h"
 #include <malloc.h>
-#define LOG_TAG "audio_amplifier_sonykona"
+#define LOG_TAG "audio_amplifier_sonylahaina"
 /*#define LOG_NDEBUG 0*/
 
 #include <cutils/properties.h>

@@ -21,7 +21,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 BOARD_VENDOR := sony
 
-COMMON_PATH := device/sony/sm8250-common
+COMMON_PATH := device/sony/sm8350-common
 
 # A/B
 AB_OTA_UPDATER := true
@@ -55,7 +55,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 TARGET_USES_64_BIT_BINDER := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := kona
+TARGET_BOOTLOADER_BOARD_NAME := lahaina
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
@@ -79,7 +79,7 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     LLVM=1 LLVM_IAS=1
 
 # Platform
-TARGET_BOARD_PLATFORM := kona
+TARGET_BOARD_PLATFORM := lahaina
 
 # Qcom
 BOARD_USES_QCOM_HARDWARE := true
@@ -236,4 +236,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
--include vendor/sony/sm8250-common/BoardConfigVendor.mk
+-include vendor/sony/sm8350-common/BoardConfigVendor.mk
