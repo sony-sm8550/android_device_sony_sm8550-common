@@ -475,6 +475,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.fdsan=warn_once
 
+# Shim
+PRODUCT_PACKAGES += \
+    android.hardware.light-V1-ndk_platform.vendor
+
 # Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common \
