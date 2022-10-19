@@ -62,6 +62,7 @@ else
     LOCAL_SHARED_LIBRARIES += libqti_vndfwk_detect
 endif
 
+LOCAL_CFLAGS += -Wno-format
 LOCAL_CFLAGS += $(GNSS_CFLAGS)
 
 include $(BUILD_SHARED_LIBRARY)
