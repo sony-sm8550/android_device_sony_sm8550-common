@@ -87,7 +87,7 @@ cc_library_shared {
         "libtinyalsa",
         "libbinder_ndk",
         "libhardware",
-        "android.hardware.vibrator-V2-ndk_platform"
+        "android.hardware.vibrator-V2-ndk"
     ],
     export_include_dirs: ["."],
     vendor_available: true,
@@ -113,7 +113,7 @@ cc_binary {
         "libtinyalsa",
         "libbinder_ndk",
         "libhardware",
-        "android.hardware.vibrator-V2-ndk_platform",
+        "android.hardware.vibrator-V2-ndk",
     ],
     cflags: [
         "-DLOG_TAG=\"android.hardware.vibrator-cs40l25\"",
