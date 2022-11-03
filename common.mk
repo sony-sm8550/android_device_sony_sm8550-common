@@ -238,7 +238,6 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.msim.sh \
     init.qcom.factory.rc \
-    init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
@@ -256,7 +255,6 @@ PRODUCT_PACKAGES += \
     init.nfc.rc \
     init.sony-device-common.rc \
     init.sony-platform.rc \
-    init.sony.usb.rc \
     init.qti.kernel.rc \
     init.qti.kernel.sh \
     init.qti.qcv.rc \
@@ -547,10 +545,6 @@ PRODUCT_PACKAGES += \
     WifiResCommon \
     wpa_supplicant \
     wpa_supplicant.conf
-
-# Xperia Setting
-PRODUCT_PACKAGES += \
-    XperiSettings
 
 # WiFi Display
 PRODUCT_PACKAGES += \
