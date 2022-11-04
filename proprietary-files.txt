@@ -953,6 +953,18 @@ vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib/libmmosal.so
 vendor/lib64/libmmosal.so
 
+# Media (Stagefright)
+vendor/lib64/libstagefrightdolby.so
+vendor/lib64/libstagefright_hdcp.so
+vendor/lib64/libstagefright_soft_qtiflacdec.so
+vendor/lib/libstagefrightdolby.so
+vendor/lib/libstagefright_hdcp.so
+vendor/lib/libstagefright_soft_ac4dec.so
+vendor/lib/libstagefright_soft_ddpdec.so
+vendor/lib/libstagefright_soft_mphadec.so
+vendor/lib/libstagefright_soft_qtiflacdec.so
+vendor/lib/libstagefright_soft_somcalacdec.so
+
 # Neural networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti
 vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc
