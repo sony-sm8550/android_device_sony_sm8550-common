@@ -36,31 +36,6 @@ $(ACDBDATA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $@
 	$(hide) ln -sf /vendor/etc/acdbdata/adsp_avs_config.acdb $@/adsp_avs_config.acdb
 
-WCNSS_INI_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
-$(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS config ini link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /vendor/etc/wifi/$(notdir $@) $@
-
-WCNSS_MAC_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/wlan_mac.bin
-$(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS MAC bin link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /mnt/vendor/persist/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
-
-BDWLAN_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/bdwlan.bin
-$(BDWLAN_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "bdwlan link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /vendor/etc/wifi/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(BDWLAN_SYMLINK)
-
 ### APQ
 RFS_APQ_GNSS_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/apq/gnss/
 $(RFS_APQ_GNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -222,9 +197,13 @@ WIFI_FIRMWARE_SYMLINKS := $(TARGET_OUT_VENDOR)/firmware/
 $(WIFI_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating wifi firmware symlinks: $@"
 	@mkdir -p $@/wlan/qca_cld
+	$(hide) ln -sf /vendor/etc/wifi/regdb.bin $@/regdb.bin
+	$(hide) ln -sf /vendor/etc/wifi/bdwlan.e47 $@/bdwlan.e47
+	$(hide) ln -sf /vendor/etc/wifi/bdwlan.e48 $@/bdwlan.e48
+	$(hide) ln -sf /vendor/etc/wifi/bdwlan.elf $@/bdwlan.elf
 	$(hide) ln -sf /data/vendor/firmware/wlanmdsp.mbn $@/wlanmdsp.otaupdate
 	$(hide) ln -sf /mnt/vendor/persist/wlan_mac.bin $@/wlan/qca_cld/wlan_mac.bin
-	$(hide) ln -sf /odm/vendor/etc/wifi/WCNSS_qcom_cfg.ini $@/wlan/qca_cld/WCNSS_qcom_cfg.ini
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_cfg.ini $@/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
 ALL_DEFAULT_INSTALLED_MODULES += \
     $(ACDBDATA_SYMLINKS) \
