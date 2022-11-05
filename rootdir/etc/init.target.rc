@@ -1,6 +1,5 @@
 
 # Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
-# Copyright (C) 2020 Sony Mobile Communications Inc.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -27,8 +26,6 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# NOTE: This file has been modified by Sony Mobile Communications Inc.
-# Modifications are licensed under the License.
 #
 
 import /vendor/etc/init/hw/init.qti.kernel.rc
@@ -94,7 +91,7 @@ on post-fs
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
-    exec_start wait_for_keymaster
+    #exec_start wait_for_keymaster
     mount_all --late
 
 on post-fs-data
@@ -104,7 +101,6 @@ on post-fs-data
 
 on early-boot
     start vendor.sensors
-    verity_update_state
 
 on boot
     write /dev/cpuset/audio-app/cpus 1-2
@@ -142,8 +138,8 @@ on boot
     setprop vendor.usb.qdss.inst.name "qdss_mdm"
     setprop vendor.usb.controller a600000.dwc3
     #Load WLAN driver
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ wlan country_code=${ro.boot.wificountrycode:-00}
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki wlan country_code=${ro.boot.wificountrycode:-00}
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_wlan qca_cld3_qca6390
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki qca_cld3_wlan qca_cld3_qca6390
     #Allow access to memory hotplug device attributes
     chown system system /sys/kernel/mem-offline/anon_migrate
 
@@ -206,11 +202,13 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
+on property:vold.decrypt=trigger_restart_framework
+   start vendor.cnss_diag
+
 service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
    class main
    user system
    group system wifi inet sdcard_rw media_rw diag
-   disabled
    oneshot
 
 #fan-controller
