@@ -17,3 +17,4 @@ allow hal_disp_default system_server:binder { call };
 allow hal_disp_default tad:unix_stream_socket { connectto };
 allow hal_disp_default system_app:binder { call };
 
+set_prop(hal_disp_default, vendor_display_prop);
