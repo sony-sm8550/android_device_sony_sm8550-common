@@ -40,7 +40,7 @@ on early-boot
     chown system system /sys/class/leds/vibrator/duration
     chown system system /sys/class/leds/vibrator/state
 
-service vendor.vibrator.cs40l25 /vendor/bin/hw/android.hardware.vibrator-service.cs40l25
+service vendor.vibrator.cs40l25 /vendor/bin/hw/android.hardware.vibrator-sony.service.cs40l25
     class hal
     user system
     group system

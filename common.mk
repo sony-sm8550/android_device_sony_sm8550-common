@@ -531,7 +531,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator-service.cs40l25
+    android.hardware.vibrator-sony.service.cs40l25
 
 # QTI service tracker
 PRODUCT_PACKAGES += \

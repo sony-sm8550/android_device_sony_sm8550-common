@@ -509,10 +509,7 @@ ndk::ScopedAStatus Vibrator::on(uint32_t timeoutMs, uint32_t effectIndex,
 }
 
 ndk::ScopedAStatus Vibrator::setEffectAmplitude(float amplitude, float maximum) {
-    ALOGE("BBN: got amplitude: %lf, maximum: %lf", amplitude, maximum);
     int32_t scale = amplitudeToScale(amplitude, maximum);
-
-    ALOGE("BBN: Scale: %d", scale);
 
     if (!mHwApi->setEffectScale(scale)) {
         ALOGE("Failed to set effect amplitude (%d): %s", errno, strerror(errno));
@@ -1132,8 +1129,6 @@ ndk::ScopedAStatus Vibrator::performEffect(Effect effect, EffectStrength strengt
         goto exit;
     }
 
-    ALOGE("BBN: VolLevel: %d", volLevel);
-
     status = performEffect(effectIndex, volLevel, &effectQueue, callback);
 
 exit:
@@ -1197,8 +1192,6 @@ uint32_t Vibrator::intensityToVolLevel(float intensity, uint32_t effectIndex) {
             volLevel = calc(intensity, mClickEffectVol);
             break;
     }
-
-    ALOGE("BBN: Intensity: %lf, effectIndex: %d, vol: %lf", intensity, effectIndex, volLevel);
 
     return volLevel;
 }
