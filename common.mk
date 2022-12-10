@@ -113,11 +113,6 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
-PRODUCT_PACKAGES += \
-    e2fsck_ramdisk \
-    tune2fs_ramdisk \
-    resize2fs_ramdisk
-
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService-Soong \
