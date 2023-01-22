@@ -13,6 +13,19 @@ on post-fs
     # radio
     exec_start msim_sh
     setprop persist.radio.multisim.config ${vendor.radio.multisim.config}
+    setprop ro.vendor.ltalabel.model ${vendor.radio.ltalabel.model}
+
+on property:ro.vendor.ltalabel.model=XQ-BC72
+    setprop ro.vendor.product.rf.id PDX215-C2
+
+on property:ro.vendor.ltalabel.model=XQ-BC62
+    setprop ro.vendor.product.rf.id PDX215-A2US
+
+on property:ro.vendor.ltalabel.model=XQ-BC52
+    setprop ro.vendor.product.rf.id PDX215-A2
+
+on property:ro.vendor.ltalabel.model=XQ-BC42
+    setprop ro.vendor.product.rf.id PDX215-J2
 
 # USB config, refer to init.sony.usb.rc
 on property:sys.usb.config=adb && property:sys.usb.configfs=1

@@ -1,25 +1,15 @@
 #!/vendor/bin/sh
 
-MSIM_DEVICES=(
-    xq-bc52 xq-bc72 # Dual-SIM version
-)
-MSIM_DEVICE=0
+model=$(sed -e '/[Mm][Oo][Dd][Ee][Ll]: /!d' -e 's/^.*[Mm][Oo][Dd][Ee][Ll]: \([A-Za-z0-9-]*\).*$/\1/' -e '/^$/d' /dev/block/bootdevice/by-name/LTALabel) 2> /dev/null
+case "$model" in
+    "XQ-BC42" | "XQ-BC52" | "XQ-BC72" )
+        setprop vendor.radio.multisim.config dsds;;
+    * )
+        setprop vendor.radio.multisim.config ss;;
+esac
 
-for device in "${MSIM_DEVICES[@]}"; do
-    if grep -qi "Model: ${device}" /dev/block/bootdevice/by-name/LTALabel; then
-        MSIM_DEVICE=1
-        model=$device
-        break
-    fi
-done
-
-if [[ "${MSIM_DEVICE}" -eq 1 ]]; then
-    setprop vendor.radio.multisim.config dsds
-fi
-
-if [[ $model == "xq-bc52" ]]; then
-    setprop ro.vendor.product.rf.id PDX215-A2
+if [ "$model" = "" ]; then
+    setprop vendor.radio.ltalabel.model "unknown"
 else
-    setprop ro.vendor.product.rf.id PDX215-C2
+    setprop vendor.radio.ltalabel.model "$model"
 fi
-
