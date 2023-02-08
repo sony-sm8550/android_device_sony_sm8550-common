@@ -374,7 +374,8 @@ PRODUCT_PACKAGES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.sony_edo
+    android.hardware.lights-service.qti \
+    lights.sony
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
