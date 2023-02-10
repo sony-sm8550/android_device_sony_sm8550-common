@@ -311,8 +311,8 @@
     <hal format="hidl">
       <name>vendor.semc.system.idd</name>
       <transport>hwbinder</transport>
-      <fqname>@1.0::IIdd/default</fqname>
-      <fqname>@1.0::IIdd/logreader</fqname>
+      <fqname>@1.1::IIdd/default</fqname>
+      <fqname>@1.1::IIdd/logreader</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>

@@ -81,7 +81,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.semc.system.idd</name>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IIdd</name>
             <instance>default</instance>
