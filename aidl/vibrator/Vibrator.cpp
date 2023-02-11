@@ -62,6 +62,9 @@ static constexpr uint32_t WAVEFORM_SLOW_RISE_INDEX = 7;
 static constexpr uint32_t WAVEFORM_QUICK_FALL_INDEX = 8;
 static constexpr uint32_t WAVEFORM_LIGHT_TICK_INDEX = 9;
 static constexpr uint32_t WAVEFORM_LOW_TICK_INDEX = 10;
+static constexpr uint32_t WAVEFORM_CUSTOM_TICK_INDEX_1 = 11;
+static constexpr uint32_t WAVEFORM_CUSTOM_TICK_INDEX_2 = 12;
+static constexpr uint32_t WAVEFORM_CUSTOM_TICK_INDEX_3 = 13;
 
 static constexpr uint32_t WAVEFORM_UNSAVED_TRIGGER_QUEUE_INDEX = 65529;
 static constexpr uint32_t WAVEFORM_TRIGGER_QUEUE_INDEX = 65534;
@@ -971,21 +974,21 @@ ndk::ScopedAStatus Vibrator::getSimpleDetails(Effect effect, EffectStrength stre
     }
 
     switch (effect) {
-        case Effect::TEXTURE_TICK:
-            effectIndex = WAVEFORM_LIGHT_TICK_INDEX;
-            intensity *= 0.5f;
+        case Effect::TEXTURE_TICK:  // 21
+        case Effect::TICK:          // 2
+            effectIndex = WAVEFORM_LOW_TICK_INDEX;  // 10
             break;
-        case Effect::TICK:
-            effectIndex = WAVEFORM_CLICK_INDEX;
-            intensity *= 0.5f;
+        case Effect::CLICK:         // 0
+            effectIndex = WAVEFORM_CLICK_INDEX;     // 2
             break;
-        case Effect::CLICK:
-            effectIndex = WAVEFORM_CLICK_INDEX;
-            intensity *= 0.7f;
+        case Effect::THUD:          // 3
+            effectIndex = WAVEFORM_CUSTOM_TICK_INDEX_1; // 11
             break;
-        case Effect::HEAVY_CLICK:
-            effectIndex = WAVEFORM_CLICK_INDEX;
-            intensity *= 1.0f;
+        case Effect::POP:           // 4
+            effectIndex = WAVEFORM_CUSTOM_TICK_INDEX_2; // 12
+            break;
+        case Effect::HEAVY_CLICK:   // 5
+            effectIndex = WAVEFORM_CUSTOM_TICK_INDEX_3; // 13
             break;
         default:
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -1116,6 +1119,10 @@ ndk::ScopedAStatus Vibrator::performEffect(Effect effect, EffectStrength strengt
         case Effect::CLICK:
             // fall-through
         case Effect::HEAVY_CLICK:
+            // fall-through
+        case Effect::THUD:
+            // fall-through
+        case Effect::POP:
             status = getSimpleDetails(effect, strength, &effectIndex, &timeMs, &volLevel);
             break;
         case Effect::DOUBLE_CLICK:
