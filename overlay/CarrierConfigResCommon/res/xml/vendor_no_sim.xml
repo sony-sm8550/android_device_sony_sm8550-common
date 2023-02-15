@@ -7,6 +7,7 @@
         <int name="duration_blocking_disabled_after_emergency_int" value="-1" />
         <boolean name="show_blocking_pay_phone_option_bool" value="true" />
         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
+        <boolean name="disable_assisted_dialing_bool" value="true" />
     </carrier_config>
     <carrier_config device="SO-41A" sku="jp_dcm">
         <boolean name="hide_enhanced_4g_lte_bool" value="false" />
