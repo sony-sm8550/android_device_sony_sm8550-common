@@ -1657,9 +1657,6 @@ vendor/lib64/libtime_genoff.so
 vendor/lib64/libintegration.so
 vendor/lib64/libtpm.so
 
-# Telephony (qti-telephony-common) - from DRG - QKQ1.190828.002
-system_ext/framework/qti-telephony-common.jar
-
 # Thermal engine
 vendor/bin/thermal-engine
 vendor/etc/init/init_thermal-engine.rc
