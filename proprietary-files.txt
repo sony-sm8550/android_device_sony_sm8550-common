@@ -653,6 +653,10 @@ vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 vendor/lib64/vendor.qti.esepowermanager@1.1.so
 
+# ExtLight
+vendor/bin/hw/vendor.semc.hardware.extlight-service.somc
+vendor/etc/init/vendor.semc.hardware.extlight-somc.rc
+
 # Fingerprint firmware
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-rbs
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-rbs.rc

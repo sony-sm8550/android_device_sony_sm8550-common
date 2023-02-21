@@ -473,4 +473,8 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl">
+        <name>vendor.semc.hardware.extlight</name>
+        <fqname>IExtLight/default</fqname>
+    </hal>
 </manifest>
