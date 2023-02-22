@@ -197,7 +197,6 @@ static int set_light_backlight(struct light_device_t* dev, struct light_state_t 
 static int set_rgb_led_brightness(enum rgb_led led, int brightness) {
     char file[60];
     int rc;
-    ALOGE("LED = %d", led);
     snprintf(file, sizeof(file), "/sys/class/leds/%s/max_mix_brightness", led_names[led]);
     int max_brightness = read_int(file);
 
