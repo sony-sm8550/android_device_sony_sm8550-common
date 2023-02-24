@@ -56,7 +56,7 @@
 /dev/camera_sync    u:object_r:hal_camera_sync:s0
 
 # Shell scripts
-/(vendor|system/vendor)/bin/init\.qcom\.msim\.sh        u:object_r:init-qcom-msim-sh_exec:s0
+/(vendor|system/vendor|odm|vendor/odm)/bin/init\.qcom\.msim\.sh        u:object_r:init-qcom-msim-sh_exec:s0
 
 # Sys files
 /sys/devices/virtual/sec/tsp(/.*)?                              u:object_r:sysfs_tsp:s0
