@@ -345,6 +345,7 @@ vendor/lib64/libsdsprpc.so
 vendor/lib64/libsysmon_cdsp_skel.so
 
 # Charger
+vendor/bin/init.qti.chg_policy.sh
 vendor/bin/hw/vendor.semc.hardware.charger@1.1-service
 vendor/etc/charger_fstab.qti
 vendor/etc/charger_fw_fstab.qti
@@ -1311,6 +1312,10 @@ system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/priv-app/ims/ims.apk
 
+# QCV
+vendor/bin/init.qti.qcv.sh
+vendor/etc/init/init.qti.qcv.rc
+
 # Radio - IMS
 -system_ext/app/uceShimService/uceShimService.apk
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
@@ -2012,8 +2017,11 @@ odm/bin/sony_ext_uim_ctrl
 odm/etc/init/sony_ext_uim_ctrl.rc
 
 # Kernel
+vendor/bin/init.qti.kernel.sh
 vendor/bin/init.kernel.post_boot-lahaina.sh
 vendor/bin/init.kernel.post_boot.sh
+vendor/bin/vendor_modprobe.sh
+vendor/etc/init/hw/init.qti.kernel.rc
 
 # TA
 vendor/bin/hw/vendor.somc.hardware.aidlmiscta-service.somc
