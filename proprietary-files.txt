@@ -346,11 +346,9 @@ vendor/lib64/libsysmon_cdsp_skel.so
 
 # Charger
 vendor/bin/init.qti.chg_policy.sh
-vendor/bin/hw/vendor.semc.hardware.charger@1.1-service
 vendor/etc/charger_fstab.qti
 vendor/etc/charger_fw_fstab.qti
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
-vendor/etc/init/vendor.semc.hardware.charger@1.1-service.rc
 
 # CNE
 system_ext/framework/com.quicinc.cne.api-V1.1-java.jar
