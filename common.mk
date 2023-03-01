@@ -246,6 +246,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc \
+    ueventd.sony.rc \
     fstab.default \
     fstab.default.vendor_ramdisk \
     init.sony-device-common.rc \
@@ -333,6 +334,10 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
+
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
 
 # Media
 PRODUCT_COPY_FILES += \
