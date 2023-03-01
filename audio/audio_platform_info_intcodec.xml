@@ -200,6 +200,7 @@
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS" acdb_id="11"/>
         <device name="SND_DEVICE_IN_VOICE_DMIC_TMUS" acdb_id="41"/>
         <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="11"/>
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="11"/>
 
         <!-- dmic-endfire acdb-id -->
         <device name="SND_DEVICE_IN_HANDSET_DMIC" acdb_id="11"/>
