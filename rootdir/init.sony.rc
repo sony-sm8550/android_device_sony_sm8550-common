@@ -38,6 +38,9 @@ on property:vendor.post_boot.parsed=1
     # Set background cpuset
     write /dev/cpuset/background/cpus 0-1
 
+    # Setup foreground cpuset for display composer.
+    write /dev/cpuset/foreground/cpus 0-6
+
 on property:ro.vendor.ltalabel.model=XQ-BC72
     setprop ro.vendor.product.rf.id PDX215-C2
 
