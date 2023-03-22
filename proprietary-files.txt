@@ -81,13 +81,6 @@ vendor/etc/acdbdata/QRD/lahaina-yupikqrd-snd-card/QRD_Yupik_Hdmi_cal.acdb
 vendor/etc/acdbdata/QRD/lahaina-yupikqrd-snd-card/QRD_Yupik_Headset_cal.acdb
 vendor/etc/acdbdata/QRD/lahaina-yupikqrd-snd-card/QRD_Yupik_Speaker_cal.acdb
 vendor/etc/acdbdata/QRD/lahaina-yupikqrd-snd-card/QRD_Yupik_workspaceFile.qwsp
-vendor/etc/acdbdata/Sony_sagami_Bluetooth_cal.acdb
-vendor/etc/acdbdata/Sony_sagami_General_cal.acdb
-vendor/etc/acdbdata/Sony_sagami_Global_cal.acdb
-vendor/etc/acdbdata/Sony_sagami_Handset_cal.acdb
-vendor/etc/acdbdata/Sony_sagami_Hdmi_cal.acdb
-vendor/etc/acdbdata/Sony_sagami_Headset_cal.acdb
-vendor/etc/acdbdata/Sony_sagami_Speaker_cal.acdb
 vendor/etc/acdbdata/adsp_avs_config.acdb
 vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.00.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.10.pmd
@@ -95,7 +88,6 @@ vendor/etc/acdbdata/nn_ns_models/fai__2.3.0_0.1__3.0.0_0.0__eai_1.00.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__2.3.0_0.1__3.0.0_0.0__eai_1.10.pmd
 vendor/etc/acdbdata/nn_vad_models/fai_3.0.0_0.0_eai_1.00.pmd
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_1.10.pmd
-vendor/etc/acdbdata/workspaceFile_Sony_sagami.qwsp
 vendor/lib/libacdbloader.so
 vendor/lib64/libacdbloader.so
 
@@ -191,17 +183,6 @@ vendor/lib64/libqtigef.so
 # Audio FX Modules
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
-vendor/etc/zoom_noise_reduction/znr_Front_44k.tbl
-vendor/etc/zoom_noise_reduction/znr_Front_48k.tbl
-vendor/etc/zoom_noise_reduction/znr_Tele_44k.tbl
-vendor/etc/zoom_noise_reduction/znr_Tele_48k.tbl
-vendor/etc/zoom_noise_reduction/znr_UWide_44k.tbl
-vendor/etc/zoom_noise_reduction/znr_UWide_48k.tbl
-vendor/etc/zoom_noise_reduction/znr_Wide_44k.tbl
-vendor/etc/zoom_noise_reduction/znr_Wide_48k.tbl
-vendor/etc/zoom_noise_reduction/znr_default_44k.tbl
-vendor/etc/zoom_noise_reduction/znr_default_48k.tbl
-vendor/etc/zoom_noise_reduction/znr_parameter.xml
 vendor/lib/libSNPE.so
 vendor/lib/libaudiokeymgr.so
 vendor/lib/libaudiosnpewrapper.so
@@ -541,8 +522,6 @@ vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
 # Display calibration data
-vendor/etc/qdcm_calib_data_1.xml
-vendor/etc/qdcm_calib_data_9.xml
 vendor/etc/qdcm_calib_data_Dual_nt35597_cmd_mode_dsi_truly_panel_without_DSC.xml
 vendor/etc/qdcm_calib_data_Dual_nt35597_video_mode_dsi_truly_panel_without_DSC.xml
 vendor/etc/qdcm_calib_data_Sharp_2k_cmd_mode_qsync_dsi_panel.xml
@@ -718,15 +697,6 @@ vendor/lib64/libkernelmanager.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 
-# Graphics (Adreno firmware)
-vendor/firmware/a660_gmu.bin
-vendor/firmware/a660_sqe.fw
-vendor/firmware/a660_zap.b00
-vendor/firmware/a660_zap.b01
-vendor/firmware/a660_zap.b02
-vendor/firmware/a660_zap.elf
-vendor/firmware/a660_zap.mdt
-
 # Graphics (Vulkan)
 vendor/lib/hw/vulkan.adreno.so
 vendor/lib64/hw/vulkan.adreno.so
@@ -879,15 +849,6 @@ vendor/lib64/libqti-iopd-client.so
 vendor/lib64/libqti-iopd.so
 vendor/lib64/vendor.qti.hardware.iop@1.0.so
 vendor/lib64/vendor.qti.hardware.iop@2.0.so
-
-# IPA firmware
-vendor/etc/init/ipa_fws.rc
-vendor/firmware/ipa_fws.b00
-vendor/firmware/ipa_fws.b01
-vendor/firmware/ipa_fws.b02
-vendor/firmware/ipa_fws.b03
-vendor/firmware/ipa_fws.b04
-vendor/firmware/ipa_fws.mdt
 
 # IRQ balance
 vendor/bin/msm_irqbalance
@@ -1479,8 +1440,6 @@ vendor/etc/sensors/config/kodiak_vertigo_ak991x_0.json
 vendor/etc/sensors/config/kodiak_vertigo_lsm6dst_0.json
 vendor/etc/sensors/config/kodiak_vertigo_lsm6dst_1.json
 vendor/etc/sensors/config/lahaina_ak991x_0.json
-vendor/etc/sensors/config/lahaina_ak991x_0_somc_platform.json
-vendor/etc/sensors/config/lahaina_ak991x_0_somc_product.json
 vendor/etc/sensors/config/lahaina_bmp380_0.json
 vendor/etc/sensors/config/lahaina_bu52053nvx_0.json
 vendor/etc/sensors/config/lahaina_default_sensors.json
@@ -1497,7 +1456,6 @@ vendor/etc/sensors/config/lahaina_hhg_tmd3702_0.json
 vendor/etc/sensors/config/lahaina_irq.json
 vendor/etc/sensors/config/lahaina_lps22hh_0.json
 vendor/etc/sensors/config/lahaina_lsm6dso_0.json
-vendor/etc/sensors/config/lahaina_lsm6dso_0_somc_product.json
 vendor/etc/sensors/config/lahaina_lsm6dst_0.json
 vendor/etc/sensors/config/lahaina_lsm6dst_1.json
 vendor/etc/sensors/config/lahaina_mtp_ak991x_0.json
@@ -1509,7 +1467,6 @@ vendor/etc/sensors/config/lahaina_qrd_lsm6dst_0.json
 vendor/etc/sensors/config/lahaina_qrd_sx932x_0.json
 vendor/etc/sensors/config/lahaina_qrd_tmd3702_0.json
 vendor/etc/sensors/config/lahaina_shtw2_0.json
-vendor/etc/sensors/config/lahaina_somc_default_sensors.json
 vendor/etc/sensors/config/lahaina_stk3x3x_0.json
 vendor/etc/sensors/config/lahaina_sx932x_0.json
 vendor/etc/sensors/config/lahaina_tmd3702_0.json
@@ -1530,7 +1487,6 @@ vendor/etc/sensors/config/sns_ccd_v3_walk.json
 vendor/etc/sensors/config/sns_cm.json
 vendor/etc/sensors/config/sns_dae.json
 vendor/etc/sensors/config/sns_device_orient.json
-vendor/etc/sensors/config/sns_device_orient_somc_platform.json
 vendor/etc/sensors/config/sns_diag_filter.json
 vendor/etc/sensors/config/sns_direct_channel.json
 vendor/etc/sensors/config/sns_distance_bound.json
@@ -1827,164 +1783,6 @@ vendor/lib64/vendor.qti.hardware.vpp@2.0.so
 vendor/lib64/vendor.somc.hardware.swiqi@1.0-impl.so
 vendor/lib64/vendor.somc.hardware.swiqi@1.0.so
 
-# Wifi firmware
-vendor/etc/wifi/bdwlan.e47
-vendor/etc/wifi/bdwlan.e48
-vendor/etc/wifi/bdwlan.elf
-
-# Other maybe needed firmware
-vendor/firmware/L-cs35l41-dsp1-spk-cali.bin
-vendor/firmware/L-cs35l41-dsp1-spk-cali.wmfw
-vendor/firmware/L-cs35l41-dsp1-spk-prot.bin
-vendor/firmware/L-cs35l41-dsp1-spk-prot.wmfw
-vendor/firmware/R-cs35l41-dsp1-spk-cali.bin
-vendor/firmware/R-cs35l41-dsp1-spk-cali.wmfw
-vendor/firmware/R-cs35l41-dsp1-spk-prot.bin
-vendor/firmware/R-cs35l41-dsp1-spk-prot.wmfw
-vendor/firmware/a615_zap.b00
-vendor/firmware/a615_zap.b01
-vendor/firmware/a615_zap.b02
-vendor/firmware/a615_zap.elf
-vendor/firmware/a615_zap.mdt
-vendor/firmware/a619_gmu.bin
-vendor/firmware/a630_sqe.fw
-vendor/firmware/cs40l20.bin
-vendor/firmware/cs40l25a_a2h.bin
-vendor/firmware/cs40l25a_a2h.wmfw
-vendor/firmware/cs40l25a_a2h1.bin
-vendor/firmware/cs40l25a_a2h2.bin
-vendor/firmware/cs40l25a_a2h3.bin
-vendor/firmware/cs40l25a_cal.bin
-vendor/firmware/cs40l25a_cal.wmfw
-vendor/firmware/egista.b00
-vendor/firmware/egista.b01
-vendor/firmware/egista.b02
-vendor/firmware/egista.b03
-vendor/firmware/egista.b04
-vendor/firmware/egista.b05
-vendor/firmware/egista.b06
-vendor/firmware/egista.b07
-vendor/firmware/egista.mdt
-vendor/firmware/evass-lt.b00
-vendor/firmware/evass-lt.b01
-vendor/firmware/evass-lt.b02
-vendor/firmware/evass-lt.b03
-vendor/firmware/evass-lt.b04
-vendor/firmware/evass-lt.b05
-vendor/firmware/evass-lt.b06
-vendor/firmware/evass-lt.b07
-vendor/firmware/evass-lt.b08
-vendor/firmware/evass-lt.b09
-vendor/firmware/evass-lt.b10
-vendor/firmware/evass-lt.b11
-vendor/firmware/evass-lt.b12
-vendor/firmware/evass-lt.b13
-vendor/firmware/evass-lt.b14
-vendor/firmware/evass-lt.b15
-vendor/firmware/evass-lt.b16
-vendor/firmware/evass-lt.b17
-vendor/firmware/evass-lt.b18
-vendor/firmware/evass-lt.b19
-vendor/firmware/evass-lt.mbn
-vendor/firmware/evass-lt.mdt
-vendor/firmware/evass.b00
-vendor/firmware/evass.b01
-vendor/firmware/evass.b02
-vendor/firmware/evass.b03
-vendor/firmware/evass.b04
-vendor/firmware/evass.b05
-vendor/firmware/evass.b06
-vendor/firmware/evass.b07
-vendor/firmware/evass.b08
-vendor/firmware/evass.b09
-vendor/firmware/evass.b10
-vendor/firmware/evass.b11
-vendor/firmware/evass.b12
-vendor/firmware/evass.b13
-vendor/firmware/evass.b14
-vendor/firmware/evass.b15
-vendor/firmware/evass.b16
-vendor/firmware/evass.b17
-vendor/firmware/evass.b18
-vendor/firmware/evass.b19
-vendor/firmware/evass.mbn
-vendor/firmware/evass.mdt
-vendor/firmware/ipa_fws.elf
-vendor/firmware/vpu20_1v.b01
-vendor/firmware/vpu20_1v.b02
-vendor/firmware/vpu20_1v.b03
-vendor/firmware/vpu20_1v.b04
-vendor/firmware/vpu20_1v.b05
-vendor/firmware/vpu20_1v.b06
-vendor/firmware/vpu20_1v.b07
-vendor/firmware/vpu20_1v.b08
-vendor/firmware/vpu20_1v.b09
-vendor/firmware/vpu20_1v.b10
-vendor/firmware/vpu20_1v.b11
-vendor/firmware/vpu20_1v.b12
-vendor/firmware/vpu20_1v.b13
-vendor/firmware/vpu20_1v.b14
-vendor/firmware/vpu20_1v.b15
-vendor/firmware/vpu20_1v.b16
-vendor/firmware/vpu20_1v.b17
-vendor/firmware/vpu20_1v.b18
-vendor/firmware/vpu20_1v.b19
-vendor/firmware/vpu20_1v.mbn
-vendor/firmware/vpu20_1v.mdt
-vendor/firmware/vpu20_1v_unsigned.mbn
-vendor/firmware/vpu20_2v.b01
-vendor/firmware/vpu20_2v.b02
-vendor/firmware/vpu20_2v.b03
-vendor/firmware/vpu20_2v.b04
-vendor/firmware/vpu20_2v.b05
-vendor/firmware/vpu20_2v.b06
-vendor/firmware/vpu20_2v.b07
-vendor/firmware/vpu20_2v.b08
-vendor/firmware/vpu20_2v.b09
-vendor/firmware/vpu20_2v.b10
-vendor/firmware/vpu20_2v.b11
-vendor/firmware/vpu20_2v.b12
-vendor/firmware/vpu20_2v.b13
-vendor/firmware/vpu20_2v.b14
-vendor/firmware/vpu20_2v.b15
-vendor/firmware/vpu20_2v.b16
-vendor/firmware/vpu20_2v.b17
-vendor/firmware/vpu20_2v.b18
-vendor/firmware/vpu20_2v.b19
-vendor/firmware/vpu20_2v.mbn
-vendor/firmware/vpu20_2v.mdt
-vendor/firmware/vpu20_2v_unsigned.mbn
-vendor/firmware/vpu20_4v.b00
-vendor/firmware/vpu20_4v.b01
-vendor/firmware/vpu20_4v.b02
-vendor/firmware/vpu20_4v.b03
-vendor/firmware/vpu20_4v.b04
-vendor/firmware/vpu20_4v.b05
-vendor/firmware/vpu20_4v.b06
-vendor/firmware/vpu20_4v.b07
-vendor/firmware/vpu20_4v.b08
-vendor/firmware/vpu20_4v.b09
-vendor/firmware/vpu20_4v.b10
-vendor/firmware/vpu20_4v.b11
-vendor/firmware/vpu20_4v.b12
-vendor/firmware/vpu20_4v.b13
-vendor/firmware/vpu20_4v.b14
-vendor/firmware/vpu20_4v.b15
-vendor/firmware/vpu20_4v.b16
-vendor/firmware/vpu20_4v.b17
-vendor/firmware/vpu20_4v.b18
-vendor/firmware/vpu20_4v.b19
-vendor/firmware/vpu20_4v.mbn
-vendor/firmware/vpu20_4v.mdt
-vendor/firmware/vpu20_4v_unsigned.mbn
-vendor/firmware/yupik_ipa_fws.b00
-vendor/firmware/yupik_ipa_fws.b01
-vendor/firmware/yupik_ipa_fws.b02
-vendor/firmware/yupik_ipa_fws.b03
-vendor/firmware/yupik_ipa_fws.b04
-vendor/firmware/yupik_ipa_fws.elf
-vendor/firmware/yupik_ipa_fws.mdt
-
 # Modem
 vendor/bin/mlog_qmi_service
 vendor/etc/init/mlog_qmi_service.rc
@@ -1999,7 +1797,6 @@ vendor/etc/wifi/icm.conf
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/regdb.bin
 vendor/etc/wifi/vendor_cmd.xml
-vendor/etc/wifi/wifi_txpower.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # SIM control
