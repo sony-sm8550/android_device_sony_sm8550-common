@@ -1,6 +1,7 @@
 #!/vendor/bin/sh
 
-model=$(sed -e '/[Mm][Oo][Dd][Ee][Ll]: /!d' -e 's/^.*[Mm][Oo][Dd][Ee][Ll]: \([A-Za-z0-9-]*\).*$/\1/' -e '/^$/d' /dev/block/bootdevice/by-name/LTALabel) 2> /dev/null
+model=`grep -am1 '[Mm][Oo][Dd][Ee][Ll]:' /dev/block/bootdevice/by-name/LTALabel | sed -e 's/^.*[Mm][Oo][Dd][Ee][Ll]:[ ]*\([A-Za-z0-9-]*\).*$/\1/'` 2> /dev/null
+
 case "$model" in
     "XQ-BC42" | "XQ-BC52" | "XQ-BC72" )
         setprop vendor.radio.multisim.config dsds;;
