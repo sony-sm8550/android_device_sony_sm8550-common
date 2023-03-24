@@ -27,6 +27,18 @@ on property:ro.vendor.ltalabel.model=XQ-BC52
 on property:ro.vendor.ltalabel.model=XQ-BC42
     setprop ro.vendor.product.rf.id PDX215-J2
 
+on property:ro.vendor.ltalabel.model=XQ-BQ72
+    setprop ro.vendor.product.rf.id PDX214-C2
+
+on property:ro.vendor.ltalabel.model=XQ-BQ62
+    setprop ro.vendor.product.rf.id PDX214-A2US
+
+on property:ro.vendor.ltalabel.model=XQ-BQ52
+    setprop ro.vendor.product.rf.id PDX214-A2
+
+on property:ro.vendor.ltalabel.model=XQ-BQ42
+    setprop ro.vendor.product.rf.id PDX214-J2
+
 # USB config, refer to init.sony.usb.rc
 on property:sys.usb.config=adb && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/idVendor 0x0FCE
