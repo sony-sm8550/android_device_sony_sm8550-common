@@ -2196,9 +2196,9 @@ odm/bin/sony_ext_uim_ctrl
 odm/etc/init/sony_ext_uim_ctrl.rc
 
 # Kernel
-vendor/bin/init.qti.kernel.sh
 vendor/bin/init.kernel.post_boot-lahaina.sh
 vendor/bin/init.kernel.post_boot.sh
+vendor/bin/init.qti.kernel.sh
 vendor/bin/vendor_modprobe.sh
 vendor/etc/init/hw/init.qti.kernel.rc
 
