@@ -163,6 +163,7 @@ ro.crypto.volume.metadata.method=dm-default-key
 
 # Display
 ro.hardware.lights=sony
+ro.surface_flinger.supports_background_blur=1
 persist.sys.sf.color_mode=9
 persist.sys.sf.color_saturation=1.0
 vendor.display.comp_mask=0
