@@ -128,3 +128,6 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=rndis,none,adb && pro
 
 on property:sys.boot_completed=1
      swapon_all /vendor/etc/fstab.zram
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
