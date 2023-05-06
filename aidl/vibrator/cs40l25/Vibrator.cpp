@@ -321,9 +321,7 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
                                 const std::shared_ptr<IVibratorCallback> &callback) {
     ATRACE_NAME("Vibrator::on");
     ALOGD("Vibrator::on");
-    const uint32_t index = timeoutMs < WAVEFORM_LONG_VIBRATION_THRESHOLD_MS
-                                   ? WAVEFORM_SHORT_VIBRATION_EFFECT_INDEX
-                                   : WAVEFORM_LONG_VIBRATION_EFFECT_INDEX;
+    const uint32_t index = WAVEFORM_LONG_VIBRATION_EFFECT_INDEX;
     if (MAX_COLD_START_LATENCY_MS <= UINT32_MAX - timeoutMs) {
         timeoutMs += MAX_COLD_START_LATENCY_MS;
     }
@@ -342,7 +340,7 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
 
 ndk::ScopedAStatus Vibrator::getSupportedEffects(std::vector<Effect> *_aidl_return) {
     *_aidl_return = {Effect::TEXTURE_TICK, Effect::TICK, Effect::CLICK, Effect::HEAVY_CLICK,
-                     Effect::DOUBLE_CLICK};
+                     Effect::DOUBLE_CLICK, Effect::POP, Effect::THUD};
     return ndk::ScopedAStatus::ok();
 }
 

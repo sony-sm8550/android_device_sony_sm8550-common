@@ -132,7 +132,7 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
     static constexpr float DEFAULT_DEVICE_MASS = 0.21;
     static constexpr float DEFAULT_LOC_COEFF = 0.5;
     static constexpr uint32_t Q_DEFAULT = 15.5 * Q_FLOAT_TO_FIXED;
-    static constexpr std::array<uint32_t, 6> V_LEVELS_DEFAULT = {60, 70, 80, 90, 100, 76};
+    static constexpr std::array<uint32_t, 6> V_LEVELS_DEFAULT = {60, 70, 80, 90, 100, 100};
     static constexpr std::array<uint32_t, 2> V_TICK_DEFAULT = {10, 70};
     static constexpr std::array<uint32_t, 2> V_CTICK_DEFAULT = {10, 70};
     static constexpr std::array<uint32_t, 2> V_LONG_DEFAULT = {10, 70};
