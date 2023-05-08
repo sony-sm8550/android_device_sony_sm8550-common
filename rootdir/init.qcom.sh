@@ -1,7 +1,6 @@
 #! /vendor/bin/sh
 
 # Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
-# Copyright (C) 2018 Sony Mobile Communications Inc#
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -27,10 +26,6 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# NOTE: This file has been modified by Sony Mobile Communications Inc.
-# Modifications are licensed under the Sony Mobile Communications Inc's
-# End User License Agreement ("EULA"). Any use of the modifications is subject
-# to the terms of the EULA
 
 target=`getprop ro.board.platform`
 low_ram=`getprop ro.config.low_ram`
@@ -104,7 +99,7 @@ start_msm_irqbalance_msmnile()
          fi
 }
 
-start_msm_irqbalance_lahaina()
+start_msm_irqbalance_kona()
 {
          if [ -f /vendor/bin/msm_irqbalance ]; then
                 start vendor.msm_irqbalance
@@ -323,8 +318,8 @@ case "$target" in
     "msmnile")
         start_msm_irqbalance_msmnile
         ;;
-    "lahaina")
-        start_msm_irqbalance_lahaina
+    "kona")
+        start_msm_irqbalance_kona
         ;;
     "lito")
         start_msm_irqbalance_lito
@@ -461,7 +456,7 @@ buildvariant=`getprop ro.build.type`
 case "$buildvariant" in
     "userdebug" | "eng")
         #set default loglevel to KERN_INFO
-        echo "7 6 1 7" > /proc/sys/kernel/printk
+        echo "6 6 1 7" > /proc/sys/kernel/printk
         ;;
     *)
         #set default loglevel to KERN_WARNING

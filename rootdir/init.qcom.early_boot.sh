@@ -308,10 +308,10 @@ case "$target" in
                 ;;
         esac
         ;;
-    "lahaina")
+    "kona")
         case "$soc_hwplatform" in
             *)
-                setprop vendor.media.target_variant "_lahaina"
+                setprop vendor.media.target_variant "_kona"
                 if [ $fb_width -le 1600 ]; then
                     setprop vendor.display.lcd_density 560
                 else
@@ -342,6 +342,9 @@ case "$target" in
             441)
                 setprop vendor.fastrpc.disable.cdsprpcd.daemon 1
                 setprop vendor.gralloc.disable_ubwc 1
+
+                # 196609 is decimal for 0x30001 to report version 3.1
+                setprop vendor.opengles.version 196609
                 ;;
             471)
                 #scuba APQ
@@ -394,22 +397,6 @@ case "$target" in
                 ;;
         esac
         ;;
-    "lahaina")
-        case "$soc_hwid" in
-            450)
-                setprop vendor.media.target_variant "_shima_v3"
-                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc/sku_version` 2> /dev/null
-                if [ $sku_ver -eq 1 ]; then
-                    setprop vendor.media.target_variant "_shima_v1"
-                elif [ $sku_ver -eq 2 ]; then
-                    setprop vendor.media.target_variant "_shima_v2"
-                fi
-                ;;
-            *)
-                setprop vendor.media.target_variant "_lahaina"
-                ;;
-        esac
-        ;;
     "holi")
         setprop vendor.media.target_variant "_holi"
         ;;
@@ -432,7 +419,7 @@ set_density_by_fb
 
 
 # set Lilliput LCD density for ADP
-product=`getprop ro.build.product`
+product=`getprop ro.board.platform`
 
 case "$product" in
         "msmnile_au")
