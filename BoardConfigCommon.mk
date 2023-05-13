@@ -54,6 +54,16 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a76
 
+# Boot
+BOARD_BOOT_HEADER_VERSION := 3
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_RAMDISK_USE_LZ4 := true
+
+# DTB
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
+# DTBO
+BOARD_KERNEL_SEPARATED_DTBO := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := lahaina
 TARGET_NO_BOOTLOADER := true
@@ -63,35 +73,13 @@ BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # Kernel
-BOARD_BOOT_HEADER_VERSION := 3
-BOARD_KERNEL_CMDLINE := \
-    console=ttyMSM0,115200n8 \
+BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
-    androidboot.console=ttyMSM0 \
     androidboot.memcg=1 \
-    lpm_levels.sleep_disabled=1 \
-    video=vfb:640x400,bpp=32,memsize=3072000 \
-    msm_rtb.filter=0x237 \
-    service_locator.enable=1 \
-    androidboot.usbcontroller=a600000.dwc3 \
-    swiotlb=0 \
-    loop.max_part=7 \
-    cgroup.memory=nokmem,nosocket \
-    pcie_ports=compat \
-    loop.max_part=7 \
-    iptable_raw.raw_before_defrag=1 \
-    ip6table_raw.raw_before_defrag=1 \
-    androidboot.selinux=permissive
+    androidboot.usbcontroller=a600000.dwc3
 
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_SECOND_OFFSET := 0x00f00000
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_DTB_OFFSET           := 0x01f00000
 BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_NO_GCC := true
 
@@ -155,6 +143,8 @@ USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
 BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+
+
 
 # Display
 TARGET_NO_RAW10_CUSTOM_FORMAT := true
@@ -241,7 +231,6 @@ TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/fstab.default
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
