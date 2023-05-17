@@ -764,7 +764,7 @@
     <path name="audio-ull-playback">
         <ctl name="SEN_MI2S_RX Audio Mixer MultiMedia3" value="1" />
         <ctl name="L AMP PCM Gain" value="18" />
-        <ctl name="R AMP PCM Gain" value="16" />
+        <ctl name="R AMP PCM Gain" value="14" />
     </path>
     <path name="audio-ull-playback speaker-protected">
         <path name="audio-ull-playback" />
@@ -2733,7 +2733,7 @@
         <ctl name="TX_DEC0 Volume" value="84" />
         <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
         <ctl name="TX DMIC MUX1" value="DMIC0" />
-        <ctl name="TX_DEC1 Volume" value="79" />
+        <ctl name="TX_DEC1 Volume" value="82" />
         <ctl name="TX_CDC_DMA_TX_3 Format" value="S24_LE" />
     </path>
     <path name="bt-sco-headset">
@@ -2958,7 +2958,7 @@
         <ctl name="TX_DEC0 Volume" value="84" />
         <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
         <ctl name="TX DMIC MUX1" value="DMIC0" />
-        <ctl name="TX_DEC1 Volume" value="79" />
+        <ctl name="TX_DEC1 Volume" value="82" />
         <ctl name="TX_CDC_DMA_TX_3 Format" value="S24_LE" />
     </path>
     <path name="unprocessed-three-mic">
@@ -3500,7 +3500,7 @@
         <ctl name="TX_DEC0 Volume" value="84" />
         <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
         <ctl name="TX DMIC MUX1" value="DMIC0" />
-        <ctl name="TX_DEC1 Volume" value="79" />
+        <ctl name="TX_DEC1 Volume" value="82" />
         <ctl name="TX_CDC_DMA_TX_3 Format" value="S24_LE" />
     </path>
     <path name="media-vibrator">
