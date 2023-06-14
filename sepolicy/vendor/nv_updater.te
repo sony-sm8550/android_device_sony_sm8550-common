@@ -14,3 +14,5 @@ allow nv_updater nvconfig_file_type:dir { ioctl read write getattr lock open wat
 allow nv_updater nvconfig_file_type:file { ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads };
 allow nv_updater tad_socket:sock_file write;
 allow nv_updater tad:unix_stream_socket { connectto };
+
+get_prop(nv_updater, vendor_radio_prop)
