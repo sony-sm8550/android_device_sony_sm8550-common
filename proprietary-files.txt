@@ -1,4 +1,4 @@
-# Stock package version: XQ-BC72_Customized HK_61.2.A.0.410
+# Stock package version: XQ-BC72_Customized HK_61.2.A.0.447
 
 # ACDB
 vendor/etc/acdbdata/CDP/CDP_Bluetooth_cal.acdb
