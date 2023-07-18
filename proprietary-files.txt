@@ -1010,6 +1010,11 @@ vendor/firmware/evass.b19
 vendor/firmware/evass.mbn
 vendor/firmware/evass.mdt
 
+# eUICC
+system_ext/etc/permissions/jp.co.sony.mc.euiccmemoryreset.xml
+system_ext/priv-app/EuiccMemoryReset/EuiccMemoryReset.apk;PRESIGNED
+product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+
 # ExtLight
 vendor/bin/hw/vendor.semc.hardware.extlight-service.somc
 vendor/etc/init/vendor.semc.hardware.extlight-somc.rc
