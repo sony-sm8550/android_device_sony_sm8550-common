@@ -589,5 +589,7 @@
         <item>eutran,11</item>
         <item>nfc,1</item>
     </string-array>
-</resources>
 
+    <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
+    <bool name="config_zramWriteback">true</bool>
+</resources>
