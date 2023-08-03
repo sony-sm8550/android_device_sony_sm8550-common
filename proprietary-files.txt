@@ -137,8 +137,6 @@ system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
-vendor/etc/vintf/manifest/manifest_non_qmaa.xml
-vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml
 vendor/lib/hw/audio.primary.kalama.so
 vendor/lib/libPeripheralStateUtils.so
 vendor/lib/libar-acdb.so
