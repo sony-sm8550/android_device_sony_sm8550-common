@@ -1176,11 +1176,6 @@ vendor/gpu/kbc/unified_ksqs.bin
 vendor/lib/hw/vulkan.adreno.so
 vendor/lib64/hw/vulkan.adreno.so
 
-# Health
-vendor/bin/hw/android.hardware.health-service.qti
-vendor/etc/init/android.hardware.health-service.qti.rc
-vendor/etc/vintf/manifest/android.hardware.health-service.qti.xml
-
 # Hotword Enrollment
 product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
 product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
