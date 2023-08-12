@@ -233,12 +233,15 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.class_main.sh \
+    init.kernel.post_boot.sh \
+    init.kernel.post_boot-kalama.sh \
     init.qcom.early_boot.sh \
     init.qcom.msim.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
+    init.qti.kernel.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc \
