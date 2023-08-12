@@ -30,6 +30,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 
+if [[ "$(getprop vendor.post_boot.custom)" == "true" ]]; then
+  echo "Device overrides post_boot, skipping $0"
+  exit 0
+fi
+
 function configure_zram_parameters() {
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
@@ -164,7 +169,7 @@ if [ -f /sys/devices/soc0/soc_id ]; then
 fi
 
 case "$platformid" in
-	"519"|"536"|"600"|"601")
+	"519"|"536"|"600"|"601"|"603"|"604")
 		/vendor/bin/sh /vendor/bin/init.kernel.post_boot-kalama.sh
 		;;
 	*)
