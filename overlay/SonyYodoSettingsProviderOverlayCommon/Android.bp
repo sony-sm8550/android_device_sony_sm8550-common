@@ -4,6 +4,7 @@
 //
 
 runtime_resource_overlay {
-    name: "SonySagamiSettingsResCommon",
+    name: "SonyYodoSettingsProviderOverlayCommon",
     device_specific: true,
 }
+
