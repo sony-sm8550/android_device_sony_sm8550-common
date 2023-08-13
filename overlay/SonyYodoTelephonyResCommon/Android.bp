@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SonySagamiFrameworksResCommon",
-    device_specific: true,
+    name: "SonyYodoTelephonyResCommon",
+    product_specific: true,
 }

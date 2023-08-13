@@ -4,7 +4,7 @@
     "target_path": "hardware/sony"
   },
   {
-    "repository": "android_kernel_sony_sm8350",
-    "target_path": "kernel/sony/sm8350"
+    "repository": "android_kernel_sony_sm8550",
+    "target_path": "kernel/sony/sm8550"
   }
 ]
