@@ -59,11 +59,7 @@ if [ -z "${SRC}" ]; then
 fi
 
 function blob_fixup() {
-    case "${1}" in
-    vendor/lib64/vendor.somc.camera* | vendor/bin/hw/vendor.somc.hardware.camera.*)
-        "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
-        ;;
-    esac
+    true
 }
 
 if [ -z "${ONLY_TARGET}" ]; then
