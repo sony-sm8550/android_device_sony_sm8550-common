@@ -4,5 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Add TA block device permission
+/dev/block/platform/soc/1d84000.ufshc/by-name/TA        0660   oem_2997   oem_2997
+
 # Charger
 /sys/class/battchg_ext  smart_charging_interruption  0660  system  system

@@ -1,37 +1,22 @@
-# Copyright 2020, 2021 Sony Corporation
+# Copyright 2022 Sony Corporation
 #
 # init.sony-platform.rc
 #
 
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ \
-        bu520x1nvx
-
 on init
+    # Add permission to sysrq-trigger
+    chown root system /proc/sysrq-trigger
+    chmod 0220 /proc/sysrq-trigger
+
     # SONY: Start the TrimArea Daemon. It must be started before fota-ua
     wait /dev/block/bootdevice/by-name/TA
     class_start trimarea
-    exec u:r:tad:s0 system -- /vendor/bin/wait4tad
+    exec u:r:tad:s0 system system -- /vendor/bin/wait4tad
 
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ \
-        et603-int \
-        last_logs \
-        powerkey_forcecrash \
+    setprop ro.oem.key1 ${ro.boot.hardware.sku}
 
-    
-
-    # Change reset behavior to warm reset
-    
-
-    # Enable power key force crash on userdebug variant
-    
-
-    # unmount temporary oem mount point
-    umount /mnt/oem
-
-    # SONY: Enable wakeup irq module
-    write /sys/devices/platform/wakeup_debug.0/enable 1
+on property:ro.boot.hardware.sku=""
+    setprop ro.oem.key1 c999999
 
 # SONY: TrimArea Daemon
 # Last 2 args: start block(blk size 128k), number of blocks(partitionsize(kb)/128(kb))
@@ -42,56 +27,24 @@ service tad /vendor/bin/tad /dev/block/bootdevice/by-name/TA 0,16
     class trimarea
     seclabel u:r:tad:s0
 
-on charger
-    # Charger
-    chmod 0664 /sys/class/battchg_ext/usb_input_suspend
-    chmod 0664 /sys/class/battchg_ext/lrc_charge_disable
-    chmod 0664 /sys/class/battchg_ext/lrc_input_suspend
-    chmod 0664 /sys/class/battchg_ext/bootup_shutdown_phase
-    chmod 0664 /sys/class/battchg_ext/batt_aging_level
-    chmod 0664 /sys/class/battchg_ext/system_temp_level
-    chmod 0664 /sys/class/battchg_ext/sdm_therm
-    chmod 0664 /sys/class/battman_dbg/regupdate_interval
-    chmod 0664 /sys/class/battman_dbg/log_interval
-    chmod 0664 /sys/class/battman_dbg/log_categories
-    chmod 0664 /sys/class/battman_dbg/log_level
+on init && property:ro.build.type=userdebug
+    write /sys/module/powerkey_forcecrash/parameters/forcecrash_on 1
 
-    # backlight
-    chown system system /sys/class/backlight/panel0-backlight/brightness
+on init && property:ro.build.type=user
+    write /sys/kernel/dload/dload_mode mini
 
-    # led RGB
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/blue/brightness
+on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ \
+    et603-int
 
-    # The charge_service/chargemon use wakelock before on boot, so add permission here.
-    chown radio wakelock /sys/power/wake_lock
-    chown radio wakelock /sys/power/wake_unlock
-    chmod 0660 /sys/power/wake_lock
-    chmod 0660 /sys/power/wake_unlock
+    # SONY: Enable wakeup irq module
+    write /sys/devices/platform/wakeup_debug.0/enable 1
 
-    # charge_service
-    
-    start charge_service
-
-    # Set USB mode to MSC for SDP charging
-    setprop sys.usb.config mass_storage_charge
-
-    # chargemon
-    start chargemon
+#set warm reset on S2 for userdebug only
+on init && property:ro.build.type=userdebug
+    exec u:r:pmic_key_reset:s0 root drmrpc -- /vendor/bin/pmic_key_reset 2 0 4480 0
 
 on post-fs
-    # Display
-    chown system system /sys/devices/dsi_panel_driver/flm2_mode
-    chown system system /sys/devices/dsi_panel_driver/hbm_mode
-    chown system system /sys/devices/dsi_panel_driver/area_count
-    chown system system /sys/devices/dsi_panel_driver/somc_max_brightness
-    chown system system /sys/devices/dsi_panel_driver/pre_sod_mode
-    chown system system /sys/module/msm_drm/parameters/dp_validate_mode
-
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
-
     # Sensor
     chown system system /mnt/vendor/persist/sensors
     chown system system /mnt/vendor/persist/sensors/sns.reg
@@ -106,29 +59,108 @@ on post-fs
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
     exec - system system -- /vendor/bin/somc_reg_update
 
-    # led RGB
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/red/sync_blink
-    chown system system /sys/class/leds/red/max_single_brightness
-    chown system system /sys/class/leds/red/max_mix_brightness
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/green/sync_blink
-    chown system system /sys/class/leds/green/max_single_brightness
-    chown system system /sys/class/leds/green/max_mix_brightness
-    chown system system /sys/class/leds/blue/brightness
-    chown system system /sys/class/leds/blue/sync_blink
-    chown system system /sys/class/leds/blue/max_single_brightness
-    chown system system /sys/class/leds/blue/max_mix_brightness
-
-    # DeviceMonitor UFSInfo
-    chown system system /sys/kernel/debug/1d84000.ufshc/dump_device_desc
-    chown system system /sys/bus/platform/drivers/ufshcd-qcom/1d84000.ufshc/health_descriptor/life_time_estimation_a
-    chown system system /sys/bus/platform/drivers/ufshcd-qcom/1d84000.ufshc/health_descriptor/life_time_estimation_b
+    # Wifi
+    mkdir /mnt/vendor/persist/wifi 0700 root system
+    mkdir /mnt/vendor/persist/wifi/kiwi_v2 0700 root system
 
 on post-fs-data
-   # MPEG-H 3D audio
-   mkdir /data/vendor/3dra 0775 audio audio
+    # backlight
+    chown system system /sys/class/backlight/panel0-backlight/brightness
 
+    # Fingerprint EGIS irq
+    chown system system /dev/esfp0
+    chmod 0600 /dev/esfp0
+    mkdir /data/vendor/egis 0770 system system
+    start ets_hal
+
+    # Create 360ra dir for audioHAL
+    mkdir /data/vendor/360ra 0775 audioserver audio
+    copy /vendor/etc/alc.speaker.bin /data/vendor/360ra/alc.speaker.bin
+    chmod 0770 /data/vendor/360ra/alc.speaker.bin
+    chown audioserver audio /data/vendor/360ra/alc.speaker.bin
+
+on early-boot
+    # Display
+    chown system system /sys/devices/dsi_panel_driver/flm2_mode
+    chown system system /sys/devices/dsi_panel_driver/camera_flash_brightness
+    chown system system /sys/devices/dsi_panel_driver/thermal_limit
+    chown system system /sys/devices/dsi_panel_driver/somc_max_luminance
+    chown system oem_2987 /sys/devices/dsi_panel_driver/area_count
+    chown system oem_2987 /sys/devices/dsi_panel_driver/panel_id
+    chmod 0440 /sys/devices/dsi_panel_driver/panel_id
+    chown system system /sys/module/msm_drm/parameters/dp_validate_mode
+    chown system system /sys/devices/dsi_panel_driver/somc_max_brightness
+
+on charger && property:ro.build.type=userdebug
+    mkdir /mnt/vendor/persist 0771 root system
+    wait /dev/block/bootdevice/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/charge_log 0770 system system
+
+on charger
+    # Charger
+    wait /sys/class/battchg_ext
+    chmod 0664 /sys/class/battchg_ext/usb_input_suspend
+    chmod 0664 /sys/class/battchg_ext/lrc_charge_disable
+    chmod 0664 /sys/class/battchg_ext/lrc_input_suspend
+    chmod 0664 /sys/class/battchg_ext/batt_aging_level
+    chmod 0664 /sys/class/battchg_ext/bootup_shutdown_phase
+    chmod 0664 /sys/class/battchg_ext/system_temp_level
+    chmod 0664 /sys/class/battchg_ext/restored_capacity
+    chmod 0664 /sys/class/battman_dbg/regupdate_interval
+    chmod 0664 /sys/class/battman_dbg/log_interval
+    chmod 0664 /sys/class/battman_dbg/log_categories
+    chmod 0664 /sys/class/battman_dbg/log_level
+    chmod 0664 /sys/class/qcom-battery/ship_mode_en
+
+    # The charge_service/chargemon use wakelock before on boot, so add permission here.
+    chown radio wakelock /sys/power/wake_lock
+    chown radio wakelock /sys/power/wake_unlock
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
+
+    # charge_service
+    start charge_service
+
+    # smart_charging
+    chown system system /sys/class/battchg_ext/smart_charging_activation
+    chown system system /sys/class/battchg_ext/smart_charging_interruption
+
+    # Set USB mode to MSC for SDP charging
+    setprop sys.usb.config mass_storage_charge
+
+    # chargemon
+    start chargemon
+
+    # backlight
+    wait /sys/class/backlight/panel0-backlight/brightness 100
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+
+on boot && property:ro.build.type=userdebug
+    mkdir /data/vendor_de/charge_log 0770 system system
+
+on boot
+    chmod 0664 /sys/class/battman_dbg/log_interval
+    chmod 0664 /sys/class/battman_dbg/log_categories
+    chmod 0664 /sys/class/battman_dbg/log_level
+    chmod 0664 /sys/class/battman_dbg/regupdate_interval
+
+    # Charger
+    chmod 0664 /sys/class/battchg_ext/usb_input_suspend
+    chmod 0664 /sys/class/battchg_ext/lrc_charge_disable
+    chmod 0664 /sys/class/battchg_ext/lrc_input_suspend
+    chmod 0664 /sys/class/battchg_ext/batt_aging_level
+    chmod 0664 /sys/class/battchg_ext/system_temp_level
+    chmod 0664 /sys/class/battchg_ext/restored_capacity
+    chmod 0444 /sys/kernel/debug/battery_debug/votables/fv_tot/status
+    chmod 0444 /sys/kernel/debug/battery_debug/votables/iusb0_tot/status
+    chmod 0444 /sys/kernel/debug/battery_debug/votables/fcc_tot/status
+    chmod 0664 /sys/class/qcom-battery/wireless_boost_en
+
+    # charge_service
+    start charge_service
+
+on post-fs-data
     # Charger
     chmod 0664 /sys/class/power_supply/battery/uevent
     chmod 0664 /sys/class/power_supply/wireless/uevent
@@ -139,42 +171,6 @@ on post-fs-data
     chown radio wakelock /sys/power/wake_unlock
     chmod 0660 /sys/power/wake_lock
     chmod 0660 /sys/power/wake_unlock
-
-    # backlight
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-
-    # create directory for wfd
-    
-
-    # Fingerprint EGIS
-    mkdir /data/vendor/egis 0770 system system
-    start ets_hal
-
-    # Camera to enable system crash from DSP
-    
-
-on boot
-    # Charger
-    chmod 0664 /sys/class/battchg_ext/usb_input_suspend
-    chmod 0664 /sys/class/battchg_ext/lrc_charge_disable
-    chmod 0664 /sys/class/battchg_ext/lrc_input_suspend
-    chmod 0664 /sys/class/battchg_ext/batt_aging_level
-    chmod 0664 /sys/class/battchg_ext/system_temp_level
-    chmod 0664 /sys/class/battchg_ext/sdm_therm
-    chmod 0664 /sys/class/battman_dbg/regupdate_interval
-    chmod 0664 /sys/class/battman_dbg/log_interval
-    chmod 0664 /sys/class/battman_dbg/log_categories
-    chmod 0664 /sys/class/battman_dbg/log_level
-    chmod 0664 /sys/class/qcom-battery/wireless_boost_en
-    chmod 0444 /sys/kernel/debug/battery_debug/votables/fv_tot/status
-    chmod 0444 /sys/kernel/debug/battery_debug/votables/iusb0_tot/status
-    chmod 0444 /sys/kernel/debug/battery_debug/votables/fcc_tot/status
-
-    # charge_service
-    
-    start charge_service
-    # USB
-    chown root system /config/usb_gadget/g1
 
 # chargemon
 service chargemon /vendor/bin/chargemon
@@ -190,6 +186,12 @@ service charge_service /vendor/bin/charge_service
     # Add wakelock to the group of charge_service for access "/sys/power/wake_lock" and "/sys/power/wake_unlock".
     group system root oem_2993 wakelock
     writepid /dev/cpuset/system-background/tasks
+    disabled
+
+#spc file delete service
+service spcdeld /vendor/bin/spcdeld
+    user system
+    group system
     disabled
 
 # Set value in property to sysfs for SmartCharge
@@ -212,13 +214,33 @@ on property:sys.shutdown.requested=*
     write /sys/class/battchg_ext/bootup_shutdown_phase 4
     write /sys/class/power_supply/battery/uevent change
 
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
-
-on property:ro.boot.verifiedbootstate=orange
+on property:ro.build.type=user && property:ro.boot.verifiedbootstate=orange
     setprop persist.sys.usb.config adb
+
+on property:sys.powerctl=*
+    start spcdeld
+
+# Touch
+on property:vendor.backlight_on=1
+    write /sys/devices/virtual/input/lxs_ts_input/enable 1
+
+on property:vendor.backlight_on=0
+    write /sys/devices/virtual/input/lxs_ts_input/enable 12
+
+on property:vendor.enable.always_on_display=0 && property:vendor.backlight_on=1
+    write /sys/devices/virtual/input/lxs_ts_input/set_lowpower_mode 0
+    write /sys/devices/virtual/input/lxs_ts_input/enable 1
+
+on property:vendor.enable.always_on_display=1 && property:vendor.backlight_on=1
+    write /sys/devices/virtual/input/lxs_ts_input/set_lowpower_mode 1
+    write /sys/devices/virtual/input/lxs_ts_input/enable 1
+
+on property:vendor.smartstamina.touchreport=1
+    write /sys/devices/virtual/input/lxs_ts_input/frame_rate_np "0 1"
+
+on property:vendor.smartstamina.touchreport=0
+    write /sys/devices/virtual/input/lxs_ts_input/frame_rate_np "0 2"
+
+# create directory for wfd
+on post-fs-data && property:ro.build.type=userdebug
+    mkdir /data/vendor/wfd 0777 system system
