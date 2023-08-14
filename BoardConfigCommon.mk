@@ -80,6 +80,8 @@ BOARD_BOOTCONFIG := \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3
 
+TARGET_KERNEL_SOURCE := kernel/sony/sm8550
+TARGET_KERNEL_CONFIG := pdx234_defconfig
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_IMAGE_NAME := Image
