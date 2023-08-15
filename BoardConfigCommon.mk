@@ -64,7 +64,8 @@ BOARD_RAMDISK_USE_LZ4 := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # DTBO
-# BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_KERNEL_SEPARATED_DTBO := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kalama
 TARGET_NO_BOOTLOADER := true
@@ -88,6 +89,7 @@ BOARD_KERNEL_IMAGE_NAME := Image
 
 KERNEL_LTO := none
 
+TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/sony/sm8550
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
@@ -106,10 +108,10 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.l
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
+# BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
 
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8550-modules
-TARGET_KERNEL_EXT_MODULES := \
+# TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8550-modules
+# TARGET_KERNEL_EXT_MODULES := \
     qcom/mmrm-driver \
     qcom/mm-drivers/hw_fence \
     qcom/mm-drivers/msm_ext_display \
