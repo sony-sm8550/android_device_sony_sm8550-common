@@ -66,7 +66,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := lahaina
+TARGET_BOOTLOADER_BOARD_NAME := kalama
 TARGET_NO_BOOTLOADER := true
 
 # Init Boot
@@ -79,10 +79,10 @@ BOARD_BOOTCONFIG := \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3
 
-TARGET_KERNEL_SOURCE := kernel/sony/sm8550
+# TARGET_KERNEL_SOURCE := kernel/sony/sm8550
 TARGET_KERNEL_CONFIG := pdx234_defconfig
 
-TARGET_KERNEL_DIR := $(DEVICE_PATH)-kernel
+TARGET_KERNEL_DIR := device/sony/pdx234-kernel
 
 KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/modules
 TARGET_FORCE_PREBUILT_KERNEL := true
@@ -106,7 +106,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/m
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 # BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
 
-BOARD_SYSTEM_DLKM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.vendor_boot))
+BOARD_SYSTEM_DLKM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_VENDOR_KERNEL_MODULES_LOAD)))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)))
 
@@ -117,7 +117,7 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     LLVM=1 LLVM_IAS=1
 
 # Platform
-TARGET_BOARD_PLATFORM := lahaina
+TARGET_BOARD_PLATFORM := kalama
 
 # Qcom
 BOARD_USES_QCOM_HARDWARE := true
