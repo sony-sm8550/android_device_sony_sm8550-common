@@ -64,7 +64,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # DTBO
-BOARD_KERNEL_SEPARATED_DTBO := true
+# BOARD_KERNEL_SEPARATED_DTBO := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kalama
 TARGET_NO_BOOTLOADER := true
@@ -79,36 +79,63 @@ BOARD_BOOTCONFIG := \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3
 
-# TARGET_KERNEL_SOURCE := kernel/sony/sm8550
-TARGET_KERNEL_CONFIG := pdx234_defconfig
-
-TARGET_KERNEL_DIR := device/sony/pdx234-kernel
-
-KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/modules
-TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(TARGET_KERNEL_DIR)/kernel
-BOARD_PREBUILT_DTBOIMAGE := $(TARGET_KERNEL_DIR)/dtbo.img
-BOARD_PREBUILT_DTBIMAGE_DIR := $(TARGET_KERNEL_DIR)
+BOARD_BOOTCONFIG += androidboot.selinux=permissive
 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_NO_GCC := true
 
-# Kernel modules
-KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/*.ko)
+KERNEL_LTO := none
+
+TARGET_KERNEL_SOURCE := kernel/sony/sm8550
+TARGET_KERNEL_CONFIG := \
+    gki_defconfig \
+    vendor/kalama_GKI.config
 
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-# BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
+BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
 
-BOARD_SYSTEM_DLKM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
-BOARD_VENDOR_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_VENDOR_KERNEL_MODULES_LOAD)))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)))
+# Kernel Modules
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
+BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
+
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8550-modules
+TARGET_KERNEL_EXT_MODULES := \
+    qcom/mmrm-driver \
+    qcom/mm-drivers/hw_fence \
+    qcom/mm-drivers/msm_ext_display \
+    qcom/mm-drivers/sync_fence \
+    qcom/audio-kernel \
+    qcom/camera-kernel \
+    qcom/dataipa/drivers/platform/msm \
+    qcom/datarmnet/core \
+    qcom/datarmnet-ext/aps \
+    qcom/datarmnet-ext/offload \
+    qcom/datarmnet-ext/shs \
+    qcom/datarmnet-ext/perf \
+    qcom/datarmnet-ext/perf_tether \
+    qcom/datarmnet-ext/sch \
+    qcom/datarmnet-ext/wlan \
+    qcom/securemsm-kernel \
+    qcom/display-drivers/msm \
+    qcom/eva-kernel \
+    qcom/video-driver \
+    qcom/graphics-kernel \
+    qcom/wlan/platform \
+    qcom/wlan/qcacld-3.0/.kiwi_v2 \
+    qcom/bt-kernel \
+    nxp/driver \
+    sony/sony_camera \
+    sony/lxs_ts
 
 # Use External DTC
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
