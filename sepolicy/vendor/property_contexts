@@ -10,4 +10,3 @@ vendor.camera.sensor.		                u:object_r:vendor_camera_sensor_prop:s0
 ro.vendor.vibrator.hal.    u:object_r:vendor_vibrator_prop:s0
 
 ro.vendor.product.rf.id                 u:object_r:vendor_radio_prop:s0
-vendor.nfc.min_firmware                 u:object_r:vendor_nfc_prop:s0
