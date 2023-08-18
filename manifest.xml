@@ -406,4 +406,54 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.semc.hardware.display</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.5::IDisplay/default</fqname>
+        <fqname>@2.5::IFramerateController/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.semc.system.idd</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IIdd</name>
+            <instance>default</instance>
+            <instance>logreader</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.somc.hardware.aidlmiscta</name>
+        <fqname>IMisctaGlobal/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.miscta</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMisctaGlobal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IMisctaGlobal/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.egistec.hardware.fingerprint</name>
+        <transport>hwbinder</transport>
+        <version>4.0</version>
+        <interface>
+            <name>IBiometricsFingerprintBix</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@4.0::IBiometricsFingerprintBix/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.security.secd</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IDeviceSecurity</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IDeviceSecurity/default</fqname>
+    </hal>
 </manifest>
