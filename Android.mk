@@ -229,7 +229,7 @@ $(WIFI_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /vendor/etc/wifi/bdwlan.e31 $@/kiwi/bdwlan.e31
 	$(hide) ln -sf /data/vendor/firmware/wlanmdsp.mbn $@/wlanmdsp.otaupdate
 	$(hide) ln -sf /mnt/vendor/persist/wlan_mac.bin $@/wlan/qca_cld/kiwi_v2/wlan_mac.bin
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_cfg.ini $@/wlan/qca_cld/kiwi_v2/WCNSS_qcom_cfg.ini
+	$(hide) ln -sf /mnt/vendor/persist/wifi/kiwi_v2/WCNSS_qcom_cfg.ini $@/wlan/qca_cld/kiwi_v2/WCNSS_qcom_cfg.ini
 
 ALL_DEFAULT_INSTALLED_MODULES += \
     $(IMS_SYMLINKS) \
