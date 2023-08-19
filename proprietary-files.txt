@@ -396,6 +396,7 @@ vendor/lib64/vendor.qti.latency@2.2.so
 # Camera
 vendor/bin/hw/vendor.somc.hardware.camera.provider@1.0-service
 vendor/etc/init/vendor.somc.hardware.camera.provider@1.0-service.rc
+vendor/etc/vintf/manifest/vendor.somc.hardware.camera.provider.manifest.xml
 vendor/lib64/camera/components/com.bots.node.vendortagwrite.so
 vendor/lib64/camera/components/com.qti.eisv2.so
 vendor/lib64/camera/components/com.qti.eisv3.so
