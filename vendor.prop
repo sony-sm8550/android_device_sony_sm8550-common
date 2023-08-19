@@ -169,6 +169,9 @@ vendor.display.disable_offline_rotator=1
 vendor.display.enable_async_powermode=0
 vendor.display.disable_hw_recovery_dump=1
 
+# DPM
+persist.vendor.dpm.vndr.feature=11
+
 # DRM
 drm.service.enabled=true
 
