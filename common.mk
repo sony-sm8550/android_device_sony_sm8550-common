@@ -244,7 +244,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+    $(LOCAL_PATH)/rootdir/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default \
+    $(LOCAL_PATH)/rootdir/fstab.default:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
 
 # Display
 PRODUCT_PACKAGES += \
