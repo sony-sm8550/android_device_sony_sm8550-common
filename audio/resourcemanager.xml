@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Copyright (c) 2019-2021, The Linux Foundation. All rights reserved.
+<!-- Copyright (c) 2020-2021, The Linux Foundation. All rights reserved.
 
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -58,12 +58,14 @@
 * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
 * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-* IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
+* IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
 
 <resource_manager_info>
     <version>2.0</version>
     <config_params>
+        <!--
         <param key="native_audio_mode" value="multiple_mix_dsp"/>
+        -->
         <!-- Uncomment HIFI Filter Headphones related sections when set this
              hifi_filter key to true -->
         <param key="hifi_filter" value="false"/>
@@ -77,7 +79,31 @@
         <param key="device_mux_config" value ="false" />
         <param key="upd_duty_cycle_enable" value="false" />
         <param key="upd_virtual_port" value ="false" />
+        <param key="dual_mono" value ="true" />
     </config_params>
+    <config_volume>
+        <!--
+        <use_volume_set_param>0</use_volume_set_param>
+        <supported_streams>
+            <supported_stream>PAL_STREAM_ULTRA_LOW_LATENCY</supported_stream>
+            <supported_stream>PAL_STREAM_COMPRESSED</supported_stream>
+        </supported_streams>
+        -->
+        <use_volume_set_param>1</use_volume_set_param>
+        <supported_streams>
+            <supported_stream>PAL_STREAM_ULTRA_LOW_LATENCY</supported_stream>
+            <supported_stream>PAL_STREAM_PCM_OFFLOAD</supported_stream>
+            <supported_stream>PAL_STREAM_COMPRESSED</supported_stream>
+            <supported_stream>PAL_STREAM_VOIP_RX</supported_stream>
+        </supported_streams>
+    </config_volume>
+    <config_lpm>
+        <use_disable_lpm>1</use_disable_lpm>
+        <lpm_supported_streams>
+            <lpm_supported_stream>PAL_STREAM_LOW_LATENCY</lpm_supported_stream>
+            <lpm_supported_stream>PAL_STREAM_ULTRA_LOW_LATENCY</lpm_supported_stream>
+        </lpm_supported_streams>
+    </config_lpm>
     <config_gapless key="gapless_supported" value="1"/>
     <bt_codecs>
         <codec codec_format="CODEC_TYPE_AAC" codec_type="enc|dec" codec_library="lib_bt_bundle.so" />
@@ -101,7 +127,7 @@
     <config_voice>
         <vsid>0xB3000000</vsid>
         <loopbackDelay>1000</loopbackDelay>
-        <maxVolIndex>5</maxVolIndex>
+        <maxVolIndex>8</maxVolIndex>
         <mode_map>
             <modepair key="0x11C05000" value="0xB3000001"/>
             <modepair key="0x11DC5000" value="0xB3000001"/>
@@ -148,6 +174,7 @@
             <max_channels>4</max_channels>
             <channels>1</channels>
             <samplerate>48000</samplerate>
+            <bit_width>24</bit_width>
             <snd_device_name>handset-mic</snd_device_name>
             <ec_enable>0</ec_enable>
             <usecase>
@@ -156,6 +183,26 @@
             <usecase>
                 <name>PAL_STREAM_DEEP_BUFFER</name>
                 <ec_enable>1</ec_enable>
+                <custom-config key="sony-handset-mic-2nd-mono">
+                    <channels>1</channels>
+                    <snd_device_name>sony-handset-mic-2nd-mono</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-handset-mic-audiorec-mono">
+                    <channels>1</channels>
+                    <snd_device_name>sony-handset-mic-audiorec-mono</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-handset-mic-audiorec-stereo">
+                    <channels>2</channels>
+                    <snd_device_name>sony-handset-mic-audiorec-stereo</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-handset-mic-camcorder-mono">
+                    <channels>1</channels>
+                    <snd_device_name>sony-handset-mic-camcorder-mono</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-handset-mic-camcorder-stereo">
+                    <channels>2</channels>
+                    <snd_device_name>sony-handset-mic-camcorder-stereo</snd_device_name>
+                </custom-config>
                 <custom-config key="unprocessed-hdr-mic-landscape">
                     <channels>4</channels>
                     <snd_device_name>unprocessed-hdr-mic-landscape</snd_device_name>
@@ -202,9 +249,24 @@
                 </custom-config>
             </usecase>
             <usecase>
+                <name>PAL_STREAM_VOICE_RECOGNITION</name>
+                <custom-config key="sony-handset-mic-voicerec-mono">
+                    <channels>1</channels>
+                    <snd_device_name>sony-handset-mic-voicerec-mono</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-handset-mic-voicerec-stereo">
+                    <channels>2</channels>
+                    <snd_device_name>sony-handset-mic-voicerec-stereo</snd_device_name>
+                </custom-config>
+            </usecase>
+            <usecase>
                 <name>PAL_STREAM_VOIP_TX</name>
                 <priority>2</priority>
                 <ec_enable>1</ec_enable>
+                <custom-config key="dual-mic">
+                    <channels>2</channels>
+                    <snd_device_name>handset-dmic-endfire</snd_device_name>
+                </custom-config>
             </usecase>
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>
@@ -231,6 +293,14 @@
             <usecase>
                 <name>PAL_STREAM_RAW</name>
                 <snd_device_name>handset-mic-unprocessed</snd_device_name>
+                <custom-config key="sony-handset-mic-unprocess-mono">
+                    <channels>1</channels>
+                    <snd_device_name>sony-handset-mic-unprocess-mono</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-handset-mic-unprocess-stereo">
+                    <channels>2</channels>
+                    <snd_device_name>sony-handset-mic-unprocess-stereo</snd_device_name>
+                </custom-config>
                 <custom-config key="unprocessed-hdr-mic-landscape">
                     <channels>4</channels>
                     <snd_device_name>unprocessed-hdr-mic-landscape</snd_device_name>
@@ -258,6 +328,7 @@
             <back_end_name>CODEC_DMA-LPAIF_RXTX-TX-3</back_end_name>
             <max_channels>4</max_channels>
             <samplerate>48000</samplerate>
+            <bit_width>24</bit_width>
             <channels>1</channels>
             <ec_enable>0</ec_enable>
             <snd_device_name>speaker-mic</snd_device_name>
@@ -267,6 +338,14 @@
             <usecase>
                 <name>PAL_STREAM_DEEP_BUFFER</name>
                 <ec_enable>1</ec_enable>
+                <custom-config key="sony-speaker-mic-camcorder-mono">
+                    <channels>1</channels>
+                    <snd_device_name>sony-speaker-mic-camcorder-mono</snd_device_name>
+                </custom-config>
+                <custom-config key="sony-speaker-mic-camcorder-stereo">
+                    <channels>2</channels>
+                    <snd_device_name>sony-speaker-mic-camcorder-stereo</snd_device_name>
+                </custom-config>
                 <custom-config key="unprocessed-hdr-mic-landscape">
                     <channels>4</channels>
                     <snd_device_name>unprocessed-hdr-mic-landscape</snd_device_name>
@@ -323,6 +402,10 @@
                 <sidetone_mode>OFF</sidetone_mode>
                 <bit_width>16</bit_width>
                 <ec_enable>1</ec_enable>
+                <custom-config key="nn-sm">
+                    <channels>1</channels>
+                    <snd_device_name>speaker-mic</snd_device_name>
+                </custom-config>
                 <custom-config key="dual-mic">
                     <channels>2</channels>
                     <snd_device_name>speaker-dmic-endfire</snd_device_name>
@@ -381,6 +464,9 @@
                 <bit_width>16</bit_width>
                 <priority>1</priority>
                 <ec_enable>1</ec_enable>
+                <custom-config key="TTY">
+                   <snd_device_name>voice-tty-full-headset-mic</snd_device_name>
+                </custom-config>
             </usecase>
             <usecase>
                 <name>PAL_STREAM_ULTRA_LOW_LATENCY</name>
@@ -610,12 +696,12 @@
         </in-device>
         <in-device>
             <id>PAL_DEVICE_IN_EXT_EC_REF</id>
-            <back_end_name>MI2S-LPAIF-TX-TERTIARY</back_end_name>
+            <back_end_name>MI2S-LPAIF_WSA-TX-PRIMARY</back_end_name>
             <snd_device_name>ext_ec_ref_tx</snd_device_name>
             <max_channels>2</max_channels>
             <channels>2</channels>
-            <bit_width>16</bit_width>
             <samplerate>48000</samplerate>
+            <bit_width>24</bit_width>
         </in-device>
         <in-device>
             <id>PAL_DEVICE_IN_ECHO_REF</id>
@@ -631,28 +717,29 @@
         </in-device>
         <out-device>
             <id>PAL_DEVICE_NONE</id>
-            <back_end_name>CODEC_DMA-LPAIF_WSA-RX-0</back_end_name>
-            <max_channels>2</max_channels>
+            <back_end_name>MI2S-LPAIF_WSA-RX-PRIMARY</back_end_name>
+            <max_channels>1</max_channels>
             <channels>1</channels>
-            <snd_device_name>none</snd_device_name>
+            <snd_device_name>speaker</snd_device_name>
             <samplerate>48000</samplerate>
-            <bit_width>16</bit_width>
+            <bit_width>24</bit_width>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_SPEAKER</id>
-            <back_end_name>CODEC_DMA-LPAIF_WSA-RX-0</back_end_name>
+            <back_end_name>MI2S-LPAIF_WSA-RX-PRIMARY</back_end_name>
             <max_channels>2</max_channels>
             <channels>2</channels>
             <samplerate>48000</samplerate>
+            <bit_width>24</bit_width>
             <snd_device_name>speaker</snd_device_name>
             <speaker_protection_enabled>0</speaker_protection_enabled>
             <fractional_sr>0</fractional_sr>
             <!-- To enable external EC reference the flag extec_ref_enabled must be added as 1 -->
-            <ext_ec_ref_enabled>0</ext_ec_ref_enabled>
+            <ext_ec_ref_enabled>1</ext_ec_ref_enabled>
             <!-- Flag to specify cps mode which is applicable
                  Values: disable CPS: 0
                          CPS streaming: 1
-                         ADSP control mode : 2
+                         ADSP control mode: 2
             -->
             <cps_mode>1</cps_mode>
             <vbat_enabled>0</vbat_enabled>
@@ -676,27 +763,44 @@
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>
                 <priority>1</priority>
+                <!--
                 <channels>1</channels>
+                -->
+                <!--
                 <snd_device_name>speaker-mono-2</snd_device_name>
+                -->
             </usecase>
             <usecase>
                 <name>PAL_STREAM_VOIP_RX</name>
                 <priority>2</priority>
+                <!--
+                <channels>1</channels>
+                -->
+                <!--
+                <snd_device_name>speaker-mono-2</snd_device_name>
+                -->
             </usecase>
             <usecase>
                 <name>PAL_STREAM_ULTRASOUND</name>
                 <priority>4</priority>
                 <samplerate>96000</samplerate>
             </usecase>
+            <usecase>
+                <name>PAL_STREAM_LOW_LATENCY</name>
+                <custom-config key="sony-cirrus-speaker-calibration">
+                    <snd_device_name>sony-cirrus-speaker-calibration</snd_device_name>
+                </custom-config>
+            </usecase>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_HANDSET</id>
-            <back_end_name>CODEC_DMA-LPAIF_WSA-RX-0</back_end_name>
-            <max_channels>2</max_channels>
+            <back_end_name>MI2S-LPAIF_WSA-RX-PRIMARY</back_end_name>
+            <max_channels>1</max_channels>
             <channels>1</channels>
             <!-- To enable external EC reference the flag extec_ref_enabled must be added as 1 -->
             <ext_ec_ref_enabled>0</ext_ec_ref_enabled>
             <samplerate>48000</samplerate>
+            <bit_width>24</bit_width>
             <fractional_sr>0</fractional_sr>
             <snd_device_name>handset</snd_device_name>
             <handset_protection_enabled>0</handset_protection_enabled>
@@ -935,10 +1039,12 @@
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_HAPTICS_DEVICE</id>
-            <back_end_name>CODEC_DMA-LPAIF_RXTX-RX-6</back_end_name>
+            <back_end_name>MI2S-LPAIF-RX-PRIMARY</back_end_name>
             <max_channels>2</max_channels>
-            <channels>1</channels>
+            <channels>2</channels>
             <snd_device_name>haptics-dev</snd_device_name>
+            <samplerate>48000</samplerate>
+            <bit_width>16</bit_width>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_ULTRASOUND</id>
@@ -964,7 +1070,6 @@
             <name>PAL_STREAM_VOIP_TX</name>
                 <policies>
                     <ec_ref>
-                        <disabled_stream>PAL_STREAM_LOW_LATENCY</disabled_stream>
                         <disabled_stream>PAL_STREAM_GENERIC</disabled_stream>
                     </ec_ref>
                 </policies>
@@ -1410,9 +1515,9 @@
                 <!-- Module output channels -->
                 <param out_channels="1" />
                 <operating_modes>
-                    <low_power capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_RAW_LPI" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_RAW_LPI" />
-                    <high_performance capture_profile_handset="DUAL_MIC_16KHZ_16BIT_FFECNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFECNS" />
-                    <high_performance_and_charging capture_profile_handset="DUAL_MIC_16KHZ_16BIT_FFECNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFECNS" />
+                    <low_power capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_FFNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFNS"/>
+                    <high_performance capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_FFECNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFECNS"/>
+                    <high_performance_and_charging capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_FFECNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFECNS"/>
                 </operating_modes>
                 <sound_model_info>
                     <first_stage_module_params>
@@ -1469,7 +1574,7 @@
             <stream_config>
                 <name>HOTWORD_VOICE_UI</name>
                 <param vendor_uuid="7038ddc8-30f2-11e6-b0ac-40a8f03d3f15" />
-                <param get_module_version="false" />
+                <param get_module_version="true" />
                 <param merge_first_stage_sound_models="false" />
                 <param capture_keyword="2000" />
                 <param client_capture_read_delay="2000" />
@@ -1481,8 +1586,8 @@
                 <param out_channels="1" />
                 <operating_modes>
                     <low_power capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_RAW_LPI" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_RAW_LPI" />
-                    <high_performance capture_profile_handset="DUAL_MIC_16KHZ_16BIT_RAW_NLPI" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_RAW_NLPI" />
-                    <high_performance_and_charging capture_profile_handset="DUAL_MIC_16KHZ_16BIT_RAW_NLPI" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_RAW_NLPI" />
+                    <high_performance capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_FFECNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFECNS"/>
+                    <high_performance_and_charging capture_profile_handset="SINGLE_MIC_16KHZ_16BIT_FFECNS" capture_profile_headset="SINGLE_MIC_16KHZ_16BIT_HEADSET_FFECNS"/>
                 </operating_modes>
                 <sound_model_info>
                     <first_stage_module_params>
