@@ -341,7 +341,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
 # Lineage Health
-PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Media
@@ -377,7 +377,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_lahaina_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_lahaina_vendor.xml
 
 # LiveDisplay
-PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service.sony
 
 # Net
