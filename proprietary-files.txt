@@ -2204,3 +2204,5 @@ vendor/lib64/se_nq_extn_client.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/lib64/vendor.somc.hardware.aidlradio-V1-ndk.so
 vendor/lib64/vendor.somc.hardware.videoeffect-V1-ndk_platform.so
+vendor/lib64/libSnpeHtpV73Stub.so
+vendor/lib64/libQnnHtp.so
