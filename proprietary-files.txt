@@ -1,4 +1,4 @@
-# Stock package version: XQ-BC72_Customized HK_61.2.A.0.447
+# Stock package version: XQ-DQ72_Customized HK_67.0.A.4.51
 
 # ACDBs
 vendor/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__3.0.0_0.0__eai_2.10_enpu3.pmd
