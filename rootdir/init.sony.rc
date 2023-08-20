@@ -45,6 +45,9 @@ on property:ro.vendor.ltalabel.model=XQ-BQ42
     setprop ro.vendor.product.rf.id PDX214-J2
     setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
 
+on property:ro.vendor.ltalabel.model=XQ-DQ72
+    setprop ro.vendor.product.rf.id pdx234-C2
+
 # USB config, refer to init.sony.usb.rc
 on property:sys.usb.config=adb && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/idVendor 0x0FCE
