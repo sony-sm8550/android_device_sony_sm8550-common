@@ -144,7 +144,7 @@ vendor.mm.enable.qcom_parser=16777215
 
 # Chipset
 ro.soc.manufacturer=QTI
-ro.soc.model=SM8350
+ro.soc.model=SM8550
 
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
