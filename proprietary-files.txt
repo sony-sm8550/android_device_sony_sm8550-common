@@ -728,6 +728,7 @@ vendor/lib64/vendor.qti.hardware.camera.aon-service-impl.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.semc.hardware.extlight-V1-ndk_platform.so
 vendor/lib64/vendor.somc.camera.device-impl.so
+vendor/lib64/vendor.somc.hardware.videoeffect-V1-impl.so
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP_170.elf
