@@ -395,8 +395,11 @@ vendor/lib64/vendor.qti.latency@2.2.so
 
 # Camera
 vendor/bin/hw/vendor.somc.hardware.camera.provider@1.0-service
+vendor/etc/camera/camxoverridesettings.txt
 vendor/etc/init/vendor.somc.hardware.camera.provider@1.0-service.rc
 vendor/etc/vintf/manifest/vendor.somc.hardware.camera.provider.manifest.xml
+vendor/lib64/Camera_QNN/libQnnHtpV73Stub.so
+vendor/lib64/Camera_QNN/libQnnHtp.so
 vendor/lib64/camera/components/com.bots.node.vendortagwrite.so
 vendor/lib64/camera/components/com.qti.eisv2.so
 vendor/lib64/camera/components/com.qti.eisv3.so
@@ -597,6 +600,7 @@ vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.offline.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libSNPE.so
+vendor/lib64/libSnpeHtpPrepare.so
 vendor/lib64/libaidenoiser.so
 vendor/lib64/libaidenoiserv2.so
 vendor/lib64/libarcsoft_bokeh_adapter.so
@@ -630,6 +634,7 @@ vendor/lib64/libchifeature2.so
 vendor/lib64/libchilog.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libcommonchiutils.so
+vendor/lib64/libdepthcomputation.so
 vendor/lib64/libhdr10plus.so
 vendor/lib64/libhdr_stub.so
 vendor/lib64/libexcal_core.so
@@ -648,6 +653,7 @@ vendor/lib64/libmmcamera_lscv35.so
 vendor/lib64/libmmcamera_mfnr.so
 vendor/lib64/libmmcamera_mfnr_t4.so
 vendor/lib64/libmmcamera_pdpc.so
+vendor/lib64/libmorpho_single_camera.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
 vendor/lib64/libopencv.so
@@ -716,6 +722,7 @@ vendor/lib64/libsony_facestab.so
 vendor/lib64/libsony_fc.so
 vendor/lib64/libsony_naruto.so
 vendor/lib64/libsony_stab.so
+vendor/lib64/libspectre.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libsynx.so
 vendor/lib64/libtfestriping.so
