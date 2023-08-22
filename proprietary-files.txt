@@ -939,12 +939,6 @@ vendor/lib64/libvmfilexfer.so
 # Display (Sony)
 vendor/bin/hw/vendor.semc.hardware.display@2.5-service
 vendor/etc/init/vendor.semc.hardware.display@2.5-service.rc
-vendor/lib64/vendor.semc.hardware.display@2.0.so
-vendor/lib64/vendor.semc.hardware.display@2.1.so
-vendor/lib64/vendor.semc.hardware.display@2.2.so
-vendor/lib64/vendor.semc.hardware.display@2.3.so
-vendor/lib64/vendor.semc.hardware.display@2.4.so
-vendor/lib64/vendor.semc.hardware.display@2.5.so
 
 # Display calibration data
 vendor/etc/display/qdcm_calib_data_Sharp_2k_cmd_mode_qsync_dsi_panel.json
