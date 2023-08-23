@@ -2,9 +2,16 @@ persist.vendor.display.sspp_color_mode  u:object_r:vendor_display_color_prop:s0
 persist.vendor.display.colorgamut.mode  u:object_r:vendor_display_color_prop:s0
 persist.vendor.display.pcc_matrix       u:object_r:vendor_display_color_prop:s0
 persist.vendor.display.opec_mode        u:object_r:vendor_display_color_prop:s0
+vendor.display.primary_pcc_matrix       u:object_r:vendor_display_color_prop:s0
+vendor.display.libhdr.illuminance       u:object_r:vendor_display_color_prop:s0
+vendor.enable.always_on_display         u:object_r:odm_display_always_on_prop:s0
+persist.vendor.display.libhdr.enable_dyn_tm  u:object_r:vendor_display_color_prop:s0
 vendor.display.hmd_mode                 u:object_r:vendor_display_color_prop:s0
+vendor.backlight_on                     u:object_r:vendor_display_prop:s0
 vendor.fingerprint.hwid                 u:object_r:vendor_fingerprint_hwid_prop:s0
-
+vendor.splitscreen.pip.mode            u:object_r:vendor_somc_gfx_prop:s0
+vendor.smartstamina.touchreport u:object_r:vendor_hal_superstamina_prop:s0
+persist.vendor.disable_high_resolution u:object_r:vendor_hal_superstamina_prop:s0
 vendor.camera.sensor.		                u:object_r:vendor_camera_sensor_prop:s0
 
 ro.vendor.vibrator.hal.    u:object_r:vendor_vibrator_prop:s0

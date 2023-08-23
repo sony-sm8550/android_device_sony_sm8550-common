@@ -6,3 +6,5 @@ allow rild tad_socket:dir { write };
 
 allow rild tad_socket:sock_file write;
 allow rild tad:unix_stream_socket connectto;
+
+allow rild somc_aidl_radio_service:service_manager add;

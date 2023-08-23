@@ -1,0 +1,4 @@
+(typeattribute display_brightness_prop_31_0)
+(typeattribute display_brightness_prop_32_0)
+(expandtypeattribute (display_brightness_prop_31_0) true)
+(typeattributeset display_brightness_prop_31_0 (display_brightness_prop))

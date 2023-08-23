@@ -11,6 +11,8 @@ genfscon sysfs /class/battchg_ext u:object_r:sysfs_battchg_ext:s0
 genfscon sysfs /class/battman_dbg u:object_r:sysfs_battchg_ext:s0
 
 # Wakeups
+genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.i2c/i2c-2/2-0028/wakeup  u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/888000.i2c/i2c-3/3-0040/wakeup  u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/5c00000.qcom,ssc/wakeup/wakeup                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:et6xx/wakeup/wakeup                        u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/17300000.qcom,lpass/wakeup/wakeup              u:object_r:sysfs_wakeup:s0

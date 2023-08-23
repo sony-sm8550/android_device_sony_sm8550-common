@@ -60,6 +60,7 @@
 
 # Sys files
 /sys/devices/virtual/sec/tsp(/.*)?                              u:object_r:sysfs_tsp:s0
+/sys/devices/virtual/input/lxs_ts_input(/.*)?                   u:object_r:sysfs_tsp:s0
 /sys/devices/dsi_panel_driver(/.*)?                             u:object_r:sysfs_dp:s0
 /sys/devices(/platform)?/soc/[0-9a-f]+.qcom,spmi/spmi-[0-9]+/spmi[0-9]+-[0-9]+/[0-9a-f]+.qcom,spmi:qcom,[0-9a-z]+@[0-9]+:qcom,leds@[a-f0-9]+(/.*)? u:object_r:vendor_sysfs_graphics:s0
 
@@ -92,6 +93,7 @@
 /sys/class/leds/led:torch_0/brightness u:object_r:sysfs_torch_brightness:s0
 /sys/class/leds/led:torch_3/brightness u:object_r:sysfs_torch_brightness:s0
 /sys/class/leds/led:switch_0/brightness u:object_r:sysfs_graphics:s0
+/sys/devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pm8550@1:qcom,flash_led@ee00/leds/led:torch_0/max_brightness u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:flash_0/max_brightness u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:torch_0/brightness u:object_r:sysfs_torch_brightness:s0
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:torch_3/brightness u:object_r:sysfs_torch_brightness:s0

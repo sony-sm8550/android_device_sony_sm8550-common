@@ -26,6 +26,7 @@
 #
 
 on boot
+    wait /sys/devices/virtual/input/lxs_ts_input/after_probe
     write /sys/devices/virtual/input/lxs_ts_input/after_probe 1
 
 on init
