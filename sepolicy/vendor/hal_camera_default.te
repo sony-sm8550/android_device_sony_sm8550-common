@@ -37,3 +37,5 @@ allow hal_camera_default sysfs_torch_brightness:file rw_file_perms;
 
 hal_client_domain(hal_camera_default, vendor_hal_qspmhal);
 hal_client_domain(hal_camera_default, hal_light);
+get_prop(hal_camera_default, vendor_sensors_debug_prop)
+get_prop(hal_camera_default, vendor_camera_running_status_prop)

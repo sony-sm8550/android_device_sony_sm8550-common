@@ -8,6 +8,7 @@ vendor_internal_prop(demo_prop);
 vendor_internal_prop(cust_system_prop)
 vendor_internal_prop(hal_somc_charger_prop)
 vendor_internal_prop(vendor_vibrator_prop)
+vendor_internal_prop(vendor_camera_running_status_prop)
 vendor_public_prop(odm_display_always_on_prop)
 vendor_public_prop(vendor_hal_superstamina_prop)
 vendor_public_prop(vendor_somc_gfx_prop)

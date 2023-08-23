@@ -9,10 +9,11 @@ persist.vendor.display.libhdr.enable_dyn_tm  u:object_r:vendor_display_color_pro
 vendor.display.hmd_mode                 u:object_r:vendor_display_color_prop:s0
 vendor.backlight_on                     u:object_r:vendor_display_prop:s0
 vendor.fingerprint.hwid                 u:object_r:vendor_fingerprint_hwid_prop:s0
-vendor.splitscreen.pip.mode            u:object_r:vendor_somc_gfx_prop:s0
+vendor.splitscreen.pip.mode             u:object_r:vendor_somc_gfx_prop:s0
 vendor.smartstamina.touchreport u:object_r:vendor_hal_superstamina_prop:s0
 persist.vendor.disable_high_resolution u:object_r:vendor_hal_superstamina_prop:s0
-vendor.camera.sensor.		                u:object_r:vendor_camera_sensor_prop:s0
+vendor.camera.running_status           u:object_r:vendor_camera_running_status_prop:s0
+vendor.camera.sensor.                  u:object_r:vendor_camera_sensor_prop:s0
 
 ro.vendor.vibrator.hal.    u:object_r:vendor_vibrator_prop:s0
 
