@@ -1018,6 +1018,7 @@ vendor/firmware/evass.mdt
 # ExtLight
 vendor/bin/hw/vendor.semc.hardware.extlight-service.somc
 vendor/etc/init/vendor.semc.hardware.extlight-somc.rc
+vendor/etc/vintf/manifest/vendor.semc.hardware.extlight-somc.xml
 
 # FASTCV
 vendor/lib64/libfastcvdsp_stub.so
