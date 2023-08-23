@@ -48,11 +48,7 @@
 /dev/esfp0        u:object_r:etsd_device:s0
 
 # Sony camera devices
-/dev/sony_camera0   u:object_r:sony_camera_device:s0
-/dev/sony_camera1   u:object_r:sony_camera_device:s0
-/dev/sony_camera2   u:object_r:sony_camera_device:s0
-/dev/sony_camera3   u:object_r:sony_camera_device:s0
-/dev/sony_camera4   u:object_r:sony_camera_device:s0
+/dev/sony_camera[0-9] u:object_r:sony_camera_device:s0
 /dev/camera_sync    u:object_r:hal_camera_sync:s0
 
 # Shell scripts
