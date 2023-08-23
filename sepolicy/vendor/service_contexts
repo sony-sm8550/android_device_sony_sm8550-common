@@ -1,3 +1,6 @@
 android.hardware.vibrator.IVibrator/dual                             u:object_r:hal_vibrator_service:s0
-vendor.somc.hardware.aidlmiscta.IMisctaGlobal/default                         u:object_r:hal_miscta_service:s0
-vendor.semc.hardware.extlight.IExtLight/default                               u:object_r:hal_light_service:s0
+vendor.somc.hardware.aidlmiscta.IMisctaGlobal/default                u:object_r:hal_miscta_service:s0
+vendor.semc.hardware.extlight.IExtLight/default                      u:object_r:hal_light_service:s0
+vendor.somc.hardware.aidlradio.ISomcHook/somchook0                   u:object_r:somc_aidl_radio_service:s0
+vendor.somc.hardware.aidlradio.ISomcHook/somchook1                   u:object_r:somc_aidl_radio_service:s0
+android.hardware.camera.provider.ICameraProvider/external/0          u:object_r:hal_camera_service:s0

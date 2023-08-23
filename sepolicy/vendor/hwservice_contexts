@@ -10,3 +10,4 @@ vendor.egistec.hardware.fingerprint::IBiometricsFingerprintRbs    u:object_r:hal
 vendor.somc.hardware.radio::ISomcHook                             u:object_r:somc_hw_radio_hwservice:s0
 vendor.semc.hardware.charger::ICharger                            u:object_r:hal_somc_charger_hwservice:s0
 vendor.nxp.nxpnfc::INxpNfc                                        u:object_r:hal_nfc_hwservice:s0
+vendor.egistec.hardware.fingerprint::IBiometricsFingerprintBix    u:object_r:hal_fingerprint_hwservice:s0

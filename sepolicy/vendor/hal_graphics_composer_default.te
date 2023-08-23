@@ -7,3 +7,7 @@ allow hal_graphics_composer_default property_socket:sock_file { write };
 
 allow hal_graphics_composer_default init:unix_stream_socket { connectto };
 allow hal_graphics_composer_default sysfs_dp:file { write };
+
+allow hal_graphics_composer_default hal_disp_framerate_hwservice:hwservice_manager find;
+allow hal_graphics_composer_default hal_disp_default:binder call;
+get_prop(hal_graphics_composer_default, vendor_somc_gfx_prop)
