@@ -1,2 +1,3 @@
 type hal_miscta_service, service_manager_type, vendor_service;
 type somc_aidl_radio_service, service_manager_type, vendor_service;
+type hal_swiqi_service, service_manager_type, vendor_service;

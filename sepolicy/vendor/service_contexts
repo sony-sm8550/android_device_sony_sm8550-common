@@ -4,3 +4,4 @@ vendor.semc.hardware.extlight.IExtLight/default                      u:object_r:
 vendor.somc.hardware.aidlradio.ISomcHook/somchook0                   u:object_r:somc_aidl_radio_service:s0
 vendor.somc.hardware.aidlradio.ISomcHook/somchook1                   u:object_r:somc_aidl_radio_service:s0
 android.hardware.camera.provider.ICameraProvider/external/0          u:object_r:hal_camera_service:s0
+vendor.somc.hardware.videoeffect.IAidlSwiqi/default                           u:object_r:hal_swiqi_service:s0
