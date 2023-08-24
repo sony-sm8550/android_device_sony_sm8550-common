@@ -175,9 +175,6 @@ std::string HwApiBase::Record<T>::toString(const NamesMap &names) {
     return ret.str();
 }
 
-// CirrusMiscTaRead: Referenced from IDA decompiler
-int64_t cirrusMiscTaRead(unsigned char *a1);
-
 class HwCalBase {
   public:
     HwCalBase();

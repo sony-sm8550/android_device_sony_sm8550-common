@@ -72,7 +72,9 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
     bool setGpioFallScale(uint32_t value) override { return set(value, &mGpioFallScale); }
     bool setGpioRiseIndex(uint32_t value) override { return set(value, &mGpioRiseIndex); }
     bool setGpioRiseScale(uint32_t value) override { return set(value, &mGpioRiseScale); }
-    bool pollVibeState(bool value) override { return poll(value, &mVibeState); }
+    bool pollVibeState(uint32_t value, int32_t timeoutMs) override {
+        return poll(value, &mVibeState, timeoutMs);
+    }
     bool setClabEnable(bool value) override { return set(value, &mClabEnable); }
     bool getAvailablePwleSegments(uint32_t *value) override {
         return get(value, &mAvailablePwleSegments);
@@ -130,7 +132,7 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
     static constexpr float DEFAULT_DEVICE_MASS = 0.21;
     static constexpr float DEFAULT_LOC_COEFF = 0.5;
     static constexpr uint32_t Q_DEFAULT = 15.5 * Q_FLOAT_TO_FIXED;
-    static constexpr std::array<uint32_t, 6> V_LEVELS_DEFAULT = {60, 70, 80, 90, 100, 100};
+    static constexpr std::array<uint32_t, 6> V_LEVELS_DEFAULT = {60, 70, 80, 90, 100, 76};
     static constexpr std::array<uint32_t, 2> V_TICK_DEFAULT = {10, 70};
     static constexpr std::array<uint32_t, 2> V_CTICK_DEFAULT = {10, 70};
     static constexpr std::array<uint32_t, 2> V_LONG_DEFAULT = {10, 70};
