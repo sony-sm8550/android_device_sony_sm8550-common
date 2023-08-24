@@ -17,36 +17,20 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
-cc_defaults {
-    name: "PixelVibratorDefaults",
-    relative_install_path: "hw",
+cc_benchmark {
+    name: "VibratorHalCs40l25Benchmark",
+    defaults: ["VibratorHalCs40l25TestDefaults"],
+    srcs: [
+        "benchmark.cpp",
+    ],
     static_libs: [
-        "PixelVibratorCommon",
+        "libc++fs",
     ],
     shared_libs: [
         "libbase",
-        "libbinder_ndk",
-        "libcutils",
-        "libhardware",
-        "liblog",
-        "libutils",
     ],
-}
-
-cc_defaults {
-    name: "PixelVibratorBinaryDefaults",
-    defaults: ["PixelVibratorDefaults"],
-    shared_libs: [
-        "android.hardware.vibrator-V2-ndk",
-    ],
-}
-
-cc_defaults {
-    name: "PixelVibratorTestDefaults",
-    defaults: ["PixelVibratorDefaults"],
-    static_libs: [
-        "android.hardware.vibrator-V2-ndk",
-    ],
+    // TODO(b/135767253): Remove when fixed.
     test_suites: ["device-tests"],
+    // TODO(b/142024316): Remove when fixed.
     require_root: true,
 }

@@ -17,36 +17,21 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
-cc_defaults {
-    name: "PixelVibratorDefaults",
-    relative_install_path: "hw",
-    static_libs: [
-        "PixelVibratorCommon",
+cc_library {
+    name: "PixelVibratorCommon",
+    srcs: [
+        "HardwareBase.cpp",
     ],
     shared_libs: [
         "libbase",
-        "libbinder_ndk",
         "libcutils",
-        "libhardware",
         "liblog",
         "libutils",
     ],
-}
-
-cc_defaults {
-    name: "PixelVibratorBinaryDefaults",
-    defaults: ["PixelVibratorDefaults"],
-    shared_libs: [
-        "android.hardware.vibrator-V2-ndk",
+    cflags: [
+        "-DATRACE_TAG=(ATRACE_TAG_VIBRATOR | ATRACE_TAG_HAL)",
+        "-DLOG_TAG=\"android.hardware.vibrator@1.x-common\"",
     ],
-}
-
-cc_defaults {
-    name: "PixelVibratorTestDefaults",
-    defaults: ["PixelVibratorDefaults"],
-    static_libs: [
-        "android.hardware.vibrator-V2-ndk",
-    ],
-    test_suites: ["device-tests"],
-    require_root: true,
+    export_include_dirs: ["."],
+    vendor_available: true,
 }
