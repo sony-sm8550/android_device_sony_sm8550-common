@@ -883,6 +883,7 @@ vendor/lib64/libgralloccore.so
 vendor/lib64/libgrallocutils.so
 
 # Display (HDR)
+vendor/lib64/libhdr_backlight_adapter.so
 vendor/lib64/libhdr_tm.so
 
 # Display (HWC)
