@@ -58,7 +58,6 @@ cc_library {
     name: "android.hardware.vibrator-sony.impl.cs40l25",
     defaults: [
         "VibratorHalCs40l25BinaryDefaults",
-        "haptics_feature_defaults",
     ],
     srcs: ["Vibrator.cpp"],
     export_include_dirs: ["."],
@@ -75,20 +74,6 @@ cc_binary {
     shared_libs: ["android.hardware.vibrator-sony.impl.cs40l25"],
     cflags: [
         "-DLOG_TAG=\"Vibrator\"",
-    ],
-    proprietary: true,
-}
-
-cc_binary {
-    name: "android.hardware.vibrator-sony.service.cs40l25-dual",
-    defaults: ["VibratorHalCs40l25BinaryDefaults"],
-    init_rc: ["android.hardware.vibrator-sony.service.cs40l25-dual.rc"],
-    vintf_fragments: ["android.hardware.vibrator-sony.service.cs40l25-dual.xml"],
-    srcs: ["service.cpp"],
-    shared_libs: ["android.hardware.vibrator-sony.impl.cs40l25"],
-    cflags: [
-        "-DVIBRATOR_NAME=\"dual\"",
-        "-DLOG_TAG=\"android.hardware.vibrator-cs40l25-dual\"",
     ],
     proprietary: true,
 }
