@@ -18,10 +18,10 @@ package {
 }
 
 cc_defaults {
-    name: "PixelVibratorDefaults",
+    name: "SonyVibratorDefaults",
     relative_install_path: "hw",
     static_libs: [
-        "PixelVibratorCommon",
+        "SonyVibratorCommon",
     ],
     shared_libs: [
         "libbase",
@@ -34,16 +34,16 @@ cc_defaults {
 }
 
 cc_defaults {
-    name: "PixelVibratorBinaryDefaults",
-    defaults: ["PixelVibratorDefaults"],
+    name: "SonyVibratorBinaryDefaults",
+    defaults: ["SonyVibratorDefaults"],
     shared_libs: [
         "android.hardware.vibrator-V2-ndk",
     ],
 }
 
 cc_defaults {
-    name: "PixelVibratorTestDefaults",
-    defaults: ["PixelVibratorDefaults"],
+    name: "SonyVibratorTestDefaults",
+    defaults: ["SonyVibratorDefaults"],
     static_libs: [
         "android.hardware.vibrator-V2-ndk",
     ],
