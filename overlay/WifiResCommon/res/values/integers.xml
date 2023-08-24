@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Integer indicating maximum hardware supported client number of soft ap -->
-    <integer name="config_wifiHardwareSoftapMaxClientCount">32</integer>
+    <!-- A value to indicate the duration (in ms) to disable a network from auto-connect based on
+    Carrier requirement. -1 represents disabling a network permanently -->
+    <integer name="config_wifiDisableReasonAuthenticationFailureCarrierSpecificDurationMs">300000</integer>
+
+    <!-- A value to indicate how many failures are needed to temporarily or permanently
+    (depends on config_wifiDisableReasonAuthenticationFailureCarrierSpecificDurationMs)
+    disable a network from auto-connect based on Carrier requirement -->
+    <integer name="config_wifiDisableReasonAuthenticationFailureCarrierSpecificThreshold">3</integer>
+
+    <!-- Integer for maximum number of channels to use in initial partial scan. If equals to 0, means add all available channels for networks -->
+    <integer name="config_wifiInitialPartialScanChannelMaxCount">10</integer>
+
+    <!-- Integer threshold for low network score, should be somewhat less than the entry threshhold -->
+    <integer name="config_wifi_framework_wifi_score_bad_rssi_threshold_5GHz">-81</integer>
+    <integer name="config_wifi_framework_wifi_score_entry_rssi_threshold_24GHz">-78</integer>
+    <integer name="config_wifi_framework_wifi_score_entry_rssi_threshold_5GHz">-78</integer>
 </resources>
