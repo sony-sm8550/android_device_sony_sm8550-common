@@ -62,6 +62,10 @@ static constexpr uint32_t WAVEFORM_SLOW_RISE_INDEX = 7;
 static constexpr uint32_t WAVEFORM_QUICK_FALL_INDEX = 8;
 static constexpr uint32_t WAVEFORM_LIGHT_TICK_INDEX = 9;
 static constexpr uint32_t WAVEFORM_LOW_TICK_INDEX = 10;
+static constexpr uint32_t WAVEFORM_SONY_THUD_INDEX = 11;
+static constexpr uint32_t WAVEFORM_SONY_POP_INDEX = 12;
+static constexpr uint32_t WAVEFORM_SONY_HEAVY_CLICK_INDEX = 13;
+static constexpr uint32_t WAVEFORM_SONY_DOUBLE_CLICK_INDEX = 19;
 
 static constexpr uint32_t WAVEFORM_UNSAVED_TRIGGER_QUEUE_INDEX = 65529;
 static constexpr uint32_t WAVEFORM_TRIGGER_QUEUE_INDEX = 65534;
@@ -999,19 +1003,24 @@ ndk::ScopedAStatus Vibrator::getSimpleDetails(Effect effect, EffectStrength stre
     switch (effect) {
         case Effect::TEXTURE_TICK:
             effectIndex = WAVEFORM_LIGHT_TICK_INDEX;
-            intensity *= 0.5f;
             break;
         case Effect::TICK:
-            effectIndex = WAVEFORM_CLICK_INDEX;
-            intensity *= 0.5f;
+            effectIndex = WAVEFORM_LOW_TICK_INDEX;
             break;
         case Effect::CLICK:
             effectIndex = WAVEFORM_CLICK_INDEX;
-            intensity *= 0.7f;
             break;
         case Effect::HEAVY_CLICK:
-            effectIndex = WAVEFORM_CLICK_INDEX;
-            intensity *= 1.0f;
+            effectIndex = WAVEFORM_SONY_HEAVY_CLICK_INDEX;
+            break;
+        case Effect::DOUBLE_CLICK:
+            effectIndex = WAVEFORM_SONY_DOUBLE_CLICK_INDEX;
+            break;
+        case Effect::THUD:
+            effectIndex = WAVEFORM_SONY_THUD_INDEX;
+            break;
+        case Effect::POP:
+            effectIndex = WAVEFORM_SONY_POP_INDEX;
             break;
         default:
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -1150,10 +1159,14 @@ ndk::ScopedAStatus Vibrator::performEffect(Effect effect, EffectStrength strengt
         case Effect::CLICK:
             // fall-through
         case Effect::HEAVY_CLICK:
-            status = getSimpleDetails(effect, strength, &effectIndex, &timeMs, &volLevel);
-            break;
+            // fall-through
+        case Effect::THUD:
+            // fall-through
+        case Effect::POP:
+            // fall-through
         case Effect::DOUBLE_CLICK:
-            status = getCompoundDetails(effect, strength, &timeMs, &volLevel, &effectQueue);
+            // fall-through
+            status = getSimpleDetails(effect, strength, &effectIndex, &timeMs, &volLevel);
             break;
         default:
             status = ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
