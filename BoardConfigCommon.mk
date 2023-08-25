@@ -284,9 +284,6 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOOT_SECURITY_PATCH := 2023-08-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
-# Telephony
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
-
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
