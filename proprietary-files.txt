@@ -1961,6 +1961,7 @@ vendor/lib64/hw/sensors.dynamic_sensor_hal.so
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib64/libhidparser.so
 vendor/lib64/libsensorcal.so
+vendor/lib64/libsnsdiaglog.so
 vendor/lib64/sensors.ssc.so
 
 # Snapdragon Computer Vision Engine
