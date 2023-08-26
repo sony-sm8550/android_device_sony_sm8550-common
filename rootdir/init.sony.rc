@@ -13,6 +13,13 @@ on boot
     # Enable smart charging
     write /sys/class/battchg_ext/smart_charging_activation 1
 
+    # Set up permission for touch framerate node
+    chown system system /sys/devices/virtual/input/lxs_ts_input/frame_rate_np
+
+    # Set up permission for dt2w nodes
+    chown system system /sys/devices/virtual/input/lxs_ts_input/enable_knock
+    chown system system /sys/devices/dsi_panel_driver/pre_sod_mode
+
 on post-fs
     # radio
     exec_start msim_sh
