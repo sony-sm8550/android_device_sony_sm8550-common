@@ -520,6 +520,7 @@ ndk::ScopedAStatus Vibrator::on(uint32_t timeoutMs, uint32_t effectIndex,
     mHwApi->setEffectIndex(effectIndex);
     mHwApi->setDuration(timeoutMs);
     mHwApi->setActivate(1);
+    usleep(10000);
     // Using the mToalDuration for composed effect.
     // For composed effect, we set the UINT32_MAX to the duration sysfs node,
     // but it not a practical way to use it to monitor the total duration time.
