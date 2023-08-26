@@ -39,8 +39,8 @@ bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
 bool setDeviceSpecificMode(Mode type, bool enabled) {
     switch (type) {
         case Mode::DOUBLE_TAP_TO_WAKE:
-            ::android::base::WriteStringToFile(enabled ? "sod_enable,1" : "sod_enable,0",
-                                               "/sys/devices/virtual/sec/tsp/cmd");
+            ::android::base::WriteStringToFile(enabled ? "1" : "0",
+                                               "/sys/devices/virtual/input/lxs_ts_input/enable_knock");
             ::android::base::WriteStringToFile(enabled ? "1" : "0",
                                                "/sys/devices/dsi_panel_driver/pre_sod_mode");
             return true;
