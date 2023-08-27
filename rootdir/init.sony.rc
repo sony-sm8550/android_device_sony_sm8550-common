@@ -11,6 +11,7 @@ service msim_sh /odm/bin/init.qcom.msim.sh
 
 on boot
     # Enable smart charging
+    wait /sys/class/battchg_ext/smart_charging_activation
     write /sys/class/battchg_ext/smart_charging_activation 1
 
     # Set up permission for touch framerate node
