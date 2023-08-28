@@ -134,4 +134,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.somc.hardware.nfc</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISomcNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

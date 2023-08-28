@@ -1454,6 +1454,19 @@ vendor/lib64/libQnnHtpV73Stub.so
 vendor/lib64/libQnnSystem.so
 vendor/lib64/libqnnengine.so
 
+# NFC
+vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
+vendor/etc/init/vendor.nxp.hardware.nfc@2.0-service.rc
+vendor/lib64/nfc_nci.nqx.default.hw.so
+vendor/lib64/se_nq_extn_client.so
+vendor/lib64/vendor.nxp.hardware.nfc@2.0.so
+vendor/lib64/vendor.somc.hardware.nfc@1.0.so
+
+# NFC configs
+vendor/etc/libnfc-nci.conf
+vendor/etc/libnfc-nxp.conf
+vendor/etc/libnfc-nxp_RF.conf
+
 # NFC Firmware
 vendor/lib64/libsn220u_fw.so
 
