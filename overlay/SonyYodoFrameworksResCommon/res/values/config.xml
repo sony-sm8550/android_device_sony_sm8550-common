@@ -554,12 +554,14 @@
              || display brightness <= disp1 && ambient brightness <= amb1 -->
     <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
         <item>6</item>
+        <item>12</item>
     </integer-array>
     <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
         <item>-1</item>
+        <item>20</item>
     </integer-array>
 
     <!-- default refresh rate in the zone defined by birghtness and ambient thresholds -->
-    <integer name="config_defaultRefreshRateInZone">60</integer>
+    <integer name="config_defaultRefreshRateInZone">120</integer>
 </resources>
 
