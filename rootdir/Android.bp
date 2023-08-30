@@ -4,13 +4,6 @@
 //
 
 prebuilt_etc {
-    name: "fstab.default",
-    src: "fstab.default",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
     name: "init.sony-device-common.rc",
     src: "init.sony-device-common.rc",
     sub_dir: "init",
