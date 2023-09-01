@@ -1,4 +1,4 @@
-# Stock package version: XQ-DQ72_Customized HK_67.0.A.4.51
+# Stock package version: XQ-DQ72_Customized HK_67.0.A.4.79
 
 # ACDBs
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
