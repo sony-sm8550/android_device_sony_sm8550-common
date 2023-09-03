@@ -266,3 +266,5 @@ slg51000-regulator.ko
 sony_camera.ko
 camera_sync.ko
 msm_kgsl.ko
+zram.ko
+zsmalloc.ko
