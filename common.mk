@@ -301,8 +301,37 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
 # GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss-aidl-impl-qti \
+    android.hardware.gnss-aidl-service-qti \
+    gnss@2.0-base.policy \
+    gnss@2.0-edgnss-daemon.policy \
+    gnss@2.0-qsap-location.policy \
+    gnss@2.0-xtra-daemon.policy \
+    gnss@2.0-xtwifi-client.policy \
+    libloc_pla_headers \
+    liblocation_api_headers \
+    libgps.utils_headers \
+    liblocation_api \
+    liblocation_api_msg \
+    liblocation_client_api \
+    liblocation_integration_api \
+    libgps.utils \
+    libbatching \
+    libgeofencing \
+    libloc_core \
+    libgnss
+
+PRODUCT_PACKAGES += \
+    apdr.conf \
+    batching.conf \
+    gnss_antenna_info.conf \
+    gps.conf \
+    izat.conf \
+    lowi.conf \
+    sap.conf \
+    xtwifi.conf
 
 # Health
 PRODUCT_PACKAGES += \
