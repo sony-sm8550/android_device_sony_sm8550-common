@@ -149,7 +149,7 @@
         </int-array>
         <int name="parameters_used_for_lte_signal_bar_int" value="5" />
         <int name="call_barring_default_service_class_int" value="0" />
-        <boolean name="vonr_setting_visibility_bool" value="false" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
         <boolean name="use_only_dialed_sim_ecc_list_bool" value="false" />
     </carrier_config>
     <carrier_config sku="jp_dcm">
