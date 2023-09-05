@@ -1089,6 +1089,7 @@ vendor/lib64/libloc_eng_hub.so
 vendor/lib64/libloc_socket.so
 vendor/lib64/libloc_util.so
 vendor/lib64/liblocation_api.so
+vendor/lib64/liblocation_api_msg.so
 vendor/lib64/liblocation_client_api.so
 vendor/lib64/liblocation_integration_api.so
 vendor/lib64/liblocation_qesdk.so
