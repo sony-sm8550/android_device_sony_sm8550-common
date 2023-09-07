@@ -441,7 +441,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/sony \
-    vendor/qcom/opensource/usb/etc
+    vendor/qcom/opensource/usb/etc \
+    kernel/sony/sm8550 \
+    kernel/sony/sm8550-modules
 
 # Sony Display interface
 PRODUCT_PACKAGES += \
