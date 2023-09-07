@@ -64,7 +64,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # DTBO
-BOARD_KERNEL_SEPARATED_DTBO := true
+# BOARD_KERNEL_SEPARATED_DTBO := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kalama
@@ -89,7 +89,6 @@ BOARD_KERNEL_IMAGE_NAME := Image
 
 KERNEL_LTO := none
 
-TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/sony/sm8550
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
@@ -103,15 +102,8 @@ BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMO
 BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
 
 # Kernel Modules
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-# BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
-
-# TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8550-modules
-# TARGET_KERNEL_EXT_MODULES := \
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8550-modules
+TARGET_KERNEL_EXT_MODULES := \
     qcom/mmrm-driver \
     qcom/mm-drivers/hw_fence \
     qcom/mm-drivers/msm_ext_display \
@@ -135,15 +127,9 @@ BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMO
     qcom/wlan/platform \
     qcom/wlan/qcacld-3.0/.kiwi_v2 \
     qcom/bt-kernel \
-    nxp/driver \
+    sony/nxp_driver \
     sony/sony_camera \
     sony/lxs_ts
-
-# Use External DTC
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc \
-    DTC_OVERLAY_TEST_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/libufdt/ufdt_apply_overlay \
-    LLVM=1 LLVM_IAS=1
 
 # Platform
 TARGET_BOARD_PLATFORM := kalama
