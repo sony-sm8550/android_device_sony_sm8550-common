@@ -19,7 +19,6 @@ debugcc-kalama.ko
 gpucc-kalama.ko
 bam_dma.ko
 msm_gpi.ko
-qcom_cpuss_sleep_stats.ko
 pdr_interface.ko
 qmi_helpers.ko
 heap_mem_ext_v01.ko
@@ -30,7 +29,6 @@ qsee_ipc_irq_bridge.ko
 glink_probe.ko
 glink_pkt.ko
 pmic_glink.ko
-charger-ulog-glink.ko
 altmode-glink.ko
 soc_sleep_stats.ko
 cdsprm.ko
@@ -69,7 +67,6 @@ hvc_gunyah.ko
 msm_geni_serial.ko
 frpc-adsprpc.ko
 rdbg.ko
-qcom_iommu_debug.ko
 lt9611uxc.ko
 qseecom_proxy.ko
 sg.ko
@@ -85,7 +82,6 @@ phy-msm-snps-eusb2.ko
 phy-msm-m31-eusb2.ko
 dwc3-msm.ko
 ehset.ko
-f_fs_ipc_log.ko
 usb_f_cdev.ko
 usb_f_ccid.ko
 usb_f_qdss.ko
@@ -141,7 +137,6 @@ gh_mem_notifier.ko
 qcom-spmi-adc5-gen3.ko
 qcom-vadc-common.ko
 nvmem_qfprom.ko
-icc-test.ko
 slimbus.ko
 slim-qcom-ngd-ctrl.ko
 stm_core.ko
@@ -207,8 +202,6 @@ somc_battchg_ext.ko
 et603-int.ko
 cirrus_cs40l2x.ko
 cirrus_cs40l2x_codec.ko
-last_logs.ko
-rdtags.ko
 lxs_touchscreen.ko
 btpower.ko
 bt_fm_slim.ko
@@ -234,15 +227,7 @@ msm_ext_display.ko
 sync_fence.ko
 msm_hw_fence.ko
 msm-mmrm.ko
-mmrm_test_module.ko
 nxp-nci.ko
-nt36xxx-i2c.ko
-goodix_ts.ko
-atmel_mxt_ts.ko
-synaptics_tcm_ts.ko
-pt_ts.ko
-pt_i2c.ko
-pt_device_access.ko
 msm_video.ko
 slg51000-regulator.ko
 sony_camera.ko

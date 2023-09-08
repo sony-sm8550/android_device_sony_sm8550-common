@@ -6,7 +6,6 @@ gcc-kalama.ko
 icc-rpmh.ko
 camcc-kalama.ko
 qcom_ipcc.ko
-qcom_ipc_logging.ko
 qcom-pdc.ko
 thermal_minidump.ko
 qcom_tsens.ko
@@ -24,7 +23,6 @@ crypto-qti-common.ko
 crypto-qti-hwkm.ko
 dcc_v2.ko
 dcvs_fp.ko
-debug-regulator.ko
 dispcc-kalama.ko
 tcsrcc-kalama.ko
 videocc-kalama.ko
@@ -74,7 +72,6 @@ qcom_rpmh.ko
 qcom-scm.ko
 qnoc-qos.ko
 qrtr.ko
-qti-regmap-debugfs.ko
 regmap-spmi.ko
 rtc-pm8xxx.ko
 secure_buffer.ko
@@ -115,7 +112,6 @@ debugcc-kalama.ko
 gpucc-kalama.ko
 bam_dma.ko
 msm_gpi.ko
-qcom_cpuss_sleep_stats.ko
 pdr_interface.ko
 qmi_helpers.ko
 heap_mem_ext_v01.ko
@@ -126,7 +122,6 @@ qsee_ipc_irq_bridge.ko
 glink_probe.ko
 glink_pkt.ko
 pmic_glink.ko
-charger-ulog-glink.ko
 altmode-glink.ko
 soc_sleep_stats.ko
 cdsprm.ko
@@ -165,7 +160,6 @@ hvc_gunyah.ko
 msm_geni_serial.ko
 frpc-adsprpc.ko
 rdbg.ko
-qcom_iommu_debug.ko
 lt9611uxc.ko
 qseecom_proxy.ko
 sg.ko
@@ -181,7 +175,6 @@ phy-msm-snps-eusb2.ko
 phy-msm-m31-eusb2.ko
 dwc3-msm.ko
 ehset.ko
-f_fs_ipc_log.ko
 usb_f_cdev.ko
 usb_f_ccid.ko
 usb_f_qdss.ko
@@ -237,7 +230,6 @@ gh_mem_notifier.ko
 qcom-spmi-adc5-gen3.ko
 qcom-vadc-common.ko
 nvmem_qfprom.ko
-icc-test.ko
 slimbus.ko
 slim-qcom-ngd-ctrl.ko
 stm_core.ko
