@@ -127,7 +127,7 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/wlan/platform \
     qcom/wlan/qcacld-3.0/.kiwi_v2 \
     qcom/bt-kernel \
-    sony/nxp_driver \
+    nxp/driver \
     sony/sony_camera \
     sony/lxs_ts
 
