@@ -50,7 +50,6 @@ minidump.ko
 msm_dma_iommu_mapping.ko
 pinctrl-kalama.ko
 qnoc-kalama.ko
-ns.ko
 nvmem_qcom-spmi-sdam.ko
 phy-qcom-ufs.ko
 phy-qcom-ufs-qmp-v4-kalama.ko
@@ -175,7 +174,6 @@ qseecom_proxy.ko
 sg.ko
 spi-msm-geni.ko
 spmi-pmic-arb-debug.ko
-spmi-glink-debug.ko
 smsc.ko
 smsc75xx.ko
 smsc95xx.ko
