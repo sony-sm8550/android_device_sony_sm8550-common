@@ -13,6 +13,7 @@ on boot
     # Enable smart charging
     wait /sys/class/battchg_ext/smart_charging_activation
     write /sys/class/battchg_ext/smart_charging_activation 1
+    chown system system /sys/class/battchg_ext/smart_charging_interruption
 
     # Set up permission for touch framerate node
     chown system system /sys/devices/virtual/input/lxs_ts_input/frame_rate_np
