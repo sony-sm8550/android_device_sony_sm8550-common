@@ -274,6 +274,9 @@ vendor.dynamic_sensor.setup.timeout.ms=1600
 # shutdown
 sys.vendor.shutdown.waittime=500
 
+# Sensors
+persist.vendor.sensors.debug.hal=0
+
 # USB
 vendor.usb.controller=a600000.dwc3
 vendor.usb.diag.func.name=ffs
