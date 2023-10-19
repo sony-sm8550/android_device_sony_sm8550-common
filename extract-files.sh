@@ -59,7 +59,11 @@ if [ -z "${SRC}" ]; then
 fi
 
 function blob_fixup() {
-    true
+    case "${1}" in
+        vendor/bin/hw/android.hardware.security.keymint-service-qti)
+            ${PATCHELF} --add-needed "android.hardware.security.rkp-V3-ndk.so" "${2}"
+            ;;
+    esac
 }
 
 if [ -z "${ONLY_TARGET}" ]; then
