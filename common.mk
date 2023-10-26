@@ -332,8 +332,6 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
-USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
-
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor \
