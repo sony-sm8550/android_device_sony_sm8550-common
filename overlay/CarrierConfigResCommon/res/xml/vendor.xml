@@ -120,6 +120,8 @@
         <boolean name="s_config_display_5g_sa_switch_bool" value="false" />
         <boolean name="s_config_default_5g_sa_enabled_bool" value="true" />
         <boolean name="s_config_show_tethering_confirmation_dialog_bool" value="false" />
+        <boolean name="s_fallback_sms_not_allowed_in_wfc_roaming" value="false" />
+        <boolean name="s_config_disable_2g_bool" value="false" />
     </carrier_config>
     <carrier_config>
         <boolean name="call_barring_visibility_bool" value="true" />
@@ -999,7 +1001,6 @@
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_volte_available_bool" value="true" />
         <string name="default_vm_number_string">888</string>
-        <boolean name="editable_wfc_mode_bool" value="false" />
         <boolean name="groupChatDefaultsToMMS" value="true" />
         <boolean name="gsm_cdma_calls_can_be_hd_audio" value="true" />
         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
@@ -1034,6 +1035,7 @@
         <boolean name="show_iccid_in_sim_status_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="208" mnc="01" sku="rakuten" spn="Rakuten">
+        <boolean name="carrier_volte_provisioning_required_bool" value="false" />
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="enable_carrier_display_name_resolver_bool" value="true" />
         <int name="spn_display_condition_override_int" value="2" />
@@ -1241,9 +1243,10 @@
         <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
     <carrier_config mcc="214">
-        <string-array name="unloggable_numbers_string_array" num="2">
+        <string-array name="unloggable_numbers_string_array" num="3">
             <item value="016" />
             <item value="900018018" />
+            <item value="024" />
         </string-array>
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
@@ -1283,7 +1286,8 @@
             <item value="2" />
             <item value="0" />
         </string-array>
-        <int name="smsToMmsTextThreshold" value="5" />
+        <boolean name="enabledMMS" value="false" />
+        <int name="smsToMmsTextThreshold" value="-1" />
     </carrier_config>
     <carrier_config mcc="214" mnc="03">
         <int name="s_dpm_fd_screen_on_idle_timer_int" value="7" />
@@ -4206,7 +4210,7 @@
         <boolean name="auto_retry_failed_wifi_emergency_call" value="true" />
         <boolean name="carrier_volte_available_bool" value="false" />
         <boolean name="s_config_enable_ut_bool" value="false" />
-        <boolean name="fallback_sms_not_allowed_in_roaming" value="true" />
+        <boolean name="s_fallback_sms_not_allowed_in_wfc_roaming" value="true" />
     </carrier_config>
     <carrier_config mcc="260" mnc="03" spn="nju">
         <boolean name="carrier_name_override_bool" value="true" />
@@ -4655,6 +4659,25 @@
         </string-array>
         <boolean name="enabledMMS" value="false" />
         <int name="smsToMmsTextThreshold" value="-1" />
+    </carrier_config>
+    <carrier_config mcc="262" mnc="23">
+        <string-array name="s_preferred_network_mode_rat_names_string_array" num="7">
+            <item value="2G" />
+            <item value="3G" />
+            <item value="CDMA" />
+            <item value="EvDo" />
+            <item value="LTE" />
+            <item value="TDSCDMA" />
+            <item value="5G" />
+        </string-array>
+        <string-array name="s_preferred_network_mode_marshal_string_array" num="4">
+            <item value="26" />
+            <item value="9" />
+            <item value="0" />
+            <item value="1" />
+        </string-array>
+        <string name="default_vm_number_string">+4915566000333</string>
+        <boolean name="show_4g_for_lte_data_icon_bool" value="false" />
     </carrier_config>
     <carrier_config mcc="262" mnc="77">
         <boolean name="show_wfc_location_privacy_policy_bool" value="false" />
@@ -9658,6 +9681,12 @@
         <string-array name="wifi.network_profiles_string_array" num="1">
             <item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>                          &lt;WifiNetwork>                          &lt;SSID>au_Wi-Fi2&lt;/SSID>                          &lt;Credential>                              &lt;SIM>                                  &lt;EAPType>23&lt;/EAPType>                              &lt;/SIM>                          &lt;/Credential>                          &lt;/WifiNetwork>" />
         </string-array>
+        <string-array name="carrier_certificate_string_array" num="4">
+            <item value="108897103871B684844AA7C791E0C812AB3966576FB5D3713C2D11794C0600AD" />
+            <item value="5EA3181DF228B4F8B0DECC10B21783F8C6C397F1290F2395FE3E6FDB2B52E991" />
+            <item value="891ABE3F0A0D794AD46200DC2374AFF61AFA82711C360EE0CB49C3E6BB2BA006" />
+            <item value="1001568BB4A4E65F68C8B0F2E5C9EBC97FF719898F39E421DAF29A8DACEAAF1B" />
+        </string-array>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
         <string-array name="telephony_data_setup_retry_rules_string_array" num="4">
             <item value="capabilities=eims, retry_interval=1000, maximum_retries=20" />
@@ -9760,6 +9789,12 @@
     </carrier_config>
     <carrier_config gid1="20" mcc="440" mnc="51" sku="jp_kddi">
         <string name="default_preferred_apn_name_string">uqmobile.jp</string>
+        <string-array name="carrier_certificate_string_array" num="4">
+            <item value="108897103871B684844AA7C791E0C812AB3966576FB5D3713C2D11794C0600AD" />
+            <item value="5EA3181DF228B4F8B0DECC10B21783F8C6C397F1290F2395FE3E6FDB2B52E991" />
+            <item value="891ABE3F0A0D794AD46200DC2374AFF61AFA82711C360EE0CB49C3E6BB2BA006" />
+            <item value="1001568BB4A4E65F68C8B0F2E5C9EBC97FF719898F39E421DAF29A8DACEAAF1B" />
+        </string-array>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
         <string-array name="telephony_data_setup_retry_rules_string_array" num="4">
             <item value="capabilities=eims, retry_interval=1000, maximum_retries=20" />
@@ -9840,6 +9875,12 @@
     </carrier_config>
     <carrier_config gid1="26" mcc="440" mnc="51" sku="jp_kddi">
         <string name="default_preferred_apn_name_string">povo.jp</string>
+        <string-array name="carrier_certificate_string_array" num="4">
+            <item value="108897103871B684844AA7C791E0C812AB3966576FB5D3713C2D11794C0600AD" />
+            <item value="5EA3181DF228B4F8B0DECC10B21783F8C6C397F1290F2395FE3E6FDB2B52E991" />
+            <item value="891ABE3F0A0D794AD46200DC2374AFF61AFA82711C360EE0CB49C3E6BB2BA006" />
+            <item value="1001568BB4A4E65F68C8B0F2E5C9EBC97FF719898F39E421DAF29A8DACEAAF1B" />
+        </string-array>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
         <string-array name="telephony_data_setup_retry_rules_string_array" num="4">
             <item value="capabilities=eims, retry_interval=1000, maximum_retries=20" />
@@ -9953,6 +9994,12 @@
     </carrier_config>
     <carrier_config gid1="10" mcc="440" mnc="54" sku="jp_kddi">
         <string name="gps.supl_host">location2.kddi.ne.jp</string>
+        <string-array name="carrier_certificate_string_array" num="4">
+            <item value="108897103871B684844AA7C791E0C812AB3966576FB5D3713C2D11794C0600AD" />
+            <item value="5EA3181DF228B4F8B0DECC10B21783F8C6C397F1290F2395FE3E6FDB2B52E991" />
+            <item value="891ABE3F0A0D794AD46200DC2374AFF61AFA82711C360EE0CB49C3E6BB2BA006" />
+            <item value="1001568BB4A4E65F68C8B0F2E5C9EBC97FF719898F39E421DAF29A8DACEAAF1B" />
+        </string-array>
         <int name="imsi_key_availability_int" value="2" />
         <string name="imsi_key_download_url_string">https://wificert.kddi.com/android</string>
         <boolean name="allow_metered_network_for_cert_download_bool" value="true" />
@@ -10075,6 +10122,12 @@
     </carrier_config>
     <carrier_config gid1="20" mcc="440" mnc="54" sku="jp_kddi">
         <string name="default_preferred_apn_name_string">uqmobile.jp</string>
+        <string-array name="carrier_certificate_string_array" num="4">
+            <item value="108897103871B684844AA7C791E0C812AB3966576FB5D3713C2D11794C0600AD" />
+            <item value="5EA3181DF228B4F8B0DECC10B21783F8C6C397F1290F2395FE3E6FDB2B52E991" />
+            <item value="891ABE3F0A0D794AD46200DC2374AFF61AFA82711C360EE0CB49C3E6BB2BA006" />
+            <item value="1001568BB4A4E65F68C8B0F2E5C9EBC97FF719898F39E421DAF29A8DACEAAF1B" />
+        </string-array>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
         <string-array name="telephony_data_setup_retry_rules_string_array" num="4">
             <item value="capabilities=eims, retry_interval=1000, maximum_retries=20" />
@@ -10168,6 +10221,12 @@
     </carrier_config>
     <carrier_config gid1="26" mcc="440" mnc="54" sku="jp_kddi">
         <string name="default_preferred_apn_name_string">povo.jp</string>
+        <string-array name="carrier_certificate_string_array" num="4">
+            <item value="108897103871B684844AA7C791E0C812AB3966576FB5D3713C2D11794C0600AD" />
+            <item value="5EA3181DF228B4F8B0DECC10B21783F8C6C397F1290F2395FE3E6FDB2B52E991" />
+            <item value="891ABE3F0A0D794AD46200DC2374AFF61AFA82711C360EE0CB49C3E6BB2BA006" />
+            <item value="1001568BB4A4E65F68C8B0F2E5C9EBC97FF719898F39E421DAF29A8DACEAAF1B" />
+        </string-array>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
         <string-array name="telephony_data_setup_retry_rules_string_array" num="4">
             <item value="capabilities=eims, retry_interval=1000, maximum_retries=20" />
@@ -12578,6 +12637,9 @@
             <item value="-110" />
             <item value="-100" />
         </int-array>
+    </carrier_config>
+    <carrier_config board="kalama" mcc="466">
+        <boolean name="s_config_disable_2g_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="466" mnc="01">
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
