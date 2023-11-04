@@ -6,5 +6,6 @@
     <privapp-permissions package="jp.co.sony.mc.euiccmemoryreset">
         <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.SCHEDULE_EXACT_ALARM"/>
     </privapp-permissions>
 </permissions>
