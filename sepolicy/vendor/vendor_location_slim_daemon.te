@@ -1,0 +1,2 @@
+allow vendor_location_slim_daemon servicemanager:binder { call transfer };
+allow vendor_location_slim_daemon fwk_sensor_service:service_manager { find };
