@@ -60,7 +60,7 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        vendor/bin/hw/android.hardware.security.keymint-service-qti)
+        vendor/bin/hw/android.hardware.security.keymint-service-qti|vendor/bin/hw/vendor.semc.hardware.secd@1.1-service|vendor/bin/keyprovd)
             ${PATCHELF} --add-needed "android.hardware.security.rkp-V3-ndk.so" "${2}"
             ;;
     esac
