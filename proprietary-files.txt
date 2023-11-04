@@ -638,7 +638,6 @@ vendor/firmware/evass.mdt
 
 # eUICC
 product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
-system_ext/etc/permissions/jp.co.sony.mc.euiccmemoryreset.xml
 system_ext/priv-app/EuiccMemoryReset/EuiccMemoryReset.apk;PRESIGNED
 
 # ExtLight
