@@ -89,7 +89,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 <item>Speaker</item>
                 <item>Speaker Safe</item>
                 <item>Telephony Tx</item>
-                <item>Built-In Mic</item>
+                <item>Built-In Mic Bottom</item>
+                <item>Built-In Mic Top</item>
                 <item>Built-In Back Mic</item>
                 <item>FM Tuner</item>
                 <item>Telephony Rx</item>
@@ -393,7 +394,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 </devicePort>
 
                 <!-- Input devices declaration, i.e. Source DEVICE PORT -->
-                <devicePort tagName="Built-In Mic" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source">
+                <devicePort tagName="Built-In Mic Bottom" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source" address="bottom">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO AUDIO_CHANNEL_IN_FRONT_BACK"/>
@@ -404,7 +405,18 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                              channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO AUDIO_CHANNEL_IN_FRONT_BACK"/>
                     -->
                 </devicePort>
-                <devicePort tagName="Built-In Back Mic" type="AUDIO_DEVICE_IN_BACK_MIC" role="source">
+                <devicePort tagName="Built-In Mic Top" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source" address="top">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO AUDIO_CHANNEL_IN_FRONT_BACK"/>
+                    <!-- To support compress offload capture such that client can query -->
+                    <!--
+                    <profile name="compress-capture-AAC-LC" format="AUDIO_FORMAT_AAC_LC"
+                             samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO AUDIO_CHANNEL_IN_FRONT_BACK"/>
+                    -->
+                </devicePort>
+                <devicePort tagName="Built-In Back Mic" type="AUDIO_DEVICE_IN_BACK_MIC" role="source" address="back">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO AUDIO_CHANNEL_IN_FRONT_BACK"/>
@@ -483,23 +495,23 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 <route type="mix" sink="voice_rx"
                        sources="Telephony Rx"/>
                 <route type="mix" sink="primary input"
-                       sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,FM Tuner,Telephony Rx,A2DP In,Echo Reference,BLE In"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,FM Tuner,Telephony Rx,A2DP In,Echo Reference,BLE In"/>
                 <!--
                 <route type="mix" sink="compress-input"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,Wired Headset Mic,USB Device In,USB Headset In,BLE In"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,BT SCO Headset Mic,Wired Headset Mic,USB Device In,USB Headset In,BLE In"/>
                 -->
                 <route type="mix" sink="usb_surround_sound"
                        sources="USB Device In,USB Headset In"/>
                 <route type="mix" sink="fast input"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic"/>
                 <route type="mix" sink="quad mic"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic"/>
                 <route type="mix" sink="voip_tx"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic,BLE In"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic,BLE In"/>
                 <route type="mix" sink="record_24"
-                       sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,A2DP In,BLE In"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,Wired Headset Mic,A2DP In,BLE In"/>
                 <route type="mix" sink="mmap_no_irq_in"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic"/>
+                       sources="Built-In Mic Bottom,Built-In Mic Top,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In,Wired Headset Mic"/>
                 <route type="mix" sink="BT A2DP Out"
                        sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx,mmap_no_irq_out,haptics output,spatial output"/>
                 <route type="mix" sink="BT A2DP Headphones"
