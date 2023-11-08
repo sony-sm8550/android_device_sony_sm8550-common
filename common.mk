@@ -284,6 +284,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.3.vendor \
     android.hardware.drm-service.clearkey
 
+# Dummy sony packages
+PRODUCT_PACKAGES += \
+    com.sony.idd_dummy \
+    com.sony.device
+
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
