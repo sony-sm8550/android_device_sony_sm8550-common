@@ -30,3 +30,4 @@ allow hal_fingerprint_default tad_socket:sock_file write;
 allow hal_fingerprint_default tad:unix_stream_socket { connectto };
 
 allow hal_fingerprint_default vendor_dmabuf_qseecom_heap_device:chr_file { ioctl read open };
+allow hal_fingerprint_default egis_diagnostic_service:service_manager { add find };

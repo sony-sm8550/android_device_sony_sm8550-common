@@ -434,6 +434,13 @@
                 <graph_kv key="0xA2000000" value="0xA2000004"/>
             </keys_and_values>
         </device>
+        <!-- HDMI Device -->
+        <device id="PAL_DEVICE_IN_HDMI,PAL_DEVICE_IN_AUX_DIGITAL">
+            <keys_and_values>
+                <!-- DEVICETX - HDMI_TX -->
+                <graph_kv key="0xA3000000" value="0xA3000100"/>
+            </keys_and_values>
+        </device>
         <!-- AUX Device -->
         <device id="PAL_DEVICE_OUT_AUX_DIGITAL,PAL_DEVICE_OUT_AUX_DIGITAL_1,PAL_DEVICE_OUT_HDMI">
             <keys_and_values>
@@ -1019,6 +1026,15 @@
                 <graph_kv key="0xA2000000" value="0xA2000003"/>
                 <!-- DEVICEPP_RX - DEVICEPP_RX_VOICE_DEFAULT -->
                 <graph_kv key="0xAC000000" value="0xAC000005"/>
+            </keys_and_values>
+        </devicepp>
+        <!-- IN HDMI and AUX Digital DevicePPs -->
+        <devicepp id="PAL_DEVICE_IN_HDMI,PAL_DEVICE_IN_AUX_DIGITAL">
+            <keys_and_values StreamType="PAL_STREAM_DEEP_BUFFER">
+                <!-- DEVICETX - HDMI_TX -->
+                <graph_kv key="0xA3000000" value="0xA3000100"/>
+                <!-- DEVICEPP_TX - DEVICEPP_TX_SONY_HDMI_IN -->
+                <graph_kv key="0xAD000000" value="0x00AD0100"/>
             </keys_and_values>
         </devicepp>
         <!-- OUT HDMI and AUX Digital DevicePPs -->
