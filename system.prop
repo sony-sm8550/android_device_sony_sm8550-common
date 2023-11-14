@@ -4,9 +4,6 @@ audio.offload.min.duration.secs=30
 # Camera
 camera.disable_zsl_mode=true
 
-# Charger
-ro.charger.enable_suspend=1
-
 # Display
 debug.sf.enable_hwc_vds=1
 debug.sf.latch_unsignaled=1
