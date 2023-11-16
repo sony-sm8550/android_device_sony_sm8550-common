@@ -5,5 +5,5 @@
 
 runtime_resource_overlay {
     name: "SonyYodoTelephonyResCommon",
-    product_specific: true,
+    vendor: true,
 }
