@@ -500,6 +500,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.sony
 
+# Trusted User Interface
+PRODUCT_PACKAGES += \
+    android.hidl.memory.block@1.0.vendor \
+    vendor.qti.hardware.systemhelper@1.0.vendor
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
