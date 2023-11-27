@@ -149,4 +149,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.somc.hardware.ifaa</name>
+        <version>1.0</version>
+        <interface>
+            <name>IIFAAManagerService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

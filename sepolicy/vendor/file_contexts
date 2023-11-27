@@ -33,6 +33,7 @@
 /vendor/bin/hw/android\.hardware\.vibrator-sony\.service\.cs40l25                                                 u:object_r:hal_vibrator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.sony                              u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.sony                                    u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor|odm|vendor/odm)/bin/hw/vendor\.semc\.hardware\.ifaa@1\.0-service                     u:object_r:hal_ifaa_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service    u:object_r:hal_nfc_default_exec:s0
 
 # Devices

@@ -811,6 +811,11 @@ vendor/lib64/libprotobuf-c-idd.so
 vendor/lib64/vendor.semc.system.idd@1.0.so
 vendor/lib64/vendor.semc.system.idd@1.1.so
 
+# IFAA
+system_ext/lib64/libifaateeclientjni.sony.so|a1503c2f24e97f71039d29d69fd221c6aca7455e
+vendor/bin/hw/vendor.semc.hardware.ifaa@1.0-service
+vendor/etc/init/vendor.semc.hardware.ifaa@1.0-service.rc
+
 # IMS
 system_ext/app/ImsRcsService/ImsRcsService.apk
 system_ext/app/QtiTelephony/QtiTelephony.apk

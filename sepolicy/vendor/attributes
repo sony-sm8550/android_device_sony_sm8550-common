@@ -15,4 +15,6 @@ attribute hal_disp;
 attribute hal_disp_client;
 attribute hal_disp_server;
 
-
+attribute hal_ifaa;
+attribute hal_ifaa_server;
+attribute hal_ifaa_client;
