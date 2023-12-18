@@ -250,6 +250,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    fstab.zram \
     init.class_main.sh \
     init.kernel.post_boot.sh \
     init.kernel.post_boot-kalama.sh \

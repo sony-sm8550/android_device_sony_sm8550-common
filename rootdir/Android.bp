@@ -4,6 +4,12 @@
 //
 
 prebuilt_etc {
+    name: "fstab.zram",
+    src: "fstab.zram",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.sony-device-common.rc",
     src: "init.sony-device-common.rc",
     sub_dir: "init",
