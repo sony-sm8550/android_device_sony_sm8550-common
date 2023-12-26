@@ -320,6 +320,10 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor
 
+# Memtrack
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.memtrack-service
+
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor \
