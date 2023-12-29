@@ -437,6 +437,9 @@ subsystem mem_buf_vm
 # This is temporary while using SD card for initial bring-up
 /dev/block/platform/soc/8804000.sdhci/by-name/frp       0600   system     system
 
+# Add TA block device permission
+/dev/block/platform/soc/1d84000.ufshc/by-name/TA        0660   oem_2997   oem_2997
+
 # Kmsg device
 /dev/kmsg                                               0620   root       system
 
