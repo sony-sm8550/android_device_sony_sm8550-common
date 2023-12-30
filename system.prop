@@ -34,9 +34,13 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 vendor.mm.enable.qcom_parser=16777215
+persist.mm.enable.prefetch=true
 ro.mediacodec.min_sample_rate=7350
 ro.mediacodec.max_sample_rate=2822400
-media.settings.xml=/odm/etc/media_profiles_V1_0.xml
+
+# Netmgr
+ro.vendor.use_data_netmgrd=true
+persist.vendor.data.mode=concurrent
 
 # Radio
 persist.sys.fflag.override.settings_network_and_internet_v2=true
