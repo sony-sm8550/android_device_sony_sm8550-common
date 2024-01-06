@@ -348,55 +348,18 @@
         <item>20000</item>
     </integer-array>
 
-    <!-- Array of output values for LCD backlight corresponding to the LUX values
-         in the config_autoBrightnessLevels array.  This array should have size one greater
-         than the size of the config_autoBrightnessLevels array.
-         The brightness values must be between 0 and 255 and be non-decreasing.
-         This must be overridden in platform specific overlays -->
-    <integer-array name="config_screenBrightnessBacklight">
-        <item>0</item>
-        <item>1</item>
-        <item>15</item>
-        <item>30</item>
-        <item>45</item>
-        <item>60</item>
-        <item>75</item>
-        <item>90</item>
-        <item>105</item>
-        <item>120</item>
-        <item>135</item>
-        <item>150</item>
-        <item>165</item>
-        <item>180</item>
-        <item>195</item>
-        <item>210</item>
-        <item>225</item>
-        <item>240</item>
-        <item>255</item>
-    </integer-array>
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. The display brightness is defined as the measured
+         brightness of an all-white image.
 
-    <array name="config_screenBrightnessNits">
-        <item>0.0</item>
-        <item>2.0</item>
-        <item>20.63</item>
-        <item>40.59</item>
-        <item>60.55</item>
-        <item>80.51</item>
-        <item>100.47</item>
-        <item>120.43</item>
-        <item>140.39</item>
-        <item>160.35</item>
-        <item>180.31</item>
-        <item>200.28</item>
-        <item>220.24</item>
-        <item>240.2</item>
-        <item>260.16</item>
-        <item>280.12</item>
-        <item>300.08</item>
-        <item>320.04</item>
-        <item>340.0</item>
-    </array>
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
 
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessDisplayValuesNits">
         <item>5</item>
         <item>5</item>
