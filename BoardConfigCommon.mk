@@ -222,8 +222,7 @@ DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/network_manifest.xml
 
 # Lineage Touch HAL
-$(call soong_config_set,sony_touch,board,yodo)
-$(call soong_config_set,sony_touch,touch_ctrl_path,/sys/devices/virtual/input/lxs_ts_input)
+$(call soong_config_set,sony_touch,panel,lxs_ts)
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
