@@ -18,3 +18,7 @@ allow hal_secd_default sdm_prop:file { read getattr map open };
 allow hal_secd_default property_socket:sock_file write;
 
 allow hal_secd_default init:unix_stream_socket connectto;
+
+unix_socket_connect(hal_secd_default, tad, tad);
+set_prop(hal_secd_default, vendor_sdm_prop);
+allow hal_secd_default vendor_dmabuf_qseecom_heap_device:chr_file { read open ioctl };
