@@ -656,7 +656,6 @@ vendor/bin/xtwifi-client
 vendor/etc/apdr.conf
 vendor/etc/batching.conf
 vendor/etc/gnss_antenna_info.conf
-vendor/etc/gps.conf
 vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc
 vendor/etc/init/loc-launcher.rc
 vendor/etc/izat.conf
