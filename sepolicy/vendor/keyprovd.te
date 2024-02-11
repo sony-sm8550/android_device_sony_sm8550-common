@@ -3,6 +3,9 @@ type keyprovd_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(keyprovd)
 
+# Allow keyprovd to use HwBinder IPC
+hwbinder_use(keyprovd)
+
 allow keyprovd vendor_tee_listener_prop:file { read getattr map open };
 allow keyprovd tee_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };
 allow keyprovd ion_device:chr_file { ioctl read write open };

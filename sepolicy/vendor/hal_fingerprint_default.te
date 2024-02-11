@@ -4,30 +4,33 @@ allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 
 unix_socket_connect(hal_camera_default, tad, tad)
 
-allow hal_fingerprint_default property_socket:sock_file { write };
+# Allow hal_fingerprint_default to set properties
+set_prop(hal_fingerprint_default, vendor_fingerprint_hwid_prop)
 
-allow hal_fingerprint_default init:unix_stream_socket { connectto };
-
-allow hal_fingerprint_default vendor_fingerprint_hwid_prop:property_service { set };
-allow hal_fingerprint_default vendor_fingerprint_hwid_prop:file { read getattr map open };
-
+# Allow hal_fingerprint_default to call IDD hal
+binder_call(hal_fingerprint_default, hal_idd_default)
 allow hal_fingerprint_default hal_idd_hwservice:hwservice_manager find;
 allow hal_fingerprint_default hal_idd_default:binder call;
 
-allow hal_fingerprint_default hal_egis_hwservice:hwservice_manager { add find };
+# Allow hal_fingerprint_default to add hal_egis_hwservice
+add_hwservice(hal_fingerprint_default, hal_egis_hwservice)
 
-allow hal_fingerprint_default vendor_sysfs_battery_supply:dir { search };
+# Allow hal_fingerprint_default to add egis_diagnostic_service
+add_service(hal_fingerprint_default, egis_diagnostic_service)
 
-allow hal_fingerprint_default vendor_hal_perf_default:fd use;
+# Allow hal_fingerprint_default to read the sysfs battery supply directory and files
+allow hal_fingerprint_default vendor_sysfs_battery_supply:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_battery_supply:file r_file_perms;
+
+# Allow hal_fingerprint_default to find and call perf
 allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager { find };
-allow hal_fingerprint_default vendor_hal_perf_default:binder { call transfer };
+binder_call(hal_fingerprint_default, vendor_hal_perf_default)
 
-allow hal_fingerprint_default vendor_sysfs_battery_supply:file { read getattr open };
-allow hal_fingerprint_default vendor_sysfs_battery_supply:dir { search };
-
-allow hal_fingerprint_default tad_socket:sock_file write;
-
-allow hal_fingerprint_default tad:unix_stream_socket { connectto };
-
+# Allow hal_fingerprint_default to ioctl/read/open vendor_dmabuf_qseecom_heap_device
 allow hal_fingerprint_default vendor_dmabuf_qseecom_heap_device:chr_file { ioctl read open };
-allow hal_fingerprint_default egis_diagnostic_service:service_manager { add find };
+
+# Allow hal_fingerprint_default to read asound
+allow hal_vibrator_default proc_asound:file r_file_perms;
+
+# Allow hal_fingerprint_default to use vndbinder
+vndbinder_use(hal_fingerprint_default)

@@ -1,4 +1,4 @@
-type hal_miscta_service, service_manager_type, hal_service_type;
-type somc_aidl_radio_service, service_manager_type, hal_service_type;
-type hal_swiqi_service, service_manager_type, hal_service_type;
 type egis_diagnostic_service, service_manager_type;
+type hal_miscta_service, service_manager_type, hal_service_type;
+type hal_swiqi_service, service_manager_type, hal_service_type;
+type somc_aidl_radio_service, service_manager_type, hal_service_type;

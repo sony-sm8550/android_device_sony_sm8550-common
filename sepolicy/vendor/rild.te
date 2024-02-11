@@ -1,10 +1,12 @@
-allow rild somc_hw_radio_hwservice:hwservice_manager { add find };
+# Allow rild to add somc_hw_radio_hwservice
+add_hwservice(rild, somc_hw_radio_hwservice)
+
+# Allow rild to add somc_aidl_radio_service
+add_service(rild, somc_aidl_radio_service)
+
+# Allow rild to find and call secd service
 allow rild hal_secd_hwservice:hwservice_manager { find };
+binder_call(rild, hal_secd_default)
 
-allow rild hal_secd_default:binder { call transfer };
-allow rild tad_socket:dir { write };
-
-allow rild tad_socket:sock_file write;
-allow rild tad:unix_stream_socket connectto;
-
-allow rild somc_aidl_radio_service:service_manager add;
+# Allow rild to connect to tad service
+unix_socket_connect(rild, tad, tad)
