@@ -5,8 +5,8 @@ allow hal_nfc_default nxpese_hwservice:hwservice_manager { add find };
 allow hal_nfc_default vendor_nfc_vendor_data_file:dir create_dir_perms;
 allow hal_nfc_default vendor_nfc_vendor_data_file:file create_file_perms;
 
-allow hal_nfc_default tad_socket:sock_file { write };
-allow hal_nfc_default tad:unix_stream_socket { connectto };
+# Allow NFC service to connect to tad socket
+unix_socket_connect(hal_nfc_default, tad, tad)
 
 set_prop(hal_nfc_default, vendor_nfc_prop)
 get_prop(hal_nfc_default, vendor_nfc_prop)

@@ -1,10 +1,5 @@
+# Power supply
 genfscon sysfs /devices/platform/soc/98c000.i2c/i2c-2/2-003b/power_supply/wireless u:object_r:sysfs_wireless_supply:s0
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-08/c440000.qcom,spmi:qcom,pmxprairie@8:qcom,power-on@800/wakeup/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/battery_ext/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/9800000.qcom,npu/wakeup/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /sys/devices/platform/soc/soc:qcom,smp2p-npu/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/8300000.qcom,turing/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/984000.i2c/i2c-0/0-0028/wakeup u:object_r:sysfs_wakeup:s0
 
 # Battery
 genfscon sysfs /class/battchg_ext u:object_r:sysfs_battchg_ext:s0
@@ -49,7 +44,6 @@ genfscon sysfs /devices/platform/soc/1.sony,camera_modules/wakeup/wakeup        
 genfscon sysfs /devices/platform/soc/2.sony,camera_modules/wakeup/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/3.sony,camera_modules/wakeup/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4.sony,camera_modules/wakeup/wakeup u:object_r:sysfs_wakeup:s0
-
 genfscon sysfs /devices/platform/soc/17300000.qcom,lpass/subsys6/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/188101c.qcom,spss/subsys5/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4080000.qcom,mss/subsys8/wakeup u:object_r:sysfs_wakeup:s0
@@ -70,6 +64,12 @@ genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys3/wakeup u:object_r
 genfscon sysfs /devices/platform/soc/soc:qcom,msm-audio-apr/soc:qcom,msm-audio-apr:qcom,q6core-audio/soc:qcom,msm-audio-apr:qcom,q6core-audio:sound/Listen u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:somc,battchg_ext/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,trustedvm@d0800000/subsys2/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-08/c440000.qcom,spmi:qcom,pmxprairie@8:qcom,power-on@800/wakeup/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/battery_ext/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/9800000.qcom,npu/wakeup/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /sys/devices/platform/soc/soc:qcom,smp2p-npu/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/8300000.qcom,turing/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/984000.i2c/i2c-0/0-0028/wakeup u:object_r:sysfs_wakeup:s0
 
 # Leds
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d000/leds u:object_r:sysfs_leds:s0
@@ -82,3 +82,7 @@ genfscon sysfs /devices/virtual/leds                                            
 # Touch
 genfscon sysfs /devices/virtual/input/lxs_ts_input u:object_r:sysfs_tsp:s0
 genfscon sysfs /devices/dsi_panel_driver u:object_r:sysfs_dp:s0
+
+# Vibrator
+genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/888000.i2c/i2c-3/3-0040/ u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/888000.i2c/i2c-1/1-0040/ u:object_r:sysfs_vibrator:s0

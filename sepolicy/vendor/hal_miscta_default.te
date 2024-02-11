@@ -12,5 +12,9 @@ unix_socket_connect(hal_miscta_default, tad, tad)
 
 # Allow hal_miscta_default to find hidl_memory
 allow hal_miscta_default hidl_memory_hwservice:hwservice_manager find;
-allow hal_miscta_default servicemanager:binder { call transfer };
-allow hal_miscta_default hal_miscta_service:service_manager add;
+
+# Allow hal_miscta_default to use binder IPC
+binder_use(hal_miscta_default)
+
+# Allow hal_miscta_default to add hal_miscta_service
+add_service(hal_miscta_default, hal_miscta_service)

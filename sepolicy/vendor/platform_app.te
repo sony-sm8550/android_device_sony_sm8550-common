@@ -1,2 +1,0 @@
-allow platform_app zygote:unix_stream_socket getopt;
-allow platform_app hal_miscta_service:service_manager find;

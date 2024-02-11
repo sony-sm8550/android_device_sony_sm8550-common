@@ -1,9 +1,8 @@
-allow vendor_thermal-engine sysfs_battchg_ext:dir { ioctl read getattr lock open watch watch_reads search };
-allow vendor_thermal-engine sysfs_battchg_ext:file { ioctl read write getattr lock append map open watch watch_reads };
+allow vendor_thermal-engine sysfs_battchg_ext:dir r_dir_perms;
+allow vendor_thermal-engine sysfs_battchg_ext:file rw_file_perms;
 
 hwbinder_use(vendor_thermal-engine)
 binder_call(vendor_thermal-engine, hal_idd_default)
 get_prop(vendor_thermal-engine, hwservicemanager_prop)
 
 allow vendor_thermal-engine hal_idd_hwservice:hwservice_manager find;
-

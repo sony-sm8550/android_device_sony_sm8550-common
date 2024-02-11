@@ -1,14 +1,24 @@
-allow hal_graphics_composer_default vendor_display_color_prop:file { read open getattr map };
+# Allow the graphics composer to access the display color props
+set_prop(hal_graphics_composer_default, vendor_display_color_prop)
 
-allow hal_graphics_composer_default display_always_on_prop:file { read getattr map open };
-allow hal_graphics_composer_default display_always_on_prop:property_service { set };
+# Allow the graphics composer to access the display always on prop
+set_prop(hal_graphics_composer_default, vendor_display_always_on_prop)
 
-allow hal_graphics_composer_default property_socket:sock_file { write };
+# Allow the graphics composer to access sony gfx props
+get_prop(hal_graphics_composer_default, vendor_somc_gfx_prop)
 
-allow hal_graphics_composer_default init:unix_stream_socket { connectto };
-allow hal_graphics_composer_default sysfs_dp:file { write };
+# Allow the graphics composer to access sony super stamina prop
+get_prop(hal_graphics_composer_default, vendor_hal_superstamina_prop)
 
+# Allow the graphics coposer to set display prop
+set_prop(hal_graphics_composer_default, vendor_display_prop)
+
+# Allow the graphics coposer to set display brightness prop
+get_prop(hal_graphics_composer_default, display_brightness_prop)
+
+# Allow the graphics composer to access the panel kernel nodes
+allow hal_graphics_composer_default sysfs_dp:file rw_file_perms;
+
+# Allow the graphics composer to find and call the framerate and disp HAL
 allow hal_graphics_composer_default hal_disp_framerate_hwservice:hwservice_manager find;
 allow hal_graphics_composer_default hal_disp_default:binder call;
-get_prop(hal_graphics_composer_default, vendor_somc_gfx_prop)
-get_prop(hal_graphics_composer_default, vendor_hal_superstamina_prop)

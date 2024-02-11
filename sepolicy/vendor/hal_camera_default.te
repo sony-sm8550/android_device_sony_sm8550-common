@@ -8,35 +8,36 @@ unix_socket_connect(hal_camera_default, tad, tad)
 
 allow hal_camera_default vendor_sysfs_kgsl:file r_file_perms;
 
-allow hal_camera_default somc_camera_prop:property_service set;
-allow hal_camera_default somc_camera_prop:file { read getattr map open };
+# Allow hal_camera_default to set camera prop
+set_prop(hal_camera_default, somc_camera_prop)
 
 # Allow hal_camera_default to find idd hwservice
 allow hal_camera_default hal_idd_hwservice:hwservice_manager { find };
 allow hal_camera_default hal_idd_default:binder { call };
 
+# Allow hal_camera_default to read/write some sysfs paths
 allow hal_camera_default sysfs_camera:file rw_file_perms;
 allow hal_camera_default sysfs_leds:dir r_dir_perms;
 allow hal_camera_default sysfs_leds:file rw_file_perms;
 
-allow hal_camera_default vendor_tee_listener_prop:file { read getattr map open };
+# Allow hal_camera_default to get vendor_tee_listener_prop
+get_prop(hal_camera_default, vendor_tee_listener_prop)
 
-# Allow hal_camera_default to find secd hwservice
+# Allow hal_camera_default to find and call secd hwservice
 allow hal_camera_default hal_secd_hwservice:hwservice_manager { find };
+binder_call(hal_camera_default, hal_secd_default)
 
+# Allow hal_camera_default to read/write hal_camera_sync
 allow hal_camera_default hal_camera_sync:chr_file rw_file_perms;
 
-allow hal_camera_default system_server:binder { call transfer };
+# Allow hal_camera_default to set vendor_camera_running_status_prop
+set_prop(hal_camera_default, vendor_camera_running_status_prop)
 
-allow hal_camera_default hal_secd_default:binder call;
-
-allow hal_camera_default vendor_xdsp_device:chr_file ioctl;
-allow hal_camera_default vendor_camera_sensor_prop:property_service set;
-
-allow hal_camera_default sysfs_torch_brightness:file rw_file_perms;
-
-hal_client_domain(hal_camera_default, vendor_hal_qspmhal);
-hal_client_domain(hal_camera_default, hal_light);
-get_prop(hal_camera_default, vendor_camera_running_status_prop)
-get_prop(hal_camera_default, vendor_sensors_prop)
+# Allow hal_camera_default to set vendor_sensors_prop
 set_prop(hal_camera_default, vendor_sensors_prop)
+
+# Allow hal_camera_default to set vendor_camera_sensor_prop
+set_prop(hal_camera_default, vendor_camera_sensor_prop)
+
+# Camera service is a client of qspmhal
+hal_client_domain(hal_camera_default, vendor_hal_qspmhal);

@@ -10,6 +10,7 @@ allow idd hal_idd_hwservice:hwservice_manager find;
 
 allow idd idd_exec:file x_file_perms;
 
+# Allow idd to access data files
 allow idd idd_data_file:dir create_dir_perms;
 allow idd idd_data_file:file create_file_perms;
 allow idd idd_output_file:dir rw_dir_perms;
@@ -19,15 +20,18 @@ allow idd idd_rca_dir:dir rw_dir_perms;
 allow idd idd_root_dir:dir create_dir_perms;
 allow idd idd_root_dir:file create_file_perms;
 
+# Allow idd to access socket files
 allow idd idd_socket_file:dir w_dir_perms;
 allow idd idd_socket_file:sock_file create_file_perms;
 
+# Allow idd to find and call hal_secd_default
 allow idd hal_secd_hwservice:hwservice_manager find;;
+binder_call(idd, hal_secd_default)
 
-allow idd hal_secd_default:binder { call transfer };
-
+# Allow idd to connect to ta service
 unix_socket_connect(idd, tad, tad)
 
+# Allow idd to read hwservicemanager_prop
 get_prop(idd, hwservicemanager_prop)
 
 dontaudit idd logdr_socket:sock_file w_file_perms;

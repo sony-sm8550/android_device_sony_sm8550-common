@@ -10,15 +10,13 @@ allow hal_secd_default hidl_memory_hwservice:hwservice_manager find;
 
 get_prop(hal_secd_default, vendor_tee_listener_prop);
 
+# Allow secd service to sccess tee, ion and qseecom devices
 allow hal_secd_default tee_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };
 allow hal_secd_default ion_device:chr_file { ioctl read getattr lock map open watch watch_reads };
-allow hal_secd_default sdm_prop:property_service { set };
-allow hal_secd_default sdm_prop:file { read getattr map open };
-
-allow hal_secd_default property_socket:sock_file write;
-
-allow hal_secd_default init:unix_stream_socket connectto;
-
-unix_socket_connect(hal_secd_default, tad, tad);
-set_prop(hal_secd_default, vendor_sdm_prop);
 allow hal_secd_default vendor_dmabuf_qseecom_heap_device:chr_file { read open ioctl };
+
+# Allow secd service to set sdm prop
+set_prop(hal_secd_default, vendor_sdm_prop);
+
+# Allow secd service to connect to tad
+unix_socket_connect(hal_secd_default, tad, tad);
