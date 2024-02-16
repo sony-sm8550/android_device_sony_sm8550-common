@@ -1,2 +1,0 @@
-allow hal_lineage_powershare_default sysfs_battchg_ext:dir search;
-allow hal_lineage_powershare_default sysfs_battchg_ext:file rw_file_perms;
