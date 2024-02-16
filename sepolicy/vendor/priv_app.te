@@ -1,3 +1,0 @@
-# Allow priv_app to access and call TA service
-allow priv_app hal_miscta_service:service_manager find;
-binder_call(priv_app, hal_miscta_default)
