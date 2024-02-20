@@ -1811,7 +1811,6 @@ vendor/lib64/jcos_nq_client.so
 vendor/lib64/libSnpeHtpV73Stub.so
 vendor/lib64/libSonyDisplayProperties.so
 vendor/lib64/lib_bix_idd.so
-vendor/lib64/libchrome.so
 vendor/lib64/libclstc_hdr.so
 vendor/lib64/libintervmipc.so
 vendor/lib64/libpfter.so
