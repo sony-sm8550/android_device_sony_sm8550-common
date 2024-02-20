@@ -619,7 +619,6 @@ vendor/etc/vintf/manifest/vendor.semc.hardware.extlight-somc.xml
 
 # FASTCV
 vendor/lib64/libfastcvdsp_stub.so
--vendor/lib64/libfastcvopt.so
 
 # FM
 system_ext/lib/fm_helium.so
