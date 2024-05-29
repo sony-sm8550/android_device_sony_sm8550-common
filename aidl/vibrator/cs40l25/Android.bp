@@ -18,7 +18,7 @@ package {
 }
 
 cc_defaults {
-    name: "android.hardware.vibrator-defaults.cs40l25",
+    name: "android.hardware.vibrator-defaults.cs40l25.sony",
     cflags: [
         "-DATRACE_TAG=(ATRACE_TAG_VIBRATOR | ATRACE_TAG_HAL)",
     ],
@@ -28,10 +28,10 @@ cc_defaults {
 }
 
 cc_defaults {
-    name: "VibratorHalCs40l25BinaryDefaults",
+    name: "SonyVibratorHalCs40l25BinaryDefaults",
     defaults: [
         "SonyVibratorBinaryDefaults",
-        "android.hardware.vibrator-defaults.cs40l25",
+        "android.hardware.vibrator-defaults.cs40l25.sony",
     ],
     include_dirs: [
         "external/tinyalsa/include",
@@ -43,10 +43,10 @@ cc_defaults {
 }
 
 cc_defaults {
-    name: "VibratorHalCs40l25TestDefaults",
+    name: "SonyVibratorHalCs40l25TestDefaults",
     defaults: [
         "SonyVibratorTestDefaults",
-        "android.hardware.vibrator-defaults.cs40l25",
+        "android.hardware.vibrator-defaults.cs40l25.sony",
     ],
     static_libs: [
         "android.hardware.vibrator-sony.impl.cs40l25",
@@ -57,7 +57,7 @@ cc_defaults {
 cc_library {
     name: "android.hardware.vibrator-sony.impl.cs40l25",
     defaults: [
-        "VibratorHalCs40l25BinaryDefaults",
+        "SonyVibratorHalCs40l25BinaryDefaults",
     ],
     srcs: ["Vibrator.cpp"],
     export_include_dirs: ["."],
@@ -67,7 +67,7 @@ cc_library {
 
 cc_binary {
     name: "android.hardware.vibrator-sony.service.cs40l25",
-    defaults: ["VibratorHalCs40l25BinaryDefaults"],
+    defaults: ["SonyVibratorHalCs40l25BinaryDefaults"],
     init_rc: ["android.hardware.vibrator-sony.service.cs40l25.rc"],
     vintf_fragments: ["android.hardware.vibrator-sony.service.cs40l25.xml"],
     srcs: ["service.cpp"],

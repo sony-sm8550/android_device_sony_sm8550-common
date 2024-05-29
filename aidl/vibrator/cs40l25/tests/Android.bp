@@ -18,8 +18,8 @@ package {
 }
 
 cc_test {
-    name: "VibratorHalCs40l25TestSuite",
-    defaults: ["VibratorHalCs40l25TestDefaults"],
+    name: "SonyVibratorHalCs40l25TestSuite",
+    defaults: ["SonyVibratorHalCs40l25TestDefaults"],
     srcs: [
         "test-hwapi.cpp",
         "test-hwcal.cpp",
