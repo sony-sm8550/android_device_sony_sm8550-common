@@ -129,6 +129,13 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'libcodec2_shim.so'
     ),
+    'vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini': blob_fixup()
+    .add_line_if_missing(
+        'gEnableSelfRecovery=1'
+    )
+    .add_line_if_missing(
+        'END'
+    ),
     # < 00009680: 6370 7566 7265 712d 6370 7525 6400 0000  cpufreq-cpu%d...
     # < 00009690: 0000 0073 5f61 7070 5f73 746f 7000 2573  ...s_app_stop.%s
     # ---
