@@ -26,7 +26,7 @@ cc_test {
         "test-vibrator.cpp",
     ],
     static_libs: [
-        "libc++fs",
+        "libc++_static",
         "libgmock",
     ],
     shared_libs: [

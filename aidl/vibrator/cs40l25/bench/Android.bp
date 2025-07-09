@@ -24,7 +24,7 @@ cc_benchmark {
         "benchmark.cpp",
     ],
     static_libs: [
-        "libc++fs",
+        "libc++_static",
     ],
     shared_libs: [
         "libbase",
