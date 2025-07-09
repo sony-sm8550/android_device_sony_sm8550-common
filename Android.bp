@@ -22,5 +22,5 @@ install_symlink {
     name: "firmware_WCNSS_qcom_cfg.ini_symlink",
     vendor: true,
     installed_location: "firmware/wlan/qca_cld/kiwi_v2/WCNSS_qcom_cfg.ini",
-    symlink_target: "/mnt/vendor/persist/wifi/kiwi_v2/WCNSS_qcom_cfg.ini",
+    symlink_target: "/vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini",
 }
